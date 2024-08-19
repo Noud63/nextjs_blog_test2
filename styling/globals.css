@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+  
+@layer base {
+  @font-face {
+    font-family: 'CloisterBlack';
+    src: url('../assets/fonts/CloisterBlack.ttf') format('truetype');
+  }
+    
+}
+
+.custom-fileUploader {
+  border: 2px solid green;
+  height: 400px;
+}
