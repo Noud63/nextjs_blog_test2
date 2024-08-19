@@ -4,7 +4,6 @@ import Posts from "@/models/posts";
 import Users from "@/models/Users";
 import { getSessionUser } from "@/utils/getSessionUser";
 
-export const dynamic = "force-dynamic";
 
 export const POST = async (request) => {
 
@@ -63,12 +62,13 @@ if (!sessionUser || !sessionUser.user.id) {
       postData.images = uploadedImages;
     }
 
-    console.log(postData);
+    console.log("Post:", postData);
 
       const newPost = new Posts(postData);
       await newPost.save();
 
-    return Response.redirect(`http://localhost:3000`);
+    return new Response(JSON.stringify(newPost, {status:200}));
+
   } catch (error) {
     console.log(error)
     return new Response("Failed to add post", { status: 500 });
@@ -83,7 +83,7 @@ export const GET = async (request) => {
     await connectDB();
 
     const posts = await Posts.find({})
-    console.log(posts)
+    console.log("Get:", posts)
      return new Response(JSON.stringify(posts), { status: 200 });
   } catch (error) {
     console.log(error)

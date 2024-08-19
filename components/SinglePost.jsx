@@ -1,8 +1,7 @@
-
 import React from 'react'
 import Image from 'next/image';
 
-const AllPosts = ({post}) => {
+const SinglePost = ({post}) => {
 
   return (
     <div className="bg-white  rounded-lg mb-4 flex flex-col p-4">
@@ -35,4 +34,4 @@ const AllPosts = ({post}) => {
   );
 }
 
-export default AllPosts
+export default SinglePost
