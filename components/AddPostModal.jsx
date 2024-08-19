@@ -63,7 +63,10 @@ const deleteSelectedImage = (name) => {
     } catch (error) {
       console.log(error)
     }
+    router.refresh();
   };
+
+ 
   
 
   return (

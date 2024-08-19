@@ -117,7 +117,7 @@ const LoginPage = () => {
 
           <div className="w-full mt-4 flex items-center gap-1 font-medium text-green-900">
            Nog geen account? <ArrowRight size={16} />
-            <Link href="/login">Registreer</Link>
+            <Link href="/register">Registreer</Link>
           </div>
         </form>
       </div>

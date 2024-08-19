@@ -1,10 +1,11 @@
 import React from 'react'
 import Image from 'next/image';
+import PostComment from './PostComment';
 
 const SinglePost = ({post}) => {
 
   return (
-    <div className="bg-white  rounded-lg mb-4 flex flex-col p-4">
+    <div className="bg-white rounded-lg mb-4 flex flex-col p-4">
       <div className="w-full flex justify-start border-b border-gray-400 pb-2">
         <div className="">
           <Image
@@ -23,13 +24,20 @@ const SinglePost = ({post}) => {
         </div>
       </div>
       <div className="p-2">{post.postContent}</div>
-      <div className="w-full ">
+      <div className="w-full">
         {post.images.length > 0 ? (
-          <Image src={post.images[0]} alt="" width={500} height={500} />
+          <Image
+            src={post.images[0]}
+            alt=""
+            width={400}
+            height={0}
+            className="w-full h-full object-cover"
+          />
         ) : (
           ""
         )}
       </div>
+      <PostComment />
     </div>
   );
 }

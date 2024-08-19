@@ -1,13 +1,12 @@
 import SinglePost from "./SinglePost"
 import {fetchPosts} from "@/utils/postsRequest"
 
-
-
 const GetAllPosts = async () => {
 
   const posts = await fetchPosts()
 
   console.log("Resultaat:", posts)
+
 
 return (
   <div className="w-full max-w-[680px] mx-auto mt-4">
