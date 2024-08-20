@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
 import PostComment from './PostComment';
+import LikeandShare from "./LikeandShare";
 
 const SinglePost = ({post}) => {
 
@@ -37,6 +38,7 @@ const SinglePost = ({post}) => {
           ""
         )}
       </div>
+      <LikeandShare />
       <PostComment />
     </div>
   );

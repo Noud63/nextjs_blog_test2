@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 const AddPostModal = ({ inView, setInView }) => {
 
   const [newFiles, setNewFiles] = useState({ images: [] });
+  const [loading, setLoading] = useState(false)
 
   const router = useRouter()
 
@@ -41,6 +42,8 @@ const deleteSelectedImage = (name) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setLoading(true)
     
     const formData = new FormData(e.target);
 
@@ -56,6 +59,7 @@ const deleteSelectedImage = (name) => {
        if(res.status === 200){
         //  router.push("/")
          closeModal()
+         setLoading(false)
        }
 
        console.log(res)
@@ -125,9 +129,9 @@ const deleteSelectedImage = (name) => {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-green-950 via-green-700 to-green-950 rounded-lg flex justify-center py-2 text-white text-lg"
+              className="w-full bg-gradient-to-r from-green-950 via-green-700 to-green-950 rounded-lg flex justify-center py-3 text-white text-lg"
             >
-              Plaatsen
+              {loading ? <span>....even geduld!</span> : "Plaatsen"}
             </button>
 
           </form>

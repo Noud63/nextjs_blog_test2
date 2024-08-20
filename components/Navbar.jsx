@@ -17,7 +17,7 @@ const Navbar = () => {
       </Link>
 
       <div className="w-full flex flex-row justify-between items-center py-2 text-white bg-gradient-to-r from-green-950 via-green-700 to-green-950 rounded-lg">
-        <Link href="/register" className="w-1/2 flex justify-start py-2 pl-4">
+        <Link href={!session ? "/register" : "/"} className="w-1/2 flex justify-start py-2 pl-4">
           Maak een account
         </Link>
 
