@@ -17,20 +17,21 @@ const Navbar = () => {
       </Link>
 
       <div className="w-full flex flex-row justify-between items-center py-2 text-white bg-gradient-to-r from-green-950 via-green-700 to-green-950 rounded-lg">
-        <Link href={!session ? "/register" : "/"} className="w-1/2 flex justify-start py-2 pl-4">
-          Maak een account
-        </Link>
+        {!session ? <Link href="/register" className="w-1/2 flex justify-start py-2 pl-4">
+          Nog geen account?
+        </Link> : ""}
 
-        <div className="flex w-1/3">
+        <div className="flex w-full">
           {!session?.user ? (
             <Link href="/login" className="w-full flex justify-end pr-4 py-2">
               Inloggen
             </Link>
           ) : (
-            <span className="w-[220px] flex justify-center items-center ">{`Hi, ${session?.user?.username}`}</span>
+            <span className="w-[220px] flex justify-start pl-8 items-center ">{`Hi, ${session?.user?.username}`}</span>
           )}
+          
           {session?.user && <button
-            className="w-full flex justify-center py-2"
+            className="w-full flex justify-end py-2 pr-8"
             onClick={() => {
               signOut({ callbackUrl: "/", redirect: true });
             }}

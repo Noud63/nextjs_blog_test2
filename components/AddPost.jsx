@@ -4,7 +4,7 @@ import AddPostModal from "./AddPostModal";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import AddPostButton from "./AddPostButton";
+import Link from "next/link";
 
 const AddPost = () => {
   
@@ -22,10 +22,12 @@ const AddPost = () => {
       setInView(!inView);
       console.log("clicked");
     }
-    if(!session){
+    if(!session?.user){
       router.push("/login")
     }
   };
+
+
 
   return (
     <div>
@@ -42,17 +44,17 @@ const AddPost = () => {
             alt=""
             className="rounded-full w-[45px] h-[45px]"
           />
-          <button
+          <Link href={!session?.user ?  "/login" : "/postmodal"}
             className="w-full h-[40px] bg-slate-200 rounded-full pl-4 outline-none flex items-center text-gray-500 cursor-pointer"
-            onClick={showAddPostModal}
+           
           >
             {session?.user
               ? `Wat wil je met ons delen, ${name}?`
               : "wat wil je met ons delen?"}
-          </button>
+          </Link>
         </div>
       </section>
-      <AddPostModal inView={inView} setInView={setInView} />
+      {/* <AddPostModal inView={inView} setInView={setInView} /> */}
     </div>
   );
 };

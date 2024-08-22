@@ -12,4 +12,23 @@ async function fetchPosts() {
   return data;
 }
 
-export { fetchPosts };
+
+async function getPostsByUserId(id) {
+  try {
+     const res = await fetch(`${apiDomain}/posts/${id}`);
+     if(!res.ok){
+       throw new Error("Failed to fetch data!");
+     }
+
+     const data = await res.json()
+    
+       return data
+
+  } catch (error) {
+    console.log(error)
+   throw new Error("Something went wrong!");
+  }
+ 
+}
+
+export { fetchPosts, getPostsByUserId };

@@ -10,6 +10,7 @@ const ModalPage = () => {
   const [newFiles, setNewFiles] = useState({ images: [] });
 
   const [inView, setInView] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
@@ -50,6 +51,8 @@ const ModalPage = () => {
       formData.append("images", file);
     });
 
+    setLoading(true)
+
     try {
       const res = await fetch("/api/posts", {
         method: "POST",
@@ -58,17 +61,19 @@ const ModalPage = () => {
       if (res.status === 200) {
         //  router.push("/")
         closeModal();
+        setLoading(false)
       }
 
     } catch (error) {
       console.log(error);
     }
+      router.refresh();
   };
 
   return (
-   
-      !inView && <div className="w-full min-h-screen absolute top-0 left-0 right-0 bottom-0 m-auto bg-green-950/60 flex justify-center items-center">
-        <div className="w-full max-w-[500px] bg-white rounded-lg shadow-md p-4 mx-4">
+    !inView && (
+      <div className="postmodal w-full h-full fixed top-0 left-0 right-0 m-auto bg-green-950/60 flex justify-center items-center">
+        <div className="w-full max-w-[500px] h-auto bg-white rounded-lg shadow-md p-4 mx-4 overflow-auto">
           <div className="w-full flex flex-row justify-between items-center border-b border-gray-300 pb-2">
             <div className="text-lg font-semibold">Schrijf een bericht</div>
             <div className="cursor-pointer" onClick={closeModal}>
@@ -129,12 +134,12 @@ const ModalPage = () => {
               type="submit"
               className="w-full bg-gradient-to-r from-green-950 via-green-700 to-green-950 rounded-lg flex justify-center py-2 text-white text-lg"
             >
-              Plaatsen
+              {loading ? <span>....even geduld!</span> : "Plaatsen"}
             </button>
           </form>
         </div>
       </div>
-    
+    )
   );
 };
 

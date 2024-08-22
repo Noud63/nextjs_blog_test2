@@ -71,11 +71,9 @@ const deleteSelectedImage = (name) => {
   };
 
  
-  
-
-  return (
+return (
     inView && (
-      <div className="w-full min-h-screen absolute top-0 left-0 right-0 bottom-0 m-auto bg-green-950/60 flex justify-center items-center">
+      <div className="w-full h-full absolute top-0 left-0 right-0 bottom-0 m-auto bg-green-950/60 flex justify-center items-center">
         <div className="w-full max-w-[500px] bg-white rounded-lg shadow-md p-4 mx-4">
           <div className="w-full flex flex-row justify-between items-center border-b border-gray-300 pb-2">
             <div className="text-lg font-semibold">Schrijf een bericht</div>

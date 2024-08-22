@@ -7,6 +7,9 @@ const PostsSchema = new Schema(
       ref: "User",
       required: true,
     },
+    title: {
+      type: String,
+    },
     postContent: {
       type: String,
     },
@@ -16,6 +19,9 @@ const PostsSchema = new Schema(
     username: {
       type: String,
     },
+    likes: [{ 
+      type: Schema.Types.ObjectId, 
+      ref: "users" }],
     images: [
       {
         type: String,

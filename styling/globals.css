@@ -10,6 +10,14 @@
     
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+:root:has(.postmodal) {
+    overflow:hidden;
+  }
+
 .custom-fileUploader {
   border: 2px solid green;
   height: 400px;
