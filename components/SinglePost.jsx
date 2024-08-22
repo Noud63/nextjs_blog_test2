@@ -6,7 +6,7 @@ import PostUserName from './PostUserName';
 import { Skeleton } from "@nextui-org/skeleton";
 
 const SinglePost = ({post}) => {
-
+console.log(post)
   return (
     <Skeleton className="w-full rounded-lg">
       <div className="bg-white rounded-lg mb-4 flex flex-col p-4">
@@ -38,7 +38,7 @@ const SinglePost = ({post}) => {
           )}
         </div>
         <LikeandShare />
-        <PostComment />
+        <PostComment post={post}/>
       </div>
     </Skeleton>
   );
