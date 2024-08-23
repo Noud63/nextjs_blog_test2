@@ -21,7 +21,7 @@ const PostsSchema = new Schema(
     },
     likes: [{ 
       type: Schema.Types.ObjectId, 
-      ref: "users" }],
+      ref: "Users" }],
     images: [
       {
         type: String,

@@ -44,17 +44,17 @@ const AddPost = () => {
             alt=""
             className="rounded-full w-[45px] h-[45px]"
           />
-          <Link href={!session?.user ?  "/login" : "/postmodal"}
+          <button
             className="w-full h-[40px] bg-slate-200 rounded-full pl-4 outline-none flex items-center text-gray-500 cursor-pointer"
-           
+            onClick={showAddPostModal}
           >
             {session?.user
               ? `Wat wil je met ons delen, ${name}?`
               : "wat wil je met ons delen?"}
-          </Link>
+          </button>
         </div>
       </section>
-      {/* <AddPostModal inView={inView} setInView={setInView} /> */}
+      <AddPostModal inView={inView} setInView={setInView} />
     </div>
   );
 };

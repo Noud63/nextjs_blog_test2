@@ -79,7 +79,7 @@ const router = useRouter();
               className="block text-green-900 text-md font-bold mb-2"
               htmlFor="name"
             >
-              Name:
+              Naam:
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-blue-900 leading-tight focus:outline-none focus:shadow-outline"
@@ -96,7 +96,7 @@ const router = useRouter();
               className="block text-green-900 text-md font-bold mb-2"
               htmlFor="username"
             >
-              Username:
+              Gebruikersnaam:
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-blue-900 leading-tight focus:outline-none focus:shadow-outline"
@@ -130,7 +130,7 @@ const router = useRouter();
               className="block text-green-900 text-md font-bold mb-2"
               htmlFor="password"
             >
-              Password:
+              Wachtwoord:
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-blue-900 leading-tight focus:outline-none focus:shadow-outline"

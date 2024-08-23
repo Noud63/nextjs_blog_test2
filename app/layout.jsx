@@ -1,4 +1,4 @@
-import '@/styling/globals.css'
+import './globals.css'
 import AuthProvider from '@/components/AuthProvider';
 import Navbar from '@/components/Navbar';
 import GetAllPosts from '@/components/GetAllPosts';

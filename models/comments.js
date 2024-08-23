@@ -21,7 +21,7 @@ const CommentsSchema = new Schema(
         ref: "User",
       },
     
-    name: {
+    username: {
         type: String,
         required: true
     },

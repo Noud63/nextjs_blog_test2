@@ -17,9 +17,13 @@ const Navbar = () => {
       </Link>
 
       <div className="w-full flex flex-row justify-between items-center py-2 text-white bg-gradient-to-r from-green-950 via-green-700 to-green-950 rounded-lg">
-        {!session ? <Link href="/register" className="w-1/2 flex justify-start py-2 pl-4">
-          Nog geen account?
-        </Link> : ""}
+        {!session ? (
+          <Link href="/register" className="w-1/2 flex justify-start py-2 pl-4">
+            Nog geen account?
+          </Link>
+        ) : (
+          ""
+        )}
 
         <div className="flex w-full">
           {!session?.user ? (
@@ -27,17 +31,24 @@ const Navbar = () => {
               Inloggen
             </Link>
           ) : (
-            <span className="w-[220px] flex justify-start pl-8 items-center ">{`Hi, ${session?.user?.username}`}</span>
+            <Link
+              href="/profile"
+              className="w-[220px] flex justify-start items-center "
+            >
+              <span className="w-[220px] flex justify-start pl-8 items-center ">{`Hi, ${session?.user?.username}`}</span>
+            </Link>
           )}
-          
-          {session?.user && <button
-            className="w-full flex justify-end py-2 pr-8"
-            onClick={() => {
-              signOut({ callbackUrl: "/", redirect: true });
-            }}
-          >
-            <span>Uitloggen</span>
-          </button>}
+
+          {session?.user && (
+            <button
+              className="w-full flex justify-end py-2 pr-8"
+              onClick={() => {
+                signOut({ callbackUrl: "/", redirect: true });
+              }}
+            >
+              <span>Uitloggen</span>
+            </button>
+          )}
         </div>
       </div>
     </div>

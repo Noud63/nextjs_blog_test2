@@ -7,7 +7,7 @@ export const POST = async (request) => {
     try {
          await connectDB();
 
-         const {name, post, recipient, comment} = await request.json()
+         const {username, post, recipient, comment} = await request.json()
 
          
          const sessionUser = await getSessionUser();
@@ -22,23 +22,18 @@ export const POST = async (request) => {
          }
 
          const { user } = sessionUser;
-             
-
-
+         
          const newPost = new Comments({
             sender: user.id,
             post,
-            name,
+            username,
             recipient,
             comment,
          })
 
          await newPost.save()
 
-        
-console.log(newPost)
-
-         return new Response(JSON.stringify(newPost))
+         return new Response(JSON.stringify(newPost), {status: 200})
 
     } catch (error) {
         

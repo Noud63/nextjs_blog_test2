@@ -18,7 +18,7 @@
     overflow:hidden;
   }
 
-.custom-fileUploader {
-  border: 2px solid green;
-  height: 400px;
-}
+
+.postmodal {
+    box-shadow: 0px 0px 40px #052e16;
+  }

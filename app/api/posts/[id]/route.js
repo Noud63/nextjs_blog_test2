@@ -3,7 +3,7 @@ import Posts from "@/models/posts";
 import Users from "@/models/Users";
 
 export const GET = async (request, {params}) => {
-  console.log(params)
+
   try {
     await connectDB();
 
@@ -13,8 +13,6 @@ export const GET = async (request, {params}) => {
     if (!posts) {
       return null;
     }
-
-    console.log(posts)
               
     return new Response(JSON.stringify({posts}), { status: 200 });
     
