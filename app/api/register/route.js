@@ -1,5 +1,5 @@
 import connectDB from "@/connectDB/database";
-import Users from "@/models/Users";
+import User from "@/models/User";
 import bcrypt from "bcrypt";
 import { nanoid } from "nanoid";
 
@@ -8,7 +8,7 @@ try {
        await connectDB();
     const { name, email, username, password } = await request.json();
 
-    const user = await Users.findOne({ email: email });
+    const user = await User.findOne({ email: email });
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -18,7 +18,7 @@ try {
     }
 
     if(!user){
-        const newUser = await Users.create({
+        const newUser = await User.create({
         email: email,
         name: name,
         username: username,

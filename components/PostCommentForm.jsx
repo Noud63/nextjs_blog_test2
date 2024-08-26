@@ -24,10 +24,9 @@ const PostCommentForm = ({post}) => {
     }
 
     const data = {
-      recipient: post.user,
+      user: id,
       post: post._id,
       comment: comment,
-      username: user?.username,
     };
 
     try {
@@ -45,6 +44,7 @@ const PostCommentForm = ({post}) => {
     } finally {
       setComment("");
     }
+    router.refresh()
   };
 
   useEffect(() => {
@@ -60,10 +60,11 @@ const PostCommentForm = ({post}) => {
       <input
         type="text"
         name="comment"
-        className="w-full bg-gray-100 rounded-full py-2 pl-4 outline-none placeholder-gray-500 flex flex-wrap"
+        className="w-full max-w-[595px] bg-gray-100 rounded-xl py-2 pl-2 outline-none placeholder-gray-500 flex flex-wrap"
         placeholder="Schrijf een reactie"
         value={comment}
         onChange={(e) => setComment(e.target.value)}
+        contenteditable
       />
       <button type="submit" className="absolute right-2 top-2 cursor-pointer">
         {sendButton && <IoSendSharp color="green" size={25} />}

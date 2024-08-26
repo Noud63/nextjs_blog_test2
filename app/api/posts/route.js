@@ -1,8 +1,9 @@
 import connectDB from "@/connectDB/database";
 import cloudinary from "@/config/cloudinary";
-import Posts from "@/models/posts";
-import Users from "@/models/Users";
+import Posts from "@/models/posts"
+import Comment from "@/models/comment";
 import { getSessionUser } from "@/utils/getSessionUser";
+import { FaRegComments } from "react-icons/fa";
 
 
 export const POST = async (request) => {
@@ -82,9 +83,24 @@ export const GET = async (request) => {
   try {
     await connectDB();
 
-    const posts = await Posts.find({})
-    // console.log("Get:", posts)
-     return new Response(JSON.stringify(posts), { status: 200 });
+    const posts = await Posts.find({}).sort({ createdAt: -1 });
+
+    if(!posts) {
+      return new Response("No posts!", { status: 500 });
+    }
+
+    const postsWithComments = await Promise.all(
+      posts.map( async (post) => {
+     const comments = await Comment.find({ post: post._id })
+       .sort({ createdAt: -1 })
+       .populate({ path: "user", select: "username" })
+       .lean()
+       .exec();
+        return { ...post, comments}
+      })
+    )
+ 
+     return new Response(JSON.stringify(postsWithComments), { status: 200 });
   } catch (error) {
     console.log(error)
   }

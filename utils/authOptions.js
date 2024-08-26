@@ -1,7 +1,7 @@
 
 import connectDB from "@/connectDB/database";
 import GoogleProvider from "next-auth/providers/google";
-import Users from "@/models/Users";
+import User from "@/models/User";
 // import Register from "@/models/Register";
 // import profileDefault from "@/assets/images/profile.png";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -69,7 +69,7 @@ export const authOptions = {
         async authorize(credentials, req) {
           try {
             if (!credentials) return null;
-            const foundUser = await Users.findOne({
+            const foundUser = await User.findOne({
               email: credentials.email,
             });
             if (!foundUser) {
@@ -144,7 +144,7 @@ callbacks: {
       //Modify the session object
       async session({ session, token }) {
         // 1. Get user from the database
-        const user = await Users.findOne({ email: session.user.email });
+        const user = await User.findOne({ email: session.user.email });
         // 2. Assign user id to the session
         session.user.id = user._id.toString();
         // 4. Assign username to the session

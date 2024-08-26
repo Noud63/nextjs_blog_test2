@@ -4,8 +4,8 @@ import PostComment from './PostComment';
 import LikeandShare from "./LikeandShare";
 import PostUserName from './PostUserName';
 
-const SinglePost = ({post}) => {
-
+const SinglePost = ({post, comments}) => {
+  
   return (
    
       <div className="bg-white rounded-lg mb-4 flex flex-col p-4 shadow-md">
@@ -37,7 +37,7 @@ const SinglePost = ({post}) => {
           )}
         </div>
         <LikeandShare />
-        <PostComment post={post}/>
+        <PostComment comments={comments} post={post}/>
       </div>
   );
 }
