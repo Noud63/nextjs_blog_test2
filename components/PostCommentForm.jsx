@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { IoSendSharp } from "react-icons/io5";
@@ -11,8 +11,11 @@ const PostCommentForm = ({post}) => {
   const id = session?.user?.id;
   const user = session?.user;
 
+
   const [comment, setComment] = useState("");
   const [sendButton, setSendButton] = useState(false);
+
+  const textareaRef = useRef(null);
 
   const router = useRouter();
 
@@ -24,9 +27,10 @@ const PostCommentForm = ({post}) => {
     }
 
     const data = {
-      user: id,
-      post: post._id,
+      userId: id,
+      postId: post._id,
       comment: comment,
+      username: user.username
     };
 
     try {
@@ -34,8 +38,8 @@ const PostCommentForm = ({post}) => {
         method: "POST",
         body: JSON.stringify(data),
       });
-      
-      console.log("Data:", await res.json())
+
+      console.log("Data:", await res.json());
       if (res.status === 401) {
         console.log("Log in first!");
       }
@@ -44,7 +48,7 @@ const PostCommentForm = ({post}) => {
     } finally {
       setComment("");
     }
-    router.refresh()
+    router.refresh();
   };
 
   useEffect(() => {
@@ -55,18 +59,36 @@ const PostCommentForm = ({post}) => {
     }
   }, [comment]);
 
+  
+  // Function to handle input change and adjust the height
+  const handleInputChange = (e) => {
+    setComment(e.target.value);
+   };
+
+
+  // Adjust the textarea height whenever the comment changes
+  useEffect(() => {
+    const textarea = textareaRef.current;
+    console.log(textarea.value)
+    if (textarea) {
+      textarea.style.height = "auto"; // Reset the height
+      textarea.style.height = `${textarea.scrollHeight}px`; // Set it to the scroll height
+    }
+  }, [comment]); // Depend on comment to update on each change
+
+
   return (
     <form onSubmit={handleSubmit} className="flex flex-1 relative">
-      <input
+      <textarea
+        ref={textareaRef}
         type="text"
         name="comment"
-        className="w-full max-w-[595px] bg-gray-100 rounded-xl py-2 pl-2 outline-none placeholder-gray-500 flex flex-wrap"
+        className="w-full min-h-[50px] max-h-[500px] resize-none overflow-y-hidden bg-gray-100 rounded-xl py-2 pl-2 pr-10 outline-none placeholder-gray-500"
         placeholder="Schrijf een reactie"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
-        contenteditable
+        defaultValue={comment}
+        onChange={handleInputChange}
       />
-      <button type="submit" className="absolute right-2 top-2 cursor-pointer">
+      <button type="submit" className="absolute right-2 bottom-2 cursor-pointer">
         {sendButton && <IoSendSharp color="green" size={25} />}
       </button>
     </form>

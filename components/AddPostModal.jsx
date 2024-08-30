@@ -61,8 +61,6 @@ const deleteSelectedImage = (name) => {
          closeModal()
          setLoading(false)
        }
-
-       console.log(res)
       
     } catch (error) {
       console.log(error)

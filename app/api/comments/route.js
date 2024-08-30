@@ -6,9 +6,11 @@ export const POST = async (request) => {
   try {
     await connectDB();
 
-    const { user, post, comment } = await request.json();
+    const { userId, postId, comment, username } = await request.json();
 
     const sessionUser = await getSessionUser();
+    
+    const { user } = sessionUser
 
     if (!sessionUser || !sessionUser.user) {
       return new Response(
@@ -22,9 +24,11 @@ export const POST = async (request) => {
     // const { user } = sessionUser;
 
     const newPost = new Comment({
-      post,
-      user,
+      postId,
+      userId,
       comment,
+      username
+
     });
 
     await newPost.save();

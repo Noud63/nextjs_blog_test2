@@ -3,7 +3,7 @@ import Image from 'next/image';
 import PostCommentForm from './PostCommentForm';
 
 const PostComment = ({post, comments}) => {
-
+ 
  return (
    <div className="w-full flex flex-col items-center gap-2">
      <div className="w-full flex flex-col">
@@ -26,7 +26,7 @@ const PostComment = ({post, comments}) => {
              <div className="flex flex-col w-full mb-4">
                <div className="bg-gray-100 flex flex-1 flex-col mb-1 p-2 rounded-xl">
                  <span className="text-sm text-gray-800 font-semibold">
-                   {com.user.username}
+                   {com.username}
                  </span>
                  <span>{com.comment}</span>
                </div>

@@ -6,9 +6,9 @@ const GetAllPosts = async () => {
   const posts = await fetchPosts()
 
 return (
-  <div className="w-full max-w-[680px] flex justify-between flex-col mx-auto py-4 rounded-lg shadow-md">
+  <div className="w-full max-w-[680px] flex justify-between flex-col mx-auto py-4 rounded-lg">
     {posts.map((post) => (
-      <SinglePost post={post._doc} key={post._doc._id} comments={post.comments}/>
+      <SinglePost post={post} key={post._id} comments={post.comments} />
     ))}
   </div>
 );

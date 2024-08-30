@@ -1,6 +1,6 @@
 import { Schema, model, models } from "mongoose";
 
-const PostsSchema = new Schema(
+const PostSchema = new Schema(
   {
     user: {
       type: Schema.Types.ObjectId,
@@ -17,6 +17,10 @@ const PostsSchema = new Schema(
     username: {
       type: String,
     },
+    likesCount: {
+      type: Number,
+      default: 0,
+    },
     images: [
       {
         type: String,
@@ -28,6 +32,6 @@ const PostsSchema = new Schema(
   }
 );
 
-const Posts = models.Posts || model("Posts", PostsSchema);
+const Post = models.Post || model("Posts", PostSchema);
 
-export default Posts;
+export default Post;

@@ -11,7 +11,6 @@ const AddPost = () => {
   const [inView, setInView] = useState(false);
 
   const { data: session, status } = useSession();
-  console.log(session);
 
   const name = session?.user?.username;
 
@@ -31,7 +30,7 @@ const AddPost = () => {
 
   return (
     <div>
-      <section className="w-full max-w-[680px] flex justify-between px-4 mx-auto bg-white py-4 rounded-lg shadow-md">
+      <section className="w-full max-w-[680px] flex justify-between px-4 mx-auto bg-white py-4 rounded-lg">
         <div className="w-full flex flex-row gap-4 items-center">
           <Image
             src={

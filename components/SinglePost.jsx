@@ -1,14 +1,14 @@
 import React from 'react'
 import Image from 'next/image';
 import PostComment from './PostComment';
-import LikeandShare from "./LikeandShare";
+import LikeandShareBar from "./LikeandShareBar";
 import PostUserName from './PostUserName';
 
 const SinglePost = ({post, comments}) => {
-  
+
   return (
    
-      <div className="bg-white rounded-lg mb-4 flex flex-col p-4 shadow-md">
+      <div className="bg-white h-auto rounded-lg mb-4 flex flex-col p-4 shadow-md">
         <div className="w-full flex justify-start border-b border-gray-400 pb-2">
           <div className="">
             <Image
@@ -36,7 +36,7 @@ const SinglePost = ({post, comments}) => {
             ""
           )}
         </div>
-        <LikeandShare />
+        <LikeandShareBar post={post}/>
         <PostComment comments={comments} post={post}/>
       </div>
   );

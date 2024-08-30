@@ -23,4 +23,6 @@
     box-shadow: 0px 0px 40px #052e16;
   }
 
- 
+ .demo {
+  auto-grow: true
+ }

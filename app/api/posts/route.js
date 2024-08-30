@@ -1,10 +1,7 @@
 import connectDB from "@/connectDB/database";
 import cloudinary from "@/config/cloudinary";
-import Posts from "@/models/posts"
-import Comment from "@/models/comment";
+import Post from "@/models/post"
 import { getSessionUser } from "@/utils/getSessionUser";
-import { FaRegComments } from "react-icons/fa";
-
 
 export const POST = async (request) => {
 
@@ -14,7 +11,6 @@ export const POST = async (request) => {
     const formData = await request.formData();
     
     const sessionUser = await getSessionUser();
-    console.log(sessionUser.user.name)
 
 if (!sessionUser || !sessionUser.user.id) {
   return new Response("User ID is required", { status: 401 });
@@ -65,7 +61,7 @@ if (!sessionUser || !sessionUser.user.id) {
 
     // console.log("Post:", postData);
 
-      const newPost = new Posts(postData);
+      const newPost = new Post(postData);
       await newPost.save();
 
     return new Response(JSON.stringify(newPost, {status:200}));
@@ -83,22 +79,29 @@ export const GET = async (request) => {
   try {
     await connectDB();
 
-    const posts = await Posts.find({}).sort({ createdAt: -1 });
-
-    if(!posts) {
-      return new Response("No posts!", { status: 500 });
-    }
-
-    const postsWithComments = await Promise.all(
-      posts.map( async (post) => {
-     const comments = await Comment.find({ post: post._id })
-       .sort({ createdAt: -1 })
-       .populate({ path: "user", select: "username" })
-       .lean()
-       .exec();
-        return { ...post, comments}
-      })
-    )
+    const postsWithComments = await Post.aggregate([
+      {
+        $lookup: {
+          from: "comments", // The collection to join
+          localField: "_id", // Field from the posts collection
+          foreignField: "postId", // Field from the comments collection
+          as: "comments", // Output array field
+        },
+      },
+      {
+        $lookup: {
+          from: "likes", // Collection name for likes
+          localField: "_id", // Field in posts collection
+          foreignField: "postId", // Field in likes collection
+          as: "likes", // Output field for likes
+        },
+      },
+      {
+        $sort: { createdAt: -1 }, // Optional: Sort posts by creation date
+      },
+    ]);
+    
+  // console.log(postsWithComments);
  
      return new Response(JSON.stringify(postsWithComments), { status: 200 });
   } catch (error) {

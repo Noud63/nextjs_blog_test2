@@ -2,11 +2,11 @@ import { Schema, model, models } from "mongoose";
 
 const CommentSchema = new Schema(
   {
-    post: {
+    postId: {
       type: Schema.Types.ObjectId,
       ref: "Posts",
     },
-    user: {
+    userId: {
       type:Schema.Types.ObjectId,
       ref: "User",
     },
@@ -14,12 +14,15 @@ const CommentSchema = new Schema(
       type: String,
       required: true,
     },
+    username: {
+      type: String
+    }
   },
   {
     timestamps: true,
   }
 );
 
-const Comment = models.Comment || model("Comment", CommentSchema);
+const Comment = models.Comment || model("Comments", CommentSchema);
 
 export default Comment;

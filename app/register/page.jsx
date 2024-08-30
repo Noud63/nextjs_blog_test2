@@ -39,8 +39,6 @@ const router = useRouter();
        body: JSON.stringify(data),
      });
 
-     console.log(res)
-
      if (res.status === 200) {
        setSuccess(true);
        setTimeout(() => {

@@ -1,5 +1,5 @@
 import connectDB from "@/connectDB/database";
-import Posts from "@/models/posts";
+import Post from "@/models/post";
 
 export const GET = async (request, {params}) => {
 
@@ -7,7 +7,7 @@ export const GET = async (request, {params}) => {
     await connectDB();
 
     const {id} = params;
-    const posts = await Posts.find({user:id})
+    const posts = await Post.find({user:id})
 
     if (!posts) {
       return null;

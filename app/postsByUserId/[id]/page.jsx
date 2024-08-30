@@ -19,7 +19,6 @@ const PostByUserPage = () => {
         try {
           const {posts} = await getPostsByUserId(id)
           setPosts(posts)
-          console.log(posts);
           setLoading(false)
         } catch (error) {
            console.error("Error fetching property:", error);
