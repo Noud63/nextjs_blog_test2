@@ -1,4 +1,4 @@
-import { revalidatePath } from "next/cache";
+
 export const dynamic = "force-dynamic";
 
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
@@ -29,23 +29,4 @@ async function getPostsByUserId(id) {
   }
 }
 
-export const setLike = async (postId) => {
-  try {
-    const res = await fetch(`http://localhost:3000/api/posts/${postId}/like`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ postId }),
-    });
-
-    const data = await res.json();
-    console.log(res);
-    return data
-  } catch (error) {
-    console.error("Error:", error);
-  }
-
-};
-
-export { fetchPosts, getPostsByUserId, setLike };
+export { fetchPosts, getPostsByUserId};

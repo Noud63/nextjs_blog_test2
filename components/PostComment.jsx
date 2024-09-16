@@ -1,17 +1,23 @@
-
+"use client"
 import Image from 'next/image';
 import PostCommentForm from './PostCommentForm';
 
 const PostComment = ({post, comments}) => {
- 
+
+console.log("Comments:", comments)
+  
+// const sortedComments = comments.sort((a, b) =>
+//   b.createdAt.localeCompare(a.createdAt))
+
+  
+   
  return (
    <div className="w-full flex flex-col items-center gap-2">
      <div className="w-full flex flex-col">
        <div className="pb-4 mb-2 text-lg font-semibold text-gray-600">
          Reacties:
        </div>
-       {comments &&
-         comments.map((com, index) => (
+       {comments && comments.map((com, index) => (
            <div key={index} className="flex w-full h-auto gap-2">
              <div className="w-[45px] rounded-full">
                <Image

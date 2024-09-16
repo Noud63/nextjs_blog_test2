@@ -35,7 +35,7 @@ const AddPost = () => {
           <Image
             src={
               session?.user
-                ? "https://shorturl.at/WrCNS"
+                ? "https://shorturl.at/9iBw6"
                 : "/images/defaultAvatar.png"
             }
             width={45}

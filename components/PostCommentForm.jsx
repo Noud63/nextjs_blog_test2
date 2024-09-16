@@ -39,9 +39,12 @@ const PostCommentForm = ({post}) => {
         body: JSON.stringify(data),
       });
 
-      console.log("Data:", await res.json());
       if (res.status === 401) {
         console.log("Log in first!");
+      }
+
+      if(res.status === 200){
+        setComment("");
       }
     } catch (error) {
       console.log(error);

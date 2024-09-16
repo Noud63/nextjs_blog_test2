@@ -31,7 +31,7 @@ export const POST = async (request) => {
 
     });
 
-    await newPost.save();
+    await newPost.save()
 
      
 
