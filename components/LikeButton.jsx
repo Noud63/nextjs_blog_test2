@@ -42,7 +42,7 @@ return (
         onClick={toggleLike}
       />
     </button>
-    <div className="flex items-center justify-center w-[30px] rounded-full bg-red-700 text-white text-md font-semibold">
+    <div className="flex items-center justify-center w-[28px] h-[28px] rounded-full bg-red-700 text-white text-md font-semibold">
       {initialLikesCount}
     </div>
   </div>

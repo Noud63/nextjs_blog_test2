@@ -8,7 +8,7 @@ const SinglePost = ({post, comments}) => {
 
   return (
    
-      <div className="bg-white h-auto rounded-lg mb-4 flex flex-col p-4 shadow-md">
+      <div className="singlepost bg-white h-auto rounded-lg mb-4 flex flex-col p-4 shadow-md">
         <div className="w-full flex justify-start border-b border-gray-400 pb-2">
           <div className="">
             <Image

@@ -7,7 +7,7 @@ const CommentSchema = new Schema(
       ref: "Posts",
     },
     userId: {
-      type:Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "User",
     },
     comment: {
@@ -15,8 +15,12 @@ const CommentSchema = new Schema(
       required: true,
     },
     username: {
-      type: String
-    }
+      type: String,
+    },
+    likesCount: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     timestamps: true,

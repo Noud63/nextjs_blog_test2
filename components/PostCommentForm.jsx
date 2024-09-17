@@ -39,6 +39,8 @@ const PostCommentForm = ({post}) => {
         body: JSON.stringify(data),
       });
 
+      console.log(res)
+
       if (res.status === 401) {
         console.log("Log in first!");
       }

@@ -9,25 +9,25 @@ const Navbar = () => {
   const { data: session, status } = useSession();
 
   return (
-    <div className="w-full max-w-[680px] flex justify-center m-auto pt-4 pb-4 flex-col gap-2">
+    <div className="w-full max-w-[680px] flex justify-center m-auto pt-4 pb-4 flex-col">
       <Link href="/">
         <span className="text-white text-6xl font-CloisterBlack tracking-widest flex justify-center items-center py-4">
           S t a a t s l i e d e n
         </span>
       </Link>
 
-      <div className="w-full flex flex-row justify-between items-center py-2 text-white bg-gradient-to-r from-green-950 via-green-700 to-green-950 rounded-lg">
+      <div className="w-full flex flex-row justify-between items-center  py-4 text-white bg-gradient-to-r from-green-950 via-green-700 to-green-950 rounded-lg">
         {!session ? (
-          <Link href="/register" className="w-1/2 flex justify-start py-2 pl-4">
+          <Link href="/register" className="w-1/2 flex justify-start pl-4">
             Nog geen account?
           </Link>
         ) : (
           ""
         )}
 
-        <div className="flex w-full">
+        <div className="flex w-full justify-between">
           {!session?.user ? (
-            <Link href="/login" className="w-full flex justify-end pr-4 py-2">
+            <Link href="/login" className="w-full flex justify-end pr-4">
               Inloggen
             </Link>
           ) : (
@@ -35,13 +35,13 @@ const Navbar = () => {
               href="/profile"
               className="w-[220px] flex justify-start items-center "
             >
-              <span className="w-[220px] flex justify-start pl-8 items-center ">{`Hi, ${session?.user?.username}`}</span>
+              <span className="w-[220px] flex justify-start ml-8 items-center ">{`Hi, ${session?.user?.username}`}</span>
             </Link>
           )}
 
           {session?.user && (
             <button
-              className="w-full flex justify-end py-2 pr-8"
+              className=" mr-8"
               onClick={() => {
                 signOut({ callbackUrl: "/", redirect: true });
               }}

@@ -26,3 +26,7 @@
  .demo {
   auto-grow: true
  }
+
+ .singlepost {
+  box-shadow: 0px 0px 10px #02150b;
+ }
