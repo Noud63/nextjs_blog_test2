@@ -70,7 +70,6 @@ if (!sessionUser || !sessionUser.user.id) {
     console.log(error)
     return new Response("Failed to add post", { status: 500 });
   }
- 
 };
 
 
@@ -79,7 +78,7 @@ export const GET = async (request) => {
   try {
     await connectDB();
 
-    const postsWithComments = await Post.aggregate([
+    const posts = await Post.aggregate([
       {
         $lookup: {
           from: "comments", // The collection to join
@@ -103,7 +102,7 @@ export const GET = async (request) => {
     
   // console.log(postsWithComments);
  
-     return new Response(JSON.stringify(postsWithComments), { status: 200 });
+     return new Response(JSON.stringify(posts), { status: 200 });
   } catch (error) {
     console.log(error)
   }

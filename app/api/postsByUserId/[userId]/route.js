@@ -2,19 +2,18 @@ import connectDB from "@/connectDB/database";
 import Post from "@/models/post";
 import { ObjectId } from "mongodb";
 
-export const GET = async (request, {params}) => {
-
+export const GET = async (request, { params }) => {
   try {
     await connectDB();
+    console.log("Params:", params)   
+    const { userId } = params;
 
-    const {postId} = params;
-
-     if (!postId) {
-       return null;
-     }
+    if (!userId) {
+      return null;
+    }
 
     const posts = await Post.aggregate([
-      { $match: { user: ObjectId.createFromHexString(postId) } }, // Find posts by specific userId
+      { $match: { user: ObjectId.createFromHexString(userId) } }, // Find posts by specific userId
       {
         $lookup: {
           from: "comments", // The collection to join
@@ -36,12 +35,11 @@ export const GET = async (request, {params}) => {
       },
     ]);
 
-    console.log("Post:", posts);
-              
-    return new Response(JSON.stringify({posts}), { status: 200 });
-    
+        console.log("ById:", posts)
+
+       return new Response(JSON.stringify({ posts }), { status: 200 });
+   
   } catch (error) {
     console.log(error);
   }
 };
-    

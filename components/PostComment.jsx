@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 const PostComment = ({post, comments}) => {
 
-console.log("Comments:", comments)
+// console.log("Comments:", comments)
   
 const sortedComments = comments.sort((a, b) =>
   b.createdAt.localeCompare(a.createdAt))
@@ -64,7 +64,7 @@ const sortedComments = comments.sort((a, b) =>
                  Gepost: {`${new Date(com.createdAt).toLocaleDateString()}`}
                </span>
                <span
-                 className="text-gray-600 font-semibold text-[14px] cursor-pointer"
+                 className="text-gray-600 font-semibold text-[14px] cursor-pointer w-[80px] border border-gray-500 rounded-full flex justify-center"
                  onClick={() => toggleLike(com._id)}
                >
                  Leuk {com.likesCount}

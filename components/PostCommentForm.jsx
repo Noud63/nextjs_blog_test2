@@ -74,7 +74,7 @@ const PostCommentForm = ({post}) => {
   // Adjust the textarea height whenever the comment changes
   useEffect(() => {
     const textarea = textareaRef.current;
-    console.log(textarea.value)
+    // console.log(textarea.value)
     if (textarea) {
       textarea.style.height = "auto"; // Reset the height
       textarea.style.height = `${textarea.scrollHeight}px`; // Set it to the scroll height

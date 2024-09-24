@@ -13,9 +13,11 @@ async function fetchPosts() {
   return data;
 }
 
-async function getPostsByUserId(id) {
+async function getPostsByUserId(userId) {
   try {
-    const res = await fetch(`${apiDomain}/posts/${id}`);
+    const res = await fetch(`${apiDomain}/postsByUserId/${userId}`, {
+      cache: "no-store",
+    });
     if (!res.ok) {
       throw new Error("Failed to fetch data!");
     }
