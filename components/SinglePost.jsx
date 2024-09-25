@@ -1,30 +1,29 @@
-"use client"
-import React, {useState, useEffect} from 'react'
-import Image from 'next/image';
-import PostComment from './PostComment';
+"use client";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import PostComment from "./PostComment";
 import LikeandShareBar from "./LikeandShareBar";
-import PostUserName from './PostUserName';
-import edit from "../assets/icons/edit.png"
-import deleteIcon from "../assets/icons/delete.png"
+import PostUserName from "./PostUserName";
+import edit from "../assets/icons/edit.png";
+import deleteIcon from "../assets/icons/delete.png";
 import threedots from "../assets/icons/threedots.png";
-import { useSession } from 'next-auth/react';
+import { useSession } from "next-auth/react";
 
-const SinglePost = ({post, comments}) => {
-
-  const { data:session} = useSession()
-  const[showOptions, setShowOptions] = useState(false)
-  const[showThreeDots, setShowThreeDots] = useState(false)
+const SinglePost = ({ post, comments }) => {
+  const { data: session } = useSession();
+  const [showOptions, setShowOptions] = useState(false);
+  const [showThreeDots, setShowThreeDots] = useState(false);
 
   const editPost = () => {
-       setShowOptions(false)
-  }
+    setShowOptions(false);
+  };
 
   const deletePost = () => {
-       setShowOptions(false);
-  }
+    console.log(post._id)
+    setShowOptions(false);
+  };
 
-  
-useEffect(() => {
+  useEffect(() => {
     if (session?.user.id === post.user) {
       console.log(session?.user.username);
       setShowThreeDots(true);
@@ -48,8 +47,10 @@ useEffect(() => {
             />
             <span>Bewerk</span>
           </div>
-          <div className="w-full flex flex-row cursor-pointer" 
-          onClick={deletePost}>
+          <div
+            className="w-full flex flex-row cursor-pointer"
+            onClick={deletePost}
+          >
             <Image
               src={deleteIcon}
               alt=""
@@ -106,6 +107,6 @@ useEffect(() => {
       <PostComment comments={comments} post={post} />
     </div>
   );
-}
+};
 
-export default SinglePost
+export default SinglePost;
