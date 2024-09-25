@@ -4,8 +4,6 @@ import PostCommentForm from './PostCommentForm';
 import { useRouter } from 'next/navigation';
 
 const PostComment = ({post, comments}) => {
-
-// console.log("Comments:", comments)
   
 const sortedComments = comments.sort((a, b) =>
   b.createdAt.localeCompare(a.createdAt))
