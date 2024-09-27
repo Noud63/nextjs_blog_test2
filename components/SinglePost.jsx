@@ -30,7 +30,7 @@ const SinglePost = ({ post, comments }) => {
       console.log(session?.user.username);
       setShowThreeDots(true);
     }
-  }, [session]);
+  }, [session, post.user._id]);
 
   console.log("Post:", post)
 
