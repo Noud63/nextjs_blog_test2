@@ -17,7 +17,7 @@ const Navbar = () => {
         </span>
         <div className="flex flex-row justify-between ">
           <Image
-            src={"/images/gijsbertkarelvanhogendorp.png"}
+            src={"/images/fanniusscholten.png"}
             alt=""
             width={45}
             height={45}
@@ -31,21 +31,21 @@ const Navbar = () => {
             className="w-[45px] h-[45px] mt-2 ml-2 singlepost rounded-full border-2 border-white"
           />
           <Image
-            src={"/images/gijsbertkarelvanhogendorp.png"}
+            src={"/images/coenraadvanbeuningen.png"}
             alt=""
             width={45}
             height={45}
             className="w-[45px] h-[45px] mt-2 ml-2 singlepost rounded-full border-2 border-white"
           />
           <Image
-            src={"/images/gijsbertkarelvanhogendorp.png"}
+            src={"/images/fanniusscholten.png"}
             alt=""
             width={45}
             height={45}
             className="w-[45px] h-[45px] mt-2 ml-2 singlepost rounded-full border-2 border-white"
           />
           <Image
-            src={"/images/gijsbertkarelvanhogendorp.png"}
+            src={"/images/groenvanprinsterer.png"}
             alt=""
             width={45}
             height={45}

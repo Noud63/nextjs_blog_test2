@@ -104,6 +104,7 @@ export const GET = async (request) => {
     // Fetch posts and populate user info for each post (user's profile picture and username)
     const posts = await Post.find({})
       .populate("user", "avatar") // Populate user data (username, profilePicture)
+      .sort({ createdAt: -1 })
       .lean();
 
     // Fetch comments and populate user info for each comment
