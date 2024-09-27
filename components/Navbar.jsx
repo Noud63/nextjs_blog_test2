@@ -52,14 +52,14 @@ const Navbar = () => {
             className="w-[45px] h-[45px] mt-2 ml-2 singlepost rounded-full border-2 border-white"
           />
           <Image
-            src={"/images/gijsbertkarelvanhogendorp.png"}
+            src={"/images/dekempenaer.png"}
             alt=""
             width={45}
             height={45}
             className="w-[45px] h-[45px] mt-2 ml-2 singlepost rounded-full border-2 border-white"
           />
           <Image
-            src={"/images/gijsbertkarelvanhogendorp.png"}
+            src={"/images/vanboetzelaer.png"}
             alt=""
             width={45}
             height={45}

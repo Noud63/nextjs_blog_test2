@@ -81,7 +81,7 @@ export const POST = async (request) => {
       throw new Error("No such user, register first!");
     }
 
-   const updateUser = await User.updateOne(
+   const updateUser = await User.findOneAndUpdate(
         {
           _id: userId,
         },
@@ -91,7 +91,9 @@ export const POST = async (request) => {
           },
         }
       );
-        return new Response(JSON.stringify(updateUser), { status: 200 });
+     console.log("Update:", updateUser)
+
+    return new Response(JSON.stringify(updateUser), { status: 200 });
     
   } catch (error) {
     console.log(error);

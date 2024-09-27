@@ -4,19 +4,21 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
+
 const ProfilePage = () => {
   const { data: session } = useSession();
 
-  console.log(session?.user)
+  console.log("User:", session?.user)
 
   const name = session?.user?.name;
   const username = session?.user?.username;
   const email = session?.user?.email;
-  // const profilePic = session?.user?.avatar;
+  const profilePic = session?.user?.avatar;
 
   const [avatar, setAvatar] = useState(null);
 
   const router = useRouter()
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,16 +37,16 @@ const ProfilePage = () => {
         },
       });
 
-      const result = await res.json();
-      console.log(result);
-      
-
-      if(res.status === 200){
-        router.push("/")
-      }
+       const result = await res.json()
+       console.log("Res:", result)
+    
+      // if(res.status === 200){
+      //   router.push("/")
+      // }
     } catch (err) {
       console.error(err);
     }
+    
 };
 
 
@@ -86,7 +88,7 @@ const ProfilePage = () => {
 
         <div className="pr-4 flex items-center">
           <Image
-            src={"/images/defaultAvatar.png"}
+            src={profilePic ? profilePic : "/images/defaultAvatar.png"}
             alt=""
             width={50}
             height={50}

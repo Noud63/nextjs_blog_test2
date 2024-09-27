@@ -15,6 +15,7 @@ export const GET = async (request, { params }) => {
       email: user.email,
       name: user.name,
       userName: user.username,
+      avatar:user?.avatar
     };
 
     return new Response(JSON.stringify(userInfo), { status: 200 });
