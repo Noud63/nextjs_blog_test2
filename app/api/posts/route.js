@@ -1,6 +1,7 @@
 import connectDB from "@/connectDB/database";
 import cloudinary from "@/config/cloudinary";
 import Post from "@/models/post"
+import Comment from "@/models/comment";
 import { getSessionUser } from "@/utils/getSessionUser";
 
 export const POST = async (request) => {
@@ -78,30 +79,41 @@ export const GET = async (request) => {
   try {
     await connectDB();
 
-    const posts = await Post.aggregate([
-      {
-        $lookup: {
-          from: "comments", // The collection to join
-          localField: "_id", // Field from the posts collection
-          foreignField: "postId", // Field from the comments collection
-          as: "comments", // Output array field
-        },
-      },
-      {
-        $lookup: {
-          from: "likes", // Collection name for likes
-          localField: "_id", // Field in posts collection
-          foreignField: "postId", // Field in likes collection
-          as: "likes", // Output field for likes
-        },
-      },
-      {
-        $sort: { createdAt: -1 }, // Optional: Sort posts by creation date
-      },
-    ]);
-    
-  // console.log(postsWithComments);
- 
+    // const posts = await Post.aggregate([
+    //   {
+    //     $lookup: {
+    //       from: "comments", // The collection to join
+    //       localField: "_id", // Field from the posts collection
+    //       foreignField: "postId", // Field from the comments collection
+    //       as: "comments", // Output array field
+    //     },
+    //   },
+    //   {
+    //     $lookup: {
+    //       from: "likes", // Collection name for likes
+    //       localField: "_id", // Field in posts collection
+    //       foreignField: "postId", // Field in likes collection
+    //       as: "likes", // Output field for likes
+    //     },
+    //   },
+    //   {
+    //     $sort: { createdAt: -1 }, // Optional: Sort posts by creation date
+    //   },
+    // ]);
+
+    // Fetch posts and populate user info for each post (user's profile picture and username)
+    const posts = await Post.find({})
+      .populate("user", "avatar") // Populate user data (username, profilePicture)
+      .lean();
+
+    // Fetch comments and populate user info for each comment
+    for (const post of posts) {
+      const pc = post.comments = await Comment.find({ postId: post._id })
+        .populate("userId", "avatar") // Populate user data in comments
+        .lean();
+         console.log("Postscomments:", pc);
+    }
+
      return new Response(JSON.stringify(posts), { status: 200 });
   } catch (error) {
     console.log(error)

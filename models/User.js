@@ -19,13 +19,16 @@ const UserSchema = new Schema(
     password: {
       type: String,
     },
-    avatar: {
-      type: String,
-    },
+    avatar: 
+      {
+        type: String,
+      },
+    
     posts: [
-      { 
-        type: Schema.Types.ObjectId, 
-        ref: "Posts" }
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Posts",
+      },
     ],
   },
   {

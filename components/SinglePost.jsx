@@ -11,6 +11,8 @@ import { useSession } from "next-auth/react";
 
 const SinglePost = ({ post, comments }) => {
   const { data: session } = useSession();
+
+  const profilePic = post?.user?.avatar
   const [showOptions, setShowOptions] = useState(false);
   const [showThreeDots, setShowThreeDots] = useState(false);
 
@@ -24,11 +26,13 @@ const SinglePost = ({ post, comments }) => {
   };
 
   useEffect(() => {
-    if (session?.user.id === post.user) {
+    if (session?.user.id === post.user._id) {
       console.log(session?.user.username);
       setShowThreeDots(true);
     }
   }, [session]);
+
+  console.log("Post:", post)
 
   return (
     <div className="singlepost bg-white h-auto rounded-lg mb-4 flex flex-col p-4 shadow-md relative">
@@ -66,7 +70,7 @@ const SinglePost = ({ post, comments }) => {
       <div className="w-full flex justify-between items-center pb-2 border-b border-gray-400">
         <div className="flex flex-row">
           <Image
-            src="/images/defaultAvatar.png"
+            src={profilePic ? profilePic : "/images/defaultAvatar.png"}
             alt=""
             width={45}
             height={45}

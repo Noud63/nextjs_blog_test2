@@ -21,19 +21,15 @@ export const POST = async (request) => {
       );
     }
 
-    // const { user } = sessionUser;
-
     const newPost = new Comment({
       postId,
       userId,
       comment,
-      username
+      username,
 
     });
 
     await newPost.save()
-
-     
 
     return new Response(JSON.stringify(newPost), { status: 200 });
   } catch (error) {}

@@ -1,21 +1,52 @@
-"use client"
-import React from 'react'
-import { useSession } from 'next-auth/react'
+"use client";
+import React, { useState } from "react";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const ProfilePage = () => {
+  const { data: session } = useSession();
 
-    const { data: session} = useSession()
+  console.log(session?.user)
 
-    const name = session?.user?.name
-    const username = session?.user?.username
-    const email = session?.user?.email
+  const name = session?.user?.name;
+  const username = session?.user?.username;
+  const email = session?.user?.email;
+  // const profilePic = session?.user?.avatar;
 
-    const handleImageUpload = (e) => {
-        const [file] = e.target.files;
-           if (!file) return;
-        const { size, type } = file;
-        console.log(file)
+  const [avatar, setAvatar] = useState(null);
+
+  const router = useRouter()
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target.files);
+    formData.append("avatar", avatar);
+    formData.append("userId", session?.user.id);
+
+
+    try {
+      const res = await fetch("/api/editprofile", {
+        method: "POST",
+        body: formData,
+        headers: {
+          enctype: "multipart/form-data",
+        },
+      });
+
+      const result = await res.json();
+      console.log(result);
+      
+
+      if(res.status === 200){
+        router.push("/")
       }
+    } catch (err) {
+      console.error(err);
+    }
+};
+
 
   return (
     <div className="singlepost w-full max-w-[680px] mx-auto p-4 bg-white rounded-lg text-black ">
@@ -38,16 +69,33 @@ const ProfilePage = () => {
         <span className="font-normal">{email}</span>
       </div>
 
-      <div className="mb-4 flex flex-col">
-        <span className="mb-2 font-semibold">Voeg profielfoto toe:</span>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => handleImageUpload(e)}
-        />
+      <div className="mb-4 flex flex-row justify-between">
+        <div className="flex flex-col">
+          <span className="mb-2 font-semibold">Voeg profielfoto toe:</span>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e)=> setAvatar(e.target.files[0])}
+            />
+            <div>
+              <button type="submit">Verstuur</button>
+            </div>
+          </form>
+        </div>
+
+        <div className="pr-4 flex items-center">
+          <Image
+            src={"/images/defaultAvatar.png"}
+            alt=""
+            width={50}
+            height={50}
+            className="w-[50px] h-[50px] rounded-full"
+          />
+        </div>
       </div>
     </div>
   );
-}
+};
 
-export default ProfilePage
+export default ProfilePage;

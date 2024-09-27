@@ -4,13 +4,13 @@ import AddPostModal from "./AddPostModal";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 const AddPost = () => {
   
   const [inView, setInView] = useState(false);
 
   const { data: session, status } = useSession();
+  const profilePic = session?.user?.avatar
 
   const name = session?.user?.username;
 
@@ -33,10 +33,8 @@ const AddPost = () => {
       <section className="singlepost w-full max-w-[680px] flex justify-between px-4 mx-auto bg-white py-4 rounded-lg">
         <div className="w-full flex flex-row gap-4 items-center">
           <Image
-            src={
-              session?.user
-                ? "https://shorturl.at/9iBw6"
-                : "/images/defaultAvatar.png"
+            src={profilePic ? profilePic :
+              "/images/defaultAvatar.png"
             }
             width={45}
             height={45}

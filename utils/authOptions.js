@@ -95,10 +95,7 @@ export const authOptions = {
 callbacks: {
       //Invoked on successful signin
       async signIn({ user, profile, account }) {
-        // console.log(profile)
-        // console.log(user)
-        // console.log("SignIn_with_email:", { user });
-        // 1. Connect to database
+       
         await connectDB();
         
         if (account.provider === "google" || account.provider === "facebook") {

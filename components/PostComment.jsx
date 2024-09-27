@@ -2,12 +2,16 @@
 import Image from 'next/image';
 import PostCommentForm from './PostCommentForm';
 import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 
 const PostComment = ({post, comments}) => {
   
 const sortedComments = comments.sort((a, b) =>
   b.createdAt.localeCompare(a.createdAt))
 
+  const { data:session } = useSession()
+  const profilePic = session?.user?.avatar
+  const profilePic2 = post?.user?.avatar
   const router = useRouter()
 
   const toggleLike = async (commentId) => {
@@ -30,6 +34,8 @@ const sortedComments = comments.sort((a, b) =>
     router.refresh();
   }
 
+  console.log("Comments:", comments)
+
 
  return (
    <div className="w-full flex flex-col items-center gap-2">
@@ -41,11 +47,15 @@ const sortedComments = comments.sort((a, b) =>
          <div key={index} className="flex w-full h-auto gap-2">
            <div className="w-[45px] rounded-full">
              <Image
-               src="/images/defaultAvatar.png"
+               src={
+                 com.userId.avatar
+                   ? com.userId.avatar
+                   : "/images/defaultAvatar.png"
+               }
                alt=""
                width={45}
                height={45}
-               className="rounded-full w-[45px] h-auto"
+               className="rounded-full w-[45px] h-[45px]"
              />
            </div>
 
@@ -76,7 +86,7 @@ const sortedComments = comments.sort((a, b) =>
      <div className="flex w-full gap-2">
        <div className="w-[45px]">
          <Image
-           src="/images/defaultAvatar.png"
+           src={profilePic ? profilePic : "/images/defaultAvatar.png"}
            alt=""
            width={45}
            height={45}
