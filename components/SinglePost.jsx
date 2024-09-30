@@ -10,18 +10,18 @@ import threedots from "../assets/icons/threedots.png";
 import { useSession } from "next-auth/react";
 
 const SinglePost = ({ post, comments }) => {
+
   const { data: session } = useSession();
 
-  const profilePic = post?.user?.avatar
   const [showOptions, setShowOptions] = useState(false);
   const [showThreeDots, setShowThreeDots] = useState(false);
+  const [profilePic, setProfilePic ] = useState("")
 
   const editPost = () => {
     setShowOptions(false);
   };
 
   const deletePost = () => {
-    console.log(post._id)
     setShowOptions(false);
   };
 
@@ -30,7 +30,11 @@ const SinglePost = ({ post, comments }) => {
       console.log(session?.user.username);
       setShowThreeDots(true);
     }
-  }, [session, post.user._id]);
+
+    if (post?.user?.avatar) {
+      setProfilePic(post.user.avatar);
+    }
+  }, [session, post.user._id, post.user.avatar]);
 
   console.log("Post:", post)
 
