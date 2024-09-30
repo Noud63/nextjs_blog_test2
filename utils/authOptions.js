@@ -107,7 +107,7 @@ callbacks: {
               email: profile.email,
               username: profile.name,
               name: profile.name,
-              image: profile.picture
+              avatar: profile.picture
             });
           }
           // If user exist add corresponding profile-image (from google or facebook) by updating document image value

@@ -5,6 +5,7 @@ export const GET = async (request, { params }) => {
   try {
     await connectDB();
     const id = params.id;
+    console.log("Id:", params)
     const user = await User.findById({ _id: id });
 
     if (!user) {

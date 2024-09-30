@@ -19,16 +19,13 @@ const AddPost = () => {
   const showAddPostModal = () => {
     if (session?.user) {
       setInView(!inView);
-      console.log("clicked");
     }
     if(!session?.user){
       router.push("/login")
     }
   };
 
-
-
-  return (
+return (
     <div>
       <section className="singlepost w-full max-w-[680px] flex justify-between px-4 mx-auto bg-white py-4 rounded-lg">
         <div className="w-full flex flex-row gap-4 items-center">

@@ -1,26 +1,41 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { getUserInfo } from "@/utils/postsRequest";
 
 
 const ProfilePage = () => {
-  const { data: session } = useSession();
 
-  console.log("User:", session?.user)
+  const { data: session, update } = useSession();
 
-  const name = session?.user?.name;
-  const username = session?.user?.username;
-  const email = session?.user?.email;
-  const profilePic = session?.user?.avatar;
+  const user = session?.user
+  const router = useRouter();
 
   const [avatar, setAvatar] = useState(null);
+  // const [ userInfo, setUserInfo ] = useState({}) 
 
-  const router = useRouter()
+  
 
+  // useEffect(() => {
+  //   const getData = async (id) => {
+  //     const data = await getUserInfo(id);
+  //     setUserInfo(data);
+      
+  //     await update();
+    
+  //   };
 
-  const handleSubmit = async (e) => {
+  //   if(session?.user?.id){
+  //      getData(session.user.id);
+  //   }
+
+    
+  // }, [session?.user?.id]);
+
+  
+ const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target.files);
@@ -38,15 +53,16 @@ const ProfilePage = () => {
       });
 
        const result = await res.json()
-       console.log("Res:", result)
-    
-      // if(res.status === 200){
-      //   router.push("/")
-      // }
+      
+       await update();
+
+      if(res.status === 200){
+        router.push("/")
+       
+      }
     } catch (err) {
       console.error(err);
     }
-    
 };
 
 
@@ -56,20 +72,20 @@ const ProfilePage = () => {
         Jouw Profiel:
       </div>
 
-      <div className="mb-2">
+      {/* <div className="mb-2">
         <span className="font-semibold">Naam: </span>
-        <span className="font-normal">{name}</span>
+        <span className="font-normal">{userInfo?.name}</span>
       </div>
 
       <div className="mb-2">
         <span className="font-semibold">Gebruikersnaam: </span>
-        <span className="font-normal">{username}</span>
+        <span className="font-normal">{userInfo?.userName}</span>
       </div>
 
       <div className="mb-4 border-b border-gray-400 pb-4">
         <span className="font-semibold">Email: </span>
-        <span className="font-normal">{email}</span>
-      </div>
+        <span className="font-normal">{userInfo?.email}</span>
+      </div> */}
 
       <div className="mb-4 flex flex-row justify-between">
         <div className="flex flex-col">
@@ -78,17 +94,26 @@ const ProfilePage = () => {
             <input
               type="file"
               accept="image/*"
-              onChange={(e)=> setAvatar(e.target.files[0])}
+              onChange={(e) => setAvatar(e.target.files[0])}
             />
-            <div>
-              <button type="submit">Verstuur</button>
+            <div className="w-full mt-4 bg-gradient-to-r from-green-950 via-green-800 to-green-950 rounded-lg p-1">
+              <button
+                type="submit"
+                className="w-full py-2  rounded-lg text-white font-semibold "
+              >
+                Verstuur
+              </button>
             </div>
           </form>
         </div>
 
-        <div className="pr-4 flex items-center">
+        <div className="pr-4 flex items-center mb-16">
           <Image
-            src={profilePic ? profilePic : "/images/defaultAvatar.png"}
+            src={
+              session?.user?.avatar
+                ? session?.user?.avatar
+                : "/images/defaultAvatar.png"
+            }
             alt=""
             width={50}
             height={50}
