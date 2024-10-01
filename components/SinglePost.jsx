@@ -27,21 +27,22 @@ const SinglePost = ({ post, comments }) => {
 
   useEffect(() => {
     if (session?.user.id === post.user._id) {
-      console.log(session?.user.username);
       setShowThreeDots(true);
     }
 
     if (post?.user?.avatar) {
       setProfilePic(post.user.avatar);
     }
+    
   }, [session, post.user._id, post.user.avatar]);
 
-  console.log("Post:", post)
+  console.log()
+
 
   return (
-    <div className="singlepost bg-white h-auto rounded-lg mb-4 flex flex-col p-4 shadow-md relative">
+    <div className="singlepost bg-white h-auto rounded-lg mb-4 flex flex-col  shadow-md relative">
       {showOptions && (
-        <div className="postMenu absolute top-12 right-14 flex flex-col h-auto w-[240px] bg-white rounded-lg p-4 text-lg font-semibold">
+        <div className="postMenu absolute top-12 right-14 flex flex-col h-auto w-[240px] bg-white rounded-lg p-4 text-lg font-semibold ">
           <div
             className="w-full border-b border-gray-400 pb-2 mb-2 flex flex-row cursor-pointer"
             onClick={editPost}
@@ -71,7 +72,7 @@ const SinglePost = ({ post, comments }) => {
         </div>
       )}
 
-      <div className="w-full flex justify-between items-center pb-2 border-b border-gray-400">
+      <div className="w-full flex justify-between items-center pb-2 border-b border-gray-400 p-4">
         <div className="flex flex-row">
           <Image
             src={profilePic ? profilePic : "/images/defaultAvatar.png"}
@@ -96,7 +97,7 @@ const SinglePost = ({ post, comments }) => {
           </div>
         )}
       </div>
-      <div className="py-4">{post.postContent}</div>
+      <div className="p-4">{post.postContent}</div>
       <div className="w-full">
         {post.images.length > 0 ? (
           <Image

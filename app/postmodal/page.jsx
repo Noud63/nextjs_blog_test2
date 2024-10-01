@@ -72,7 +72,7 @@ const ModalPage = () => {
 
   return (
     !inView && (
-      <div className="postmodal absolute w-full h-full top-0 left-0 bg-green-950/60 flex justify-center items-center z-[999]">
+      <div className="postmodal absolute w-full h-full top-0 left-0 bg-yellow-950/60 flex justify-center items-center z-[999]">
         <div className="w-full max-w-[500px] h-auto bg-white rounded-lg shadow-md p-4 mx-4 overflow-auto">
           <div className="w-full flex flex-row justify-between items-center border-b border-gray-300 pb-2">
             <div className="text-lg font-semibold">Schrijf een bericht</div>

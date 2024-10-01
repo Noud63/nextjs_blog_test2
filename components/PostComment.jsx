@@ -11,11 +11,10 @@ const sortedComments = comments.sort((a, b) =>
 
   const { data:session } = useSession()
   const profilePic = session?.user?.avatar
-  const profilePic2 = post?.user?.avatar
   const router = useRouter()
 
   const toggleLike = async (commentId) => {
-    console.log(commentId)
+   
     try {
       const res = await fetch(`/api/comments/${commentId}/like`, {
         method: "POST",
@@ -34,25 +33,23 @@ const sortedComments = comments.sort((a, b) =>
     router.refresh();
   }
 
-  console.log("Comments:", comments)
-
 
  return (
    <div className="w-full flex flex-col items-center gap-2">
      <div className="w-full flex flex-col">
-       <div className="pb-4 mb-2 text-lg font-semibold text-gray-600">
+       <div className="pb-4 mb-2 text-lg font-semibold text-gray-600 pl-4">
          Reacties:
        </div>
        {sortedComments.map((com, index) => (
-         <div key={index} className="flex w-full h-auto gap-2">
-           <div className="w-[45px] rounded-full">
+         <div key={index} className="flex w-full h-auto gap-2 px-4">
+           <div>
              <Image
                src={
                  com.userId.avatar
                    ? com.userId.avatar
                    : "/images/defaultAvatar.png"
                }
-               alt=""
+               alt="avatar"
                width={45}
                height={45}
                className="rounded-full w-[45px] h-[45px]"
@@ -83,8 +80,8 @@ const sortedComments = comments.sort((a, b) =>
        ))}
      </div>
 
-     <div className="flex w-full gap-2">
-       <div className="w-[45px]">
+     <div className="flex w-full gap-2 px-4 pb-4">
+       <div>
          <Image
            src={profilePic ? profilePic : "/images/defaultAvatar.png"}
            alt=""

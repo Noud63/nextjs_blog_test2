@@ -15,7 +15,7 @@ const Navbar = () => {
         <span className="text-white text-6xl font-CloisterBlack py-4">
           Staatslieden
         </span>
-        <div className="flex flex-row justify-between ">
+        {/* <div className="flex flex-row justify-between ">
           <Image
             src={"/images/fanniusscholten.png"}
             alt=""
@@ -65,7 +65,7 @@ const Navbar = () => {
             height={45}
             className="w-[45px] h-[45px] mt-2 ml-2 singlepost rounded-full border-2 border-white"
           />
-        </div>
+        </div> */}
       </Link>
 
       <div className="w-full flex flex-row justify-between items-center py-4 text-white border-2 rounded-lg">
