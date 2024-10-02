@@ -71,12 +71,12 @@ const deleteSelectedImage = (name) => {
  
 return (
   inView && (
-    <div className="w-full h-full fixed top-0 left-0 right-0  bg-amber-950/60 flex justify-center items-center z-[999]">
+    <div className="w-full h-full fixed top-0 left-0 right-0  bg-yellow-950/70 flex justify-center items-center z-[999]">
       <div className="postmodal w-full max-w-[500px] bg-white rounded-lg shadow-md p-4 mx-4">
         <div className="w-full flex flex-row justify-between items-center border-b border-gray-300 pb-2">
           <div className="text-lg font-semibold">Schrijf een bericht</div>
           <div className="cursor-pointer" onClick={closeModal}>
-            <IoMdCloseCircleOutline size={35} color="green" />
+            <IoMdCloseCircleOutline size={35} color={"#854d0e"} />
           </div>
         </div>
 
@@ -131,7 +131,7 @@ return (
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-green-950 via-green-700 to-green-950 rounded-lg flex justify-center py-3 text-white text-lg"
+            className="w-full bg-gradient-to-r from-yellow-950 via-yellow-700 to-yellow-950 rounded-lg flex justify-center py-3 text-white text-lg"
           >
             {loading ? <span>....even geduld!</span> : "Plaatsen"}
           </button>

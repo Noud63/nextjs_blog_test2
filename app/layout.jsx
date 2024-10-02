@@ -13,8 +13,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="relative bg-gradient-to-r from-slate-950 via-yellow-700 to-slate-950">
-        <div className="fixed w-full h-full bg-[url('../public/images/homebg.png')] bg-top bg-cover bg-no-repeat -z-10" />
+      <body className="relative bg-gradient-to-r from-red-950 via-yellow-700 to-red-950">
+        <div className="fixed w-full h-full  bg-[url('../public/images/homebg.png')] bg-center bg-cover bg-no-repeat -z-10" />
         <AuthProvider>
           <Navbar />
           <main>{children}</main>

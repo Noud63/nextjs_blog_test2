@@ -26,31 +26,29 @@ const AddPost = () => {
   };
 
 return (
-    <div>
-      <section className="singlepost w-full max-w-[680px] flex justify-between px-4 mx-auto bg-white py-4 rounded-lg">
-        <div className="w-full flex flex-row gap-4 items-center">
-          <Image
-            src={profilePic ? profilePic :
-              "/images/defaultAvatar.png"
-            }
-            width={45}
-            height={45}
-            alt=""
-            className="rounded-full w-[45px] h-[45px]"
-          />
-          <button
-            className="w-full h-[40px] bg-slate-100 rounded-full pl-4 outline-none flex items-center text-gray-500 cursor-pointer"
-            onClick={showAddPostModal}
-          >
-            {session?.user
-              ? `Wat wil je met ons delen, ${name}?`
-              : "wat wil je met ons delen?"}
-          </button>
-        </div>
-      </section>
-      <AddPostModal inView={inView} setInView={setInView} />
-    </div>
-  );
+  <div className="mx-4">
+    <section className="singlepost w-full max-w-[650px] flex justify-between px-4 mx-auto bg-white py-4 rounded-lg">
+      <div className="w-full flex flex-row gap-4 items-center">
+        <Image
+          src={profilePic ? profilePic : "/images/defaultAvatar2.png"}
+          width={45}
+          height={45}
+          alt=""
+          className="rounded-full w-[45px] h-[45px]"
+        />
+        <button
+          className="w-full h-[40px] bg-gradient-to-r from-yellow-800 via-yellow-700 to-yellow-800 rounded-full pl-4 outline-none flex items-center text-white cursor-pointer"
+          onClick={showAddPostModal}
+        >
+          {session?.user
+            ? `Wat wil je met ons delen, ${name}?`
+            : "wat wil je met ons delen?"}
+        </button>
+      </div>
+    </section>
+    <AddPostModal inView={inView} setInView={setInView} />
+  </div>
+);
 };
 
 export default AddPost;

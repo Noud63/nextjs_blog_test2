@@ -63,61 +63,62 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="singlepost w-full max-w-[680px] mx-auto p-4 bg-white rounded-lg text-black ">
-      <div className="w-full border-b border-gray-400 mb-4 text-xl font-semibold py-2">
-        Jouw Profiel:
-      </div>
+    
+      <div className="singlepost w-full max-w-[650px] mx-auto p-4 bg-white rounded-lg text-black">
+        <div className="w-full border-b border-gray-400 mb-4 text-xl font-semibold py-2">
+          Jouw Profiel:
+        </div>
 
-      <div className="mb-2">
-        <span className="font-semibold">Naam: </span>
-        <span className="font-normal">{name}</span>
-      </div>
+        <div className="mb-2">
+          <span className="font-semibold">Naam: </span>
+          <span className="font-normal">{name}</span>
+        </div>
 
-      <div className="mb-2">
-        <span className="font-semibold">Gebruikersnaam: </span>
-        <span className="font-normal">{username}</span>
-      </div>
+        <div className="mb-2">
+          <span className="font-semibold">Gebruikersnaam: </span>
+          <span className="font-normal">{username}</span>
+        </div>
 
-      <div className="mb-4 border-b border-gray-400 pb-4">
-        <span className="font-semibold">Email: </span>
-        <span className="font-normal">{email}</span>
-      </div>
+        <div className="mb-4 border-b border-gray-400 pb-4">
+          <span className="font-semibold">Email: </span>
+          <span className="font-normal">{email}</span>
+        </div>
 
-      <div className="mb-4 flex flex-row justify-between">
-        <div className="flex flex-col">
-          <span className="mb-2 font-semibold">Voeg profielfoto toe:</span>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={(e) => setAvatar(e.target.files[0])}
+        <div className="mb-4 flex flex-row justify-between">
+          <div className="flex flex-col">
+            <span className="mb-2 font-semibold">Voeg profielfoto toe:</span>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setAvatar(e.target.files[0])}
+              />
+              <div className="w-full mt-4 bg-gradient-to-r from-yellow-900 via-yellow-700 to-yellow-900 rounded-lg p-1">
+                <button
+                  type="submit"
+                  className="w-full py-2  rounded-lg text-white font-semibold "
+                >
+                  Verstuur
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div className="pr-4 flex items-center mb-16">
+            <Image
+              src={
+                session?.user?.avatar
+                  ? session?.user?.avatar
+                  : "/images/defaultAvatar.png"
+              }
+              alt=""
+              width={50}
+              height={50}
+              className="w-[50px] h-[50px] rounded-full"
             />
-            <div className="w-full mt-4 bg-gradient-to-r from-green-950 via-green-800 to-green-950 rounded-lg p-1">
-              <button
-                type="submit"
-                className="w-full py-2  rounded-lg text-white font-semibold "
-              >
-                Verstuur
-              </button>
-            </div>
-          </form>
-        </div>
-
-        <div className="pr-4 flex items-center mb-16">
-          <Image
-            src={
-              session?.user?.avatar
-                ? session?.user?.avatar
-                : "/images/defaultAvatar.png"
-            }
-            alt=""
-            width={50}
-            height={50}
-            className="w-[50px] h-[50px] rounded-full"
-          />
+          </div>
         </div>
       </div>
-    </div>
   );
 };
 

@@ -52,15 +52,14 @@ const LoginPage = () => {
   return (
     <div className="w-full mx-auto px-2">
       <div className="p-6 rounded-lg shadow-md w-full max-w-[680px] mx-auto bg-white">
-        <div className="flex justify-center text-xl text-green-900 font-bold mb-4 border-b-2 border-dotted border-green-900 pb-4">
+        <div className="flex justify-center text-xl font-bold mb-4 border-b-2 border-dotted border-green-900 pb-4">
           Log in
         </div>
 
-        <form onSubmit={handleSubmit}>
-         
+        <form onSubmit={handleSubmit} className="text-black">
           <div className="mb-4">
             <label
-              className="block text-green-900 text-md font-bold mb-2"
+              className="block text-md font-bold mb-2"
               htmlFor="email"
             >
               Email:
@@ -77,7 +76,7 @@ const LoginPage = () => {
           </div>
           <div className="mb-4">
             <label
-              className="block text-green-900 text-md font-bold mb-2"
+              className="block text-md font-bold mb-2"
               htmlFor="password"
             >
               Password:
@@ -108,15 +107,15 @@ const LoginPage = () => {
 
           <div className="mt-4 mb-4">
             <button
-              className="bg-gradient-to-r from-green-950 via-green-700 to-green-950 text-white text-md py-6 rounded-lg w-full flex items-center justify-center"
+              className="bg-gradient-to-r from-yellow-900 via-yellow-700 to-yellow-900 text-white text-md py-6 rounded-lg w-full flex items-center justify-center"
               type="submit"
             >
               <SendHorizontal className="mr-2" /> Log in
             </button>
           </div>
 
-          <div className="w-full mt-4 flex items-center gap-1 font-medium text-green-900">
-           Nog geen account? <ArrowRight size={16} />
+          <div className="w-full mt-4 flex items-center gap-1 font-medium">
+            Nog geen account? <ArrowRight size={16} />
             <Link href="/register">Registreer</Link>
           </div>
         </form>

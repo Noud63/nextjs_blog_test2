@@ -47,7 +47,7 @@ const sortedComments = comments.sort((a, b) =>
                src={
                  com.userId.avatar
                    ? com.userId.avatar
-                   : "/images/defaultAvatar.png"
+                   : "/images/defaultAvatar2.png"
                }
                alt="avatar"
                width={45}
@@ -83,7 +83,7 @@ const sortedComments = comments.sort((a, b) =>
      <div className="flex w-full gap-2 px-4 pb-4">
        <div>
          <Image
-           src={profilePic ? profilePic : "/images/defaultAvatar.png"}
+           src={profilePic ? profilePic : "/images/defaultAvatar2.png"}
            alt=""
            width={45}
            height={45}

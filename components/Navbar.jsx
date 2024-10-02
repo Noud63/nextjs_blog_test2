@@ -10,7 +10,7 @@ const Navbar = () => {
   const { data: session, status } = useSession();
 
   return (
-    <div className="w-full max-w-[680px] flex justify-center m-auto pt-4 pb-4 flex-col">
+    <div className="w-full max-w-[680px] flex justify-center m-auto pt-4 pb-4 flex-col px-4">
       <Link href="/" className="flex flex-row items-center">
         <span className="text-white text-6xl font-CloisterBlack py-4">
           Staatslieden

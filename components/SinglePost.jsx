@@ -28,19 +28,18 @@ const SinglePost = ({ post, comments }) => {
   useEffect(() => {
     if (session?.user.id === post.user._id) {
       setShowThreeDots(true);
+      setProfilePic(session?.user?.avatar);
     }
 
-    if (post?.user?.avatar) {
+     else if (post?.user?.avatar) {
       setProfilePic(post.user.avatar);
-    }
+     }
     
   }, [session, post.user._id, post.user.avatar]);
 
-  console.log()
-
 
   return (
-    <div className="singlepost bg-white h-auto rounded-lg mb-4 flex flex-col  shadow-md relative">
+    <div className="singlepost bg-white h-auto rounded-lg mb-4 flex flex-col shadow-md relative mx-4">
       {showOptions && (
         <div className="postMenu absolute top-12 right-14 flex flex-col h-auto w-[240px] bg-white rounded-lg p-4 text-lg font-semibold ">
           <div
@@ -91,7 +90,7 @@ const SinglePost = ({ post, comments }) => {
               alt=""
               width={40}
               height={40}
-              className="rounded-full w-[40px] h-[40px] cursor-pointer transition-all hover:bg-green-800/20 p-2"
+              className="rounded-full w-[40px] h-[40px] cursor-pointer transition-all hover:bg-yellow-800/40 p-2"
               onClick={() => setShowOptions(!showOptions)}
             />
           </div>
