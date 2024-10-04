@@ -1,4 +1,5 @@
 "use client"
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import PostCommentForm from './PostCommentForm';
 import { useRouter } from 'next/navigation';
@@ -8,6 +9,8 @@ const PostComment = ({post, comments}) => {
   
 const sortedComments = comments.sort((a, b) =>
   b.createdAt.localeCompare(a.createdAt))
+
+  const [ deleteBtn, setDeleteBtn] = useState(false)
 
   const { data:session } = useSession()
   const profilePic = session?.user?.avatar
@@ -68,6 +71,9 @@ const sortedComments = comments.sort((a, b) =>
                <span>
                  Gepost: {`${new Date(com.createdAt).toLocaleDateString()}`}
                </span>
+              {com.userId._id === session?.user?.id && <span className="text-gray-600 font-semibold text-[12px] cursor-pointer">
+                 verwijder
+               </span>}
                <span
                  className="text-gray-600 font-semibold text-[14px] cursor-pointer w-[80px] border border-gray-500 rounded-full flex justify-center"
                  onClick={() => toggleLike(com._id)}

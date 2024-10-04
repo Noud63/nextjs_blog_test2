@@ -16,7 +16,7 @@ export const DELETE = async (request, { params }) => {
     const sessionUser = await getSessionUser();
 
     if (!sessionUser || !sessionUser.user?.id || !postId) {
-      return new Response(JSON.stringyfy({message: "You are not authorized to delete a post!"}), { status: 401 });
+      return new Response(JSON.stringify({message: "You are not authorized to delete a post!"}), { status: 401 });
     }
 
      await Post.findOneAndDelete({_id:postId})
