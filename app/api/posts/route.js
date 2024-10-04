@@ -112,7 +112,7 @@ export const GET = async (request) => {
       const pc = post.comments = await Comment.find({ postId: post._id })
         .populate("userId", "avatar") // Populate user data in comments
         .lean();
-         console.log("Postscomments:", pc);
+        //  console.log("Postscomments:", pc);
     }
 
      return new Response(JSON.stringify(posts), { status: 200 });

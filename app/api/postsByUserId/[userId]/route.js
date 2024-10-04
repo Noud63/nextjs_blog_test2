@@ -6,7 +6,6 @@ import { ObjectId } from "mongodb";
 export const GET = async (request, { params }) => {
   try {
     await connectDB();
-    console.log("Params:", params);
     const { userId } = params;
 
     if (!userId) {
@@ -23,10 +22,10 @@ export const GET = async (request, { params }) => {
       const pc = (post.comments = await Comment.find({ postId: post._id })
         .populate("userId", "avatar") // Populate user data in comments
         .lean());
-      console.log("Postscomments:", pc);
+      // console.log("Postscomments:", pc);
     }
 
-    console.log("ById:", posts);
+    // console.log("ById:", posts);
 
     return new Response(JSON.stringify({posts}), { status: 200 });
   } catch (error) {

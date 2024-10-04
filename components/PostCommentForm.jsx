@@ -45,7 +45,7 @@ const PostCommentForm = ({post}) => {
         console.log("Log in first!");
       }
 
-      if(res.status === 200){
+      if(res.status === ok){
         setComment("");
       }
     } catch (error) {

@@ -7,36 +7,51 @@ import PostUserName from "./PostUserName";
 import edit from "../assets/icons/edit.png";
 import deleteIcon from "../assets/icons/delete.png";
 import threedots from "../assets/icons/threedots.png";
+import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
 const SinglePost = ({ post, comments }) => {
-
   const { data: session } = useSession();
 
   const [showOptions, setShowOptions] = useState(false);
   const [showThreeDots, setShowThreeDots] = useState(false);
-  const [profilePic, setProfilePic ] = useState("")
+  const [profilePic, setProfilePic] = useState("");
+
+  const router = useRouter()
 
   const editPost = () => {
     setShowOptions(false);
   };
 
-  const deletePost = () => {
-    setShowOptions(false);
+  const deletePost = async () => {
+    try {
+      const res = await fetch(`/api/deletepost/${post._id}`, {
+        method: "DELETE",
+      });
+
+      const data = await res.json()
+     
+    if(res.ok){
+      console.log(data.message)
+    }
+      
+    } catch (error) {
+      console.log(data.message);
+    }
+      setShowOptions(false);
+      router.refresh()
   };
+
 
   useEffect(() => {
     if (session?.user.id === post.user._id) {
       setShowThreeDots(true);
       setProfilePic(session?.user?.avatar);
-    }
-
-     else if (post?.user?.avatar) {
+    } else if (post?.user?.avatar) {
       setProfilePic(post.user.avatar);
-     }
-    
+    }
   }, [session, post.user._id, post.user.avatar]);
-
+  
 
   return (
     <div className="singlepost bg-white h-auto rounded-lg mb-4 flex flex-col shadow-md relative mx-4">

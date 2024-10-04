@@ -66,21 +66,21 @@ const router = useRouter();
 
   return (
     <div className="w-full mx-auto px-4">
-      <div className="p-6 rounded-lg shadow-md w-full max-w-[680px] mx-auto bg-white">
-        <div className="flex justify-center text-xl text-green-900 font-bold mb-4 border-b-2 border-dotted border-green-900 pb-4">
+      <div className="p-6 rounded-lg shadow-md w-full max-w-[650px] mx-auto bg-white">
+        <div className="flex justify-center text-xl font-bold mb-4 border-b-2 border-dotted pb-4">
           Registreer
         </div>
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label
-              className="block text-green-900 text-md font-bold mb-2"
+              className="block text-md font-bold mb-2"
               htmlFor="name"
             >
               Naam:
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-blue-900 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
               id="name"
               type="text"
               placeholder="Enter your name"
@@ -91,13 +91,13 @@ const router = useRouter();
           </div>
           <div className="mb-4">
             <label
-              className="block text-green-900 text-md font-bold mb-2"
+              className="block text-md font-bold mb-2"
               htmlFor="username"
             >
               Gebruikersnaam:
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-blue-900 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
               id="username"
               type="text"
               placeholder="Enter your username"
@@ -108,13 +108,13 @@ const router = useRouter();
           </div>
           <div className="mb-4">
             <label
-              className="block text-green-900 text-md font-bold mb-2"
+              className="block text-md font-bold mb-2"
               htmlFor="email"
             >
               Email:
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-blue-900 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
               id="email"
               type="email"
               placeholder="Enter your email"
@@ -125,13 +125,13 @@ const router = useRouter();
           </div>
           <div className="mb-4">
             <label
-              className="block text-green-900 text-md font-bold mb-2"
+              className="block text-md font-bold mb-2"
               htmlFor="password"
             >
               Wachtwoord:
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-blue-900 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
               id="password"
               type="password"
               placeholder="Enter password"
@@ -156,14 +156,14 @@ const router = useRouter();
 
           <div className="mt-4 mb-4">
             <button
-              className="bg-gradient-to-r from-green-950 via-green-700 to-green-950 text-white text-md py-6 rounded-lg w-full flex items-center justify-center"
+              className="bg-gradient-to-r from-yellow-900 via-yellow-700 to-yellow-900 text-white text-md py-6 rounded-lg w-full flex items-center justify-center"
               type="submit"
             >
               <SendHorizontal className="mr-2" /> Verstuur
             </button>
           </div>
 
-          <div className="w-full mt-4 flex items-center gap-1 font-medium text-green-900">
+          <div className="w-full mt-4 flex items-center gap-1 font-medium">
             Heb je al een account? <ArrowRight size={16} />
             <Link href="/login">Login</Link>
           </div>

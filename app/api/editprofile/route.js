@@ -91,7 +91,7 @@ export const POST = async (request) => {
           },
         }
       );
-     console.log("Update:", updateUser)
+    //  console.log("Update:", updateUser)
 
     return new Response(JSON.stringify(updateUser), { status: 200 });
     

@@ -50,8 +50,8 @@ const LoginPage = () => {
  };
 
   return (
-    <div className="w-full mx-auto px-2">
-      <div className="p-6 rounded-lg shadow-md w-full max-w-[680px] mx-auto bg-white">
+    <div className="w-full mx-auto px-4">
+      <div className="p-6 rounded-lg shadow-md w-full max-w-[650px] mx-auto bg-white">
         <div className="flex justify-center text-xl font-bold mb-4 border-b-2 border-dotted border-green-900 pb-4">
           Log in
         </div>
