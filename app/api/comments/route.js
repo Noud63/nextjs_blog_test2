@@ -10,9 +10,10 @@ export const POST = async (request) => {
 
     const sessionUser = await getSessionUser();
     
-    const { user } = sessionUser
+    const user = sessionUser?.user
 
-    if (!sessionUser || !sessionUser.user) {
+    if (!sessionUser || !user) {
+      
       return new Response(
         JSON.stringify({
           message: "You must be logged in to post a comment!",
@@ -29,10 +30,18 @@ export const POST = async (request) => {
 
     });
 
-    await newPost.save()
+    const post = await newPost.save()
 
-    return new Response(JSON.stringify(newPost), { status: 200 });
-  } catch (error) {}
+    return new Response(JSON.stringify(post), { status: 200 });
+  } catch (error) {
+      console.log(error)
+    return new Response(
+        JSON.stringify({
+          message: "Something went wrong!",
+        }),
+        { status:500 }
+      );
+    }
 };
 
 

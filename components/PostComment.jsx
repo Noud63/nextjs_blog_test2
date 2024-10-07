@@ -34,8 +34,21 @@ const PostComment = ({ post, comments }) => {
     router.refresh();
   };
 
-  const deleteComment = (commentId) => {
-    console.log(commentId);
+  const deleteComment = async(commentId) => {
+     try {
+      const res = await fetch(`/api/deleteComment/${commentId}`, {
+        method: "DELETE",
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        console.log(data.message);
+      }
+    } catch (error) {
+      console.log(data.message);
+    }
+    router.refresh();
   };
 
   return (

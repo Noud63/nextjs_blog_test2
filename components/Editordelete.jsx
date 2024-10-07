@@ -8,8 +8,22 @@ const Editordelete = ({showOptions, setShowOptions, postId}) => {
 
 const router = useRouter();
   
-  const editPost = () => {
-    setShowOptions(false);
+  const editPost = async () => {
+    //  try {
+    //   const res = await fetch(`/api/editPost/${postId}`, {
+    //     method: "PUT",
+    //   });
+
+    //   const data = await res.json();
+
+    //   if (res.ok) {
+    //     console.log(data.message);
+    //   }
+    // } catch (error) {
+    //   console.log(data.message);
+    // }
+    // setShowOptions(false);
+    // router.refresh();
   };
 
   const deletePost = async () => {

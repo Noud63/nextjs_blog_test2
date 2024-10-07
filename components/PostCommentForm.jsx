@@ -30,7 +30,7 @@ const PostCommentForm = ({post}) => {
       userId: id,
       postId: post._id,
       comment: comment,
-      username: user.username
+      username: user?.username
     };
 
     try {
@@ -39,19 +39,17 @@ const PostCommentForm = ({post}) => {
         body: JSON.stringify(data),
       });
 
-      console.log(res)
-
+      const result = await res.json()
       if (res.status === 401) {
-        console.log("Log in first!");
+         console.log("Error:", result.message);
       }
-
-      if(res.status === 200){
-        setComment("");
-      }
-    } catch (error) {
+      
+     } catch (error) {
       console.log(error);
-    } 
-    router.refresh();
+     } finally {
+        textareaRef.current.value = "";
+     }
+       router.refresh();
   };
 
   useEffect(() => {
@@ -72,7 +70,7 @@ const PostCommentForm = ({post}) => {
   // Adjust the textarea height whenever the comment changes
   useEffect(() => {
     const textarea = textareaRef.current;
-    // console.log(textarea.value)
+  
     if (textarea) {
       textarea.style.height = "auto"; // Reset the height
       textarea.style.height = `${textarea.scrollHeight}px`; // Set it to the scroll height
@@ -92,7 +90,7 @@ const PostCommentForm = ({post}) => {
         onChange={handleInputChange}
       />
       <button type="submit" className="absolute right-2 bottom-2 cursor-pointer">
-        {sendButton && <IoSendSharp color="green" size={25} />}
+        {sendButton && <IoSendSharp color="brown" size={25} />}
       </button>
     </form>
   );

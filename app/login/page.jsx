@@ -32,7 +32,7 @@ const LoginPage = () => {
        setSuccess(true);
        setTimeout(() => {
          router.push("/");
-       }, 3000);
+       }, 2000);
      }
 
      if (!res.ok) {
