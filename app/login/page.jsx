@@ -39,7 +39,7 @@ const LoginPage = () => {
        setError(true);
        setTimeout(() => {
          setError(false);
-       }, 2000);
+       }, 1000);
      }
    } catch (error) {
      console.log(error, { message: error.message });

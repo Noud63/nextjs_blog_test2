@@ -4,7 +4,7 @@ import {fetchPosts} from "@/utils/postsRequest"
 const GetAllPosts = async () => {
 
   const posts = await fetchPosts()
-  console.log(posts)
+  // console.log(posts)
 
 return (
   <div className="w-full max-w-[680px] flex justify-between flex-col mx-auto py-4 rounded-lg">

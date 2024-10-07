@@ -6,32 +6,41 @@ import Comment from "@/models/comment";
 import Like from "@/models/like";
 import { getSessionUser } from "@/utils/getSessionUser";
 
-
 export const DELETE = async (request, { params }) => {
   try {
     await connectDB();
 
-    const { postId } = params
+    const { postId } = params;
 
     const sessionUser = await getSessionUser();
 
     if (!sessionUser || !sessionUser.user?.id || !postId) {
-      return new Response(JSON.stringify({message: "You are not authorized to delete a post!"}), { status: 401 });
+      return new Response(
+        JSON.stringify({ message: "You are not authorized to delete a post!" }),
+        { status: 401 }
+      );
     }
 
-     await Post.findOneAndDelete({_id:postId})
 
-     await Comment.find({ postId: postId });
-    
-     for(let comment of comments){
-     await Like.deleteMany({ postId:comment._id });
-     }
+    // Delete post
+    await Post.findOneAndDelete({ _id: postId });
+    // find all comments
+    const comments = await Comment.find({ postId: postId });
+    // delete comment likes  
+    if (comments.length > 0) {
+      for (let comment of comments) {
+        await Like.deleteMany({ postId: comment._id });
+      }
+    }
+    // delete post likes
+    await Like.deleteMany({ postId: postId });
+    // delete all comments
+    await Comment.deleteMany({ postId: postId });
 
-     await Like.deleteMany({ postId: postId });
-     await Comment.deleteMany({ postId: postId });
-      
-     return new Response(JSON.stringify({message:"Post deleted successfully!"}), { status: 200 });
-    
+    return new Response(
+      JSON.stringify({ message: "Post deleted successfully!" }),
+      { status: 200 }
+    );
   } catch (error) {
     console.log(error);
     return new Response("Something went wrong!", { status: 500 });

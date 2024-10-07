@@ -45,14 +45,12 @@ const PostCommentForm = ({post}) => {
         console.log("Log in first!");
       }
 
-      if(res.status === ok){
+      if(res.status === 200){
         setComment("");
       }
     } catch (error) {
       console.log(error);
-    } finally {
-      setComment("");
-    }
+    } 
     router.refresh();
   };
 
