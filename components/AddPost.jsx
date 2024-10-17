@@ -31,10 +31,11 @@ return (
       <div className="w-full flex flex-row gap-4 items-center">
         <Image
           src={profilePic ? profilePic : "/images/defaultAvatar2.png"}
-          width={45}
-          height={45}
-          alt=""
-          className="rounded-full w-[45px] h-[45px]"
+          alt="icon"
+          width={0}
+          height={0}
+          sizes="100vw"
+          className="w-[45px] h-[45px] rounded-full"
         />
         <button
           className="w-full h-[40px] bg-gradient-to-r from-yellow-800 via-yellow-700 to-yellow-800 rounded-full pl-4 outline-none flex items-center text-white cursor-pointer"

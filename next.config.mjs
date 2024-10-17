@@ -16,6 +16,18 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "openweathermap.org",
+        port: "",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "image.buienradar.nl",
+        port: "",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
         hostname: "platform-lookaside.fbsbx.com",
         port: "",
         pathname: "**",

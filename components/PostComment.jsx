@@ -62,14 +62,15 @@ const PostComment = ({ post, comments }) => {
             <div>
               <Image
                 src={
-                  com.userId.avatar
+                  com.userId?.avatar
                     ? com.userId.avatar
                     : "/images/defaultAvatar2.png"
                 }
-                alt="avatar"
-                width={45}
-                height={45}
-                className="rounded-full w-[45px] h-[45px]"
+                alt="icon"
+                width={0}
+                height={0}
+                sizes="100vw"
+                className="w-[48px] h-[45px] rounded-full"
               />
             </div>
 

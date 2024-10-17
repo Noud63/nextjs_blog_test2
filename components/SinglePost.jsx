@@ -29,17 +29,21 @@ const SinglePost = ({ post, comments }) => {
 
   return (
     <div className="singlepost bg-white h-auto rounded-lg mb-4 flex flex-col shadow-md relative mx-4">
-
-     <Editordelete showOptions={showOptions} setShowOptions={setShowOptions} postId={post._id}/>
+      <Editordelete
+        showOptions={showOptions}
+        setShowOptions={setShowOptions}
+        postId={post._id}
+      />
 
       <div className="w-full flex justify-between items-center pb-2 border-b border-gray-400 p-4">
         <div className="flex flex-row">
           <Image
             src={profilePic ? profilePic : "/images/defaultAvatar.png"}
-            alt=""
-            width={45}
-            height={45}
-            className="rounded-full w-[45px] h-[45px]"
+            alt="icon"
+            width={0}
+            height={0}
+            sizes="100vw"
+            className="w-[45px] h-[45px] mt-2 rounded-full"
           />
           <PostUserName post={post} />
         </div>

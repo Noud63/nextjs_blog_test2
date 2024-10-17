@@ -4,96 +4,57 @@ import Link from 'next/link';
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import Image from 'next/image';
+import Weatherreport from './Weatherreport';
 
 const Navbar = () => {
 
   const { data: session, status } = useSession();
 
   return (
-    <div className="w-full max-w-[680px] flex justify-center m-auto pt-4 pb-4 flex-col px-4">
-      <Link href="/" className="flex flex-row items-center">
-        <span className="text-white text-6xl font-CloisterBlack py-4">
-          Staatslieden
-        </span>
-        {/* <div className="flex flex-row justify-between ">
-          <Image
-            src={"/images/fanniusscholten.png"}
-            alt=""
-            width={45}
-            height={45}
-            className="w-[45px] h-[45px] mt-2 ml-8 singlepost rounded-full border-2 border-white"
-          />
-          <Image
-            src={"/images/gijsbertkarelvanhogendorp.png"}
-            alt=""
-            width={45}
-            height={45}
-            className="w-[45px] h-[45px] mt-2 ml-2 singlepost rounded-full border-2 border-white"
-          />
-          <Image
-            src={"/images/coenraadvanbeuningen.png"}
-            alt=""
-            width={45}
-            height={45}
-            className="w-[45px] h-[45px] mt-2 ml-2 singlepost rounded-full border-2 border-white"
-          />
-          <Image
-            src={"/images/fanniusscholten.png"}
-            alt=""
-            width={45}
-            height={45}
-            className="w-[45px] h-[45px] mt-2 ml-2 singlepost rounded-full border-2 border-white"
-          />
-          <Image
-            src={"/images/groenvanprinsterer.png"}
-            alt=""
-            width={45}
-            height={45}
-            className="w-[45px] h-[45px] mt-2 ml-2 singlepost rounded-full border-2 border-white"
-          />
-          <Image
-            src={"/images/dekempenaer.png"}
-            alt=""
-            width={45}
-            height={45}
-            className="w-[45px] h-[45px] mt-2 ml-2 singlepost rounded-full border-2 border-white"
-          />
-          <Image
-            src={"/images/vanboetzelaer.png"}
-            alt=""
-            width={45}
-            height={45}
-            className="w-[45px] h-[45px] mt-2 ml-2 singlepost rounded-full border-2 border-white"
-          />
-        </div> */}
-      </Link>
+    <div className="w-full flex justify-center m-auto pt-4 pb-4 flex-col px-4">
 
-      <div className="w-full flex flex-row justify-between items-center py-4 text-white border-2 rounded-lg">
+      <div className="flex flex-row items-center justify-between">
+        
+        <Link href="/">
+          <div className="flex flex-col pb-3 leading-3">
+            <span className="text-white text-6xl font-CloisterBlack">
+              Staatslieden
+            </span>
+            <span className="text-orange-300 text-[.76em]">
+              webapplicatie voor de Staatsliedenbuurt Amsterdam
+            </span>
+          </div>
+        </Link>
+
+        <Link href="weatherreport">
+          <Weatherreport />
+        </Link>
+
+      </div>
+
+      <div className="w-full flex flex-row justify-end items-center py-2 gap-4 text-white border-t border-white">
         {!session ? (
-          <Link href="/register" className="w-1/2 flex justify-start pl-4">
-            Nog geen account?
+          <Link href="/register" className="">
+            Registreer
           </Link>
         ) : (
           ""
         )}
 
-        <div className="flex w-full justify-between">
+        <div className="flex gap-4">
           {!session?.user ? (
-            <Link href="/login" className="w-full flex justify-end pr-4">
+            <Link href="/login" className="w-full flex justify-end pr-3">
               Inloggen
             </Link>
           ) : (
-            <Link
-              href="/profile"
-              className="w-[220px] flex justify-start items-center "
-            >
-              <span className="w-[220px] flex justify-start ml-8 items-center ">{`Hi, ${session?.user?.username}`}</span>
+            <Link href="/profile" className="flex justify-start items-center ">
+              <span className="flex justify-start items-center ">{`Hi, ${session?.user?.username}`}</span>
             </Link>
           )}
 
           {session?.user && (
             <button
-              className=" mr-8"
+              className=" mr-4"
               onClick={() => {
                 signOut({ callbackUrl: "/", redirect: true });
               }}
