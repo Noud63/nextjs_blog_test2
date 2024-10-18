@@ -5,8 +5,6 @@ const getKnmiData = async () => {
     );
 
     const data = await res.json();
-
-    // console.log(JSON.stringify(data, null, 2))
     return data;
   } catch (error) {
     console.log(error);

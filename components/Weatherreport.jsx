@@ -26,7 +26,7 @@ const Weatherreport = () => {
 
   return (
     <div className="flex items-center flex-col pb-1">
-      <div className="relative flex flex-col items-center">
+      <div className="w-[120px] relative flex flex-col items-center">
         <div className="flex text-2xl text-white items-center max-sm:text-xl">
           {`${weather.temp}\xB0C`}
           {weather.icon && (
@@ -40,7 +40,7 @@ const Weatherreport = () => {
             />
           )}
         </div>
-        <div className="text-orange-300 text-[.76em] tracking-wide absolute top-[48px] max-sm:top-[41px]">
+        <div className=" text-orange-300 text-[.76em] tracking-wide absolute top-[48px] max-sm:top-[41px]">
           {weather.des}
         </div>
       </div>
