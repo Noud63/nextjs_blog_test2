@@ -14,22 +14,21 @@ const SinglePost = ({ post, comments }) => {
 
   const [showThreeDots, setShowThreeDots] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
-  const [profilePic, setProfilePic] = useState("");
+  const [profilePic, setProfilePic] = useState(null);
 
   useEffect(() => {
-    if (session?.user.id === post.user._id) {
+    if (session?.user.id === post?.user._id) {
       setShowThreeDots(true);
       // setProfilePic(session?.user?.avatar);
     } 
     if (post?.user?.avatar) {
       setProfilePic(post.user.avatar);
     }
-  }, [session, post.user._id, post.user.avatar]);
+  }, [session, post?.user._id, post?.user.avatar]);
   
 
   return (
     <div className="singlepost bg-white h-auto rounded-lg mb-4 flex flex-col shadow-md relative mx-4">
-  
       <Editordelete
         showOptions={showOptions}
         setShowOptions={setShowOptions}
@@ -65,18 +64,15 @@ const SinglePost = ({ post, comments }) => {
       </div>
       <div className="p-4">{post.postContent}</div>
       <div className="w-full">
-        {post.images.length > 0 ? (
-          <Image
-            src={post.images[0]}
-            alt=""
-            width={400}
-            height={0}
-            className="w-full h-full object-cover"
-            priority
-          />
-        ) : (
-          ""
-        )}
+      
+        {post?.images[0] && <Image
+          src={post?.images[0]}
+          alt=""
+          width={400}
+          height={0}
+          className="w-full h-full object-cover"
+          priority
+        />}
       </div>
       <LikeandShareBar post={post} />
       <PostComment comments={comments} post={post} />

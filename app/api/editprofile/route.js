@@ -72,7 +72,6 @@ export const POST = async (request) => {
     // await Avatar.updateOne(
     //   { userId },
     //   { $set: { avatar: profile.image } },
-    //   { upsert: true } // This creates a new document if none exists
     // );
 
     const user = await User.findOne({_id:userId})

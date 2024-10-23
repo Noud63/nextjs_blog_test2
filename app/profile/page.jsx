@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { getUserInfo } from "@/utils/postsRequest";
 
 const ProfilePage = () => {
   const { data: session, update } = useSession();
@@ -15,25 +14,17 @@ const ProfilePage = () => {
   const router = useRouter();
 
   const [avatar, setAvatar] = useState(null);
-  // const [ userInfo, setUserInfo ] = useState({})
-
-  // useEffect(() => {
-  //   const getData = async (id) => {
-  //     const data = await getUserInfo(id);
-  //     setUserInfo(data);
-
-  //     await update();
-
-  //   };
-
-  //   if(session?.user?.id){
-  //      getData(session.user.id);
-  //   }
-
-  // }, [session?.user?.id]);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if(!avatar){
+      alert("No file selected!")
+      return
+    }
+
+     setLoading(true);
 
     const formData = new FormData(e.target.files);
     formData.append("avatar", avatar);
@@ -50,9 +41,12 @@ const ProfilePage = () => {
 
       const result = await res.json();
 
+      console.log(res)
+
       await update();
 
       if (res.status === 200) {
+        setLoading(false);
         setTimeout(() => {
           router.push("/");
         }, 2000);
@@ -63,8 +57,8 @@ const ProfilePage = () => {
   };
 
   return (
-    
-      <div className="singlepost w-full max-w-[650px] mx-auto p-4 bg-white rounded-lg text-black">
+    <div className="w-full flex justify-center">
+      <div className="singlepost w-full max-w-[650px] mx-4 p-4 bg-white rounded-lg text-black">
         <div className="w-full border-b border-gray-400 mb-4 text-xl font-semibold py-2">
           Jouw Profiel:
         </div>
@@ -98,7 +92,7 @@ const ProfilePage = () => {
                   type="submit"
                   className="w-full py-2  rounded-lg text-white font-semibold "
                 >
-                  Verstuur
+                  {loading ? "...even geduld" : "Verstuur"}
                 </button>
               </div>
             </form>
@@ -109,7 +103,7 @@ const ProfilePage = () => {
               src={
                 session?.user?.avatar
                   ? session?.user?.avatar
-                  : "/images/defaultAvatar.png"
+                  : "/images/defaultAvatar2.png"
               }
               alt=""
               width={50}
@@ -119,6 +113,7 @@ const ProfilePage = () => {
           </div>
         </div>
       </div>
+    </div>
   );
 };
 

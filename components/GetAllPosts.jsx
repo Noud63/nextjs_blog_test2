@@ -8,7 +8,7 @@ const GetAllPosts = async () => {
 
 return (
   <div className="w-full max-w-[680px] flex justify-between flex-col mx-auto py-4 rounded-lg">
-    {posts.map((post) => (
+    {posts && posts.map((post) => (
       <SinglePost post={post} key={post._id} comments={post.comments} />
     ))}
   </div>
