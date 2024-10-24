@@ -16,17 +16,13 @@ export const GET = async (request, { params }) => {
       .populate("user", "avatar") // Populate user info (profilePicture)
       .sort({ createdAt: -1 })
       .lean();
-    console.log("Posts:", posts);
 
     // Fetch comments and populate user info for each comment
     for (const post of posts) {
       const pc = (post.comments = await Comment.find({ postId: post._id })
         .populate("userId", "avatar") // Populate user info in comments
         .lean());
-      console.log("Postscomments:", pc);
     }
-
-   console.log("ById:", posts);
 
     return new Response(JSON.stringify({ posts }), { status: 200 });
   } catch (error) {

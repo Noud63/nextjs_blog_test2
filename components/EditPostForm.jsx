@@ -4,10 +4,9 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-
 const EditPostForm = ({ setShowEditForm, post }) => {
   const [postContent, setPostContent] = useState(post?.postContent);
-  const [inputFiles, setInputFiles] = useState({images: []});
+  const [inputFiles, setInputFiles] = useState({ images: [] });
 
   const inputFilesRef = useRef(null);
   const textareaRef = useRef(null);
@@ -16,19 +15,48 @@ const EditPostForm = ({ setShowEditForm, post }) => {
 
   const updatedData = {
     postContent,
-    images: inputFiles
+    images: inputFiles?.images,
+  };
+
+  // Open file browser
+  const handleUploadImage = () => {
+    if (!inputFilesRef.current) return;
+    inputFilesRef.current?.click();
+  };
+
+  // Add new image file to state
+  const handleChange = (event) => {
+    if (!event.target.files) return;
+
+    const { files } = event.target;
+
+    const addedImages = [...inputFiles.images];
+
+    for (const file of files) {
+      addedImages.push(file);
+    }
+
+    setInputFiles((prevState) => ({
+      ...prevState,
+      images: addedImages,
+    }));
   };
 
   const handleEditPost = async (e) => {
     e.preventDefault();
 
+    const formData = new FormData(e.target);
+
+    updatedData.images.forEach((file) => {
+      formData.append("images", file);
+    });
+
+    formData.append("postContent", updatedData.postContent);
+
     try {
       const res = await fetch(`/api/editpost/${post._id}`, {
         method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedData),
+        body: formData,
       });
 
       const data = await res.json();
@@ -45,30 +73,6 @@ const EditPostForm = ({ setShowEditForm, post }) => {
   };
 
 
-  // Open file browser
-  const handleUploadImage = () => {
-    if (!inputFilesRef.current) return;
-    inputFilesRef.current?.click();
-  };
-
-  // Add new image file to state
-  const handleChange = (event) => {
-    if (!event.target.files) return;
-
-    const { files } = event.target;
-    
-    const addedImages = [...inputFiles.images];
-
-     for (const file of files) {
-       addedImages.push(file);
-     }
-
-    setInputFiles((prevState) => ({
-      ...prevState,
-      images: addedImages
-    }));
-  };
-
   const deleteSelectedImage = (name) => {
     const newArray = inputFiles.images.filter((img) => img.name !== name);
     setInputFiles((prevState) => ({
@@ -78,10 +82,29 @@ const EditPostForm = ({ setShowEditForm, post }) => {
     inputFilesRef.current.value = "";
   };
 
+
   const closeModal = () => {
     setShowEditForm(false);
   };
 
+
+  const deleteImage = async () => {
+       try {
+           const res = await fetch(`/api/deleteImage/${post._id}`,{
+              method: "DELETE"
+           })
+
+           const data = await res.json()
+           if(res.status === 200){
+            console.log(data.message)
+           }
+
+       } catch (error) {
+          console.log(error)
+       }
+       router.refresh();
+       setShowEditForm(false)
+  }
 
   // Adjust the textarea height whenever the comment changes
   useEffect(() => {
@@ -91,7 +114,6 @@ const EditPostForm = ({ setShowEditForm, post }) => {
       textarea.style.height = `${textarea.scrollHeight}px`; // Set it to the scroll height
     }
   }, [postContent]);
-
 
   return (
     <div className="w-full h-full fixed top-0 left-0 right-0 bg-yellow-950/70 flex justify-center items-center z-[999]">
@@ -113,7 +135,7 @@ const EditPostForm = ({ setShowEditForm, post }) => {
               type="text"
               name="postContent"
               defaultValue={postContent}
-              onChange={(e) => setPostContent(e.target.value)}
+              // onChange={(e) => setPostContent(e.target.value)}
               className="w-full min-h-[50px] resize-none overflow-y-hidden rounded-xl py-2 pr-10 outline-none placeholder-gray-500 bg-white"
             />
           </div>
@@ -138,7 +160,10 @@ const EditPostForm = ({ setShowEditForm, post }) => {
                 >
                   Vervang
                 </div>
-                <div className="editbuttons2 flex justify-center items-center font-semibold w-[120px] max-w-[150px] bg-white py-1 rounded-lg cursor-pointer border border-yellow-800">
+                <div
+                  className="editbuttons2 flex justify-center items-center font-semibold w-[120px] max-w-[150px] bg-white py-1 rounded-lg cursor-pointer border border-yellow-800"
+                  onClick={deleteImage}
+                >
                   Verwijder
                 </div>
               </div>
