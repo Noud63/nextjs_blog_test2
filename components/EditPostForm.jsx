@@ -72,7 +72,6 @@ const EditPostForm = ({ setShowEditForm, post }) => {
     router.refresh();
   };
 
-
   const deleteSelectedImage = (name) => {
     const newArray = inputFiles.images.filter((img) => img.name !== name);
     setInputFiles((prevState) => ({
@@ -82,29 +81,26 @@ const EditPostForm = ({ setShowEditForm, post }) => {
     inputFilesRef.current.value = "";
   };
 
-
   const closeModal = () => {
     setShowEditForm(false);
   };
 
-
   const deleteImage = async () => {
-       try {
-           const res = await fetch(`/api/deleteImage/${post._id}`,{
-              method: "DELETE"
-           })
+    try {
+      const res = await fetch(`/api/deleteImage/${post._id}`, {
+        method: "DELETE",
+      });
 
-           const data = await res.json()
-           if(res.status === 200){
-            console.log(data.message)
-           }
-
-       } catch (error) {
-          console.log(error)
-       }
-       router.refresh();
-       setShowEditForm(false)
-  }
+      const data = await res.json();
+      if (res.status === 200) {
+        console.log(data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    router.refresh();
+    setShowEditForm(false);
+  };
 
   // Adjust the textarea height whenever the comment changes
   useEffect(() => {
@@ -116,19 +112,19 @@ const EditPostForm = ({ setShowEditForm, post }) => {
   }, [postContent]);
 
   return (
-    <div className="w-full h-full fixed top-0 left-0 right-0 bg-yellow-950/70 flex justify-center items-center z-[999]">
-      <div className="w-full max-w-[500px] bg-white postmodal rounded-lg px-4 h-auto mx-4">
-        <div className="flex justify-between items-center py-4 border-b border-black">
+    <div className="fixed left-0 right-0 top-0 z-[999] flex h-full w-full items-center justify-center bg-yellow-950/70">
+      <div className="postmodal mx-4 h-auto w-full max-w-[500px] rounded-lg bg-white px-4">
+        <div className="flex items-center justify-between border-b border-black py-4">
           <span className="text-xl font-semibold">Bewerk:</span>
           <div
-            className="flex items-center cursor-pointer"
+            className="flex cursor-pointer items-center"
             onClick={closeModal}
           >
             <IoMdCloseCircleOutline size={35} color={"#854d0e"} />
           </div>
         </div>
 
-        <form onSubmit={handleEditPost} className="w-full mt-2">
+        <form onSubmit={handleEditPost} className="mt-2 w-full">
           <div className="w-full">
             <textarea
               ref={textareaRef}
@@ -136,11 +132,11 @@ const EditPostForm = ({ setShowEditForm, post }) => {
               name="postContent"
               defaultValue={postContent}
               // onChange={(e) => setPostContent(e.target.value)}
-              className="w-full min-h-[50px] resize-none overflow-y-hidden rounded-xl py-2 pr-10 outline-none placeholder-gray-500 bg-white"
+              className="min-h-[50px] w-full resize-none overflow-y-hidden rounded-xl bg-white py-2 pr-10 placeholder-gray-500 outline-none"
             />
           </div>
 
-          <div className="relative mt-2 h-full min-h-[250px] border border-gray-300 rounded-lg">
+          <div className="relative mt-2 h-full min-h-[250px] rounded-lg border border-gray-300">
             {post?.images[0] && (
               <Image
                 src={post.images[0]}
@@ -153,24 +149,24 @@ const EditPostForm = ({ setShowEditForm, post }) => {
             )}
 
             {post?.images[0] ? (
-              <div className="absolute flex flex-row gap-2 p-4 text-center transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+              <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 transform flex-row gap-2 p-4 text-center">
                 <div
-                  className="editbuttons2 flex justify-center items-center font-semibold w-[120px] max-w-[150px] bg-white py-1 rounded-lg cursor-pointer border border-yellow-800"
+                  className="editbuttons2 flex w-[120px] max-w-[150px] cursor-pointer items-center justify-center rounded-lg border border-yellow-800 bg-white py-1 font-semibold"
                   onClick={handleUploadImage}
                 >
                   Vervang
                 </div>
                 <div
-                  className="editbuttons2 flex justify-center items-center font-semibold w-[120px] max-w-[150px] bg-white py-1 rounded-lg cursor-pointer border border-yellow-800"
+                  className="editbuttons2 flex w-[120px] max-w-[150px] cursor-pointer items-center justify-center rounded-lg border border-yellow-800 bg-white py-1 font-semibold"
                   onClick={deleteImage}
                 >
                   Verwijder
                 </div>
               </div>
             ) : (
-              <div className="absolute p-4 text-center transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2">
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform p-4 text-center">
                 <div
-                  className="editbuttons flex justify-center items-center font-semibold w-[120px] max-w-[150px] bg-white px-4 py-2 rounded-lg cursor-pointer border border-gray-400"
+                  className="editbuttons flex w-[120px] max-w-[150px] cursor-pointer items-center justify-center rounded-lg border border-gray-400 bg-white px-4 py-2 font-semibold"
                   onClick={handleUploadImage}
                 >
                   Afbeelding
@@ -194,7 +190,7 @@ const EditPostForm = ({ setShowEditForm, post }) => {
             {inputFiles.images.length > 0 &&
               inputFiles.images.map((img) => (
                 <div
-                  className="flex flex-row w-full items-center py-1 gap-2"
+                  className="flex w-full flex-row items-center gap-2 py-1"
                   key={img.name}
                 >
                   <span className="font-semibold">Geselecteerd :</span>
@@ -202,17 +198,17 @@ const EditPostForm = ({ setShowEditForm, post }) => {
                   <IoMdCloseCircleOutline
                     size={20}
                     color="red"
-                    className="pt-1 cursor-pointer"
+                    className="cursor-pointer pt-1"
                     onClick={() => deleteSelectedImage(img.name)}
                   />
                 </div>
               ))}
           </div>
 
-          <div className="w-full flex justify-end mt-4 mb-8">
+          <div className="mb-8 mt-4 flex w-full justify-end">
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-yellow-950 via-yellow-700 to-yellow-950 rounded-lg text-white font-semibold py-4"
+              className="w-full rounded-lg bg-gradient-to-r from-yellow-950 via-yellow-700 to-yellow-950 py-4 font-semibold text-white"
             >
               Update
             </button>

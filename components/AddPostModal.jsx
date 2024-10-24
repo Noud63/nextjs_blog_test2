@@ -66,9 +66,9 @@ const AddPostModal = ({ inView, setInView }) => {
 
   return (
     inView && (
-      <div className="w-full h-full fixed top-0 left-0 right-0  bg-yellow-950/70 flex justify-center items-center z-[999]">
-        <div className="postmodal w-full max-w-[500px] bg-white rounded-lg shadow-md p-4 mx-4">
-          <div className="w-full flex flex-row justify-between items-center border-b border-gray-300 pb-2">
+      <div className="fixed left-0 right-0 top-0 z-[999] flex h-full w-full items-center justify-center bg-yellow-950/70">
+        <div className="postmodal mx-4 w-full max-w-[500px] rounded-lg bg-white p-4 shadow-md">
+          <div className="flex w-full flex-row items-center justify-between border-b border-gray-300 pb-2">
             <div className="text-lg font-semibold">Schrijf een bericht</div>
             <div className="cursor-pointer" onClick={closeModal}>
               <IoMdCloseCircleOutline size={35} color={"#854d0e"} />
@@ -81,7 +81,7 @@ const AddPostModal = ({ inView, setInView }) => {
               id="content"
               cols="30"
               rows="10"
-              className="w-full border border-gray-300 mt-4 outline-none p-2"
+              className="mt-4 w-full border border-gray-300 p-2 outline-none"
               required
             />
 
@@ -98,7 +98,7 @@ const AddPostModal = ({ inView, setInView }) => {
                 onChange={handleChange}
               />
 
-              <div className="text-md mt-2 mb-2 border-b border-gray-300 pb-2">
+              <div className="text-md mb-2 mt-2 border-b border-gray-300 pb-2">
                 {newFiles.images.length > 0
                   ? `${newFiles.images.length} bestand(en) geselecteerd.`
                   : ""}
@@ -109,14 +109,14 @@ const AddPostModal = ({ inView, setInView }) => {
               {newFiles.images.length > 0
                 ? newFiles.images.map((img) => (
                     <div
-                      className="flex flex-row w-full items-center py-1"
+                      className="flex w-full flex-row items-center py-1"
                       key={img.name}
                     >
                       {img.name}
                       <IoMdCloseCircleOutline
                         size={20}
                         color="red"
-                        className="pt-1 cursor-pointer"
+                        className="cursor-pointer pt-1"
                         onClick={() => deleteSelectedImage(img.name)}
                       />
                     </div>
@@ -126,7 +126,7 @@ const AddPostModal = ({ inView, setInView }) => {
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-yellow-950 via-yellow-700 to-yellow-950 rounded-lg flex justify-center py-3 text-white text-lg"
+              className="flex w-full justify-center rounded-lg bg-gradient-to-r from-yellow-950 via-yellow-700 to-yellow-950 py-3 text-lg text-white"
             >
               {loading ? <span>....even geduld!</span> : "Plaatsen"}
             </button>
