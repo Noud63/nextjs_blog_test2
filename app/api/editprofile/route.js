@@ -68,12 +68,6 @@ export const POST = async (request) => {
       );
     }
 
-    // Shorter way for updating and/or creating
-    // await Avatar.updateOne(
-    //   { userId },
-    //   { $set: { avatar: profile.image } },
-    // );
-
     const user = await User.findOne({_id:userId})
 
     if (!user) {
@@ -90,7 +84,6 @@ export const POST = async (request) => {
           },
         }
       );
-    //  console.log("Update:", updateUser)
 
     return new Response(JSON.stringify(updateUser), { status: 200 });
     

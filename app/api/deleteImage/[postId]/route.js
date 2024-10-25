@@ -1,5 +1,4 @@
 import connectDB from "@/connectDB/database";
-import cloudinary from "@/config/cloudinary";
 import { extractPublicId } from 'cloudinary-build-url'
 import Post from "@/models/post";
 import { getSessionUser } from "@/utils/getSessionUser";

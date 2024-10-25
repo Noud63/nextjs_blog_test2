@@ -2,6 +2,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useRouter } from "next/navigation";
+import deleteIcon from "../assets/icons/delete.png";
+import replace from "../assets/icons/replace.png"
 import Image from "next/image";
 
 const EditPostForm = ({ setShowEditForm, post }) => {
@@ -150,17 +152,36 @@ const EditPostForm = ({ setShowEditForm, post }) => {
 
             {post?.images[0] ? (
               <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 transform flex-row gap-2 p-4 text-center">
-                <div
-                  className="editbuttons2 flex w-[120px] max-w-[150px] cursor-pointer items-center justify-center rounded-lg border border-yellow-800 bg-white py-1 font-semibold"
-                  onClick={handleUploadImage}
-                >
-                  Vervang
-                </div>
-                <div
-                  className="editbuttons2 flex w-[120px] max-w-[150px] cursor-pointer items-center justify-center rounded-lg border border-yellow-800 bg-white py-1 font-semibold"
-                  onClick={deleteImage}
-                >
-                  Verwijder
+                <div className="editbuttons2 flex flex-col gap-2 rounded-lg border border-gray-400 bg-white px-4 pb-4 pt-4">
+                  <div className="text-lg font-semibold">Afbeelding:</div>
+                  <div className="flex gap-2">
+                    <div
+                      className="flex w-[120px] max-w-[150px] cursor-pointer items-center justify-center rounded-lg border border-gray-400 bg-white py-1 pr-3 font-semibold shadow-md"
+                      onClick={handleUploadImage}
+                    >
+                      <Image
+                        src={replace}
+                        width={20}
+                        height={20}
+                        alt="replace"
+                        className="w-auto"
+                      />
+                      Vervang
+                    </div>
+                    <div
+                      className="flex w-[120px] max-w-[150px] cursor-pointer items-center justify-center gap-2 rounded-lg border border-gray-400 bg-white py-1 font-semibold shadow-md"
+                      onClick={deleteImage}
+                    >
+                      <Image
+                        src={deleteIcon}
+                        alt=""
+                        width={12}
+                        height={12}
+                        className="w-auto"
+                      />
+                      Verwijder
+                    </div>
+                  </div>
                 </div>
               </div>
             ) : (
