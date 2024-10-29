@@ -25,9 +25,9 @@ const Weatherreport = () => {
   }, []);
 
   return (
-    <div className="flex items-center flex-col pb-1">
+    <div className="flex flex-col">
       <div className="w-[120px] relative flex flex-col items-center">
-        <div className="flex text-2xl text-white items-center max-sm:text-xl">
+        <div className="flex text-2xl text-white items-center">
           {`${weather.temp}\xB0C`}
           {weather.icon && (
             <Image
@@ -36,13 +36,13 @@ const Weatherreport = () => {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-[55px] h-[55px] mt-2 max-sm:w-[40px] max-sm:h-[40px]"
+              className="w-[55px] h-[55px]  max-sm:w-[40px] max-sm:h-[40px]"
             />
           )}
         </div>
-        <div className=" text-orange-300 text-[.76em] tracking-wide absolute top-[48px] max-sm:top-[41px]">
+        {/* <div className="text-orange-300 text-[.76em] tracking-wide absolute top-[45px] max-sm:top-[34px]">
           {weather.des}
-        </div>
+        </div> */}
       </div>
     </div>
   );

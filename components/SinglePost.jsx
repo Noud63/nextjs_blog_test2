@@ -28,13 +28,13 @@ const SinglePost = ({ post, comments }) => {
   
 
   return (
-    <div className="singlepost bg-white h-auto rounded-lg mb-4 flex flex-col shadow-md relative mx-4">
+    <div className="singlepost bg-white h-auto rounded-lg mb-4 flex flex-col shadow-md relative mx-6">
       <Editordelete
         showOptions={showOptions}
         setShowOptions={setShowOptions}
         postId={post._id}
         post={post}
-      />
+        />
 
       <div className="w-full flex justify-between items-center pb-2 border-b border-gray-400 p-4">
         <div className="flex flex-row">

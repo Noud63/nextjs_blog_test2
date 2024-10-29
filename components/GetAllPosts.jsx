@@ -7,7 +7,7 @@ const GetAllPosts = async () => {
   // console.log(posts)
 
 return (
-  <div className="w-full max-w-[680px] flex justify-between flex-col mx-auto py-4 rounded-lg">
+  <div className="w-full max-w-[670px] flex flex-col mx-auto py-4 rounded-lg">
     {posts && posts.map((post) => (
       <SinglePost post={post} key={post._id} comments={post.comments} />
     ))}

@@ -26,8 +26,8 @@ const AddPost = () => {
   };
 
 return (
-  <div className="mx-4">
-    <section className="singlepost w-full max-w-[650px] flex justify-between px-4 mx-auto bg-white py-4 rounded-lg">
+  <div className="mx-6 mt-4">
+    <section className="singlepost w-full max-w-[620px] flex justify-between px-4 mx-auto bg-white py-4 rounded-lg">
       <div className="w-full flex flex-row gap-4 items-center">
         <Image
           src={profilePic ? profilePic : "/images/defaultAvatar2.png"}

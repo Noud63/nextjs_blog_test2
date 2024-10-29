@@ -28,6 +28,7 @@ const EditPostForm = ({ setShowEditForm, post }) => {
 
   // Add new image file to state
   const handleChange = (event) => {
+    
     if (!event.target.files) return;
 
     const { files } = event.target;
@@ -234,6 +235,7 @@ const EditPostForm = ({ setShowEditForm, post }) => {
               Update
             </button>
           </div>
+          
         </form>
       </div>
     </div>
