@@ -34,6 +34,10 @@ module.exports = {
       fontFamily: {
         CloisterBlack: ["CloisterBlack"],
       },
+      screens: {
+        xsm: "450px",
+        xxsm: "380px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

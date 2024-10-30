@@ -28,15 +28,15 @@ const SinglePost = ({ post, comments }) => {
   
 
   return (
-    <div className="singlepost bg-white h-auto rounded-lg mb-4 flex flex-col shadow-md relative mx-6">
+    <div className="singlepost relative mx-6 mb-4 flex h-auto flex-col rounded-lg bg-white shadow-md max-sm:mx-4">
       <Editordelete
         showOptions={showOptions}
         setShowOptions={setShowOptions}
         postId={post._id}
         post={post}
-        />
+      />
 
-      <div className="w-full flex justify-between items-center pb-2 border-b border-gray-400 p-4">
+      <div className="flex w-full items-center justify-between border-b border-gray-400 p-4 pb-2">
         <div className="flex flex-row">
           <Image
             src={profilePic ? profilePic : "/images/defaultAvatar.png"}
@@ -44,7 +44,7 @@ const SinglePost = ({ post, comments }) => {
             width={0}
             height={0}
             sizes="100vw"
-            className="w-[45px] h-[45px] mt-2 rounded-full"
+            className="mt-2 h-[45px] w-[45px] rounded-full"
           />
           <PostUserName post={post} />
         </div>
@@ -56,7 +56,7 @@ const SinglePost = ({ post, comments }) => {
               alt=""
               width={40}
               height={40}
-              className="rounded-full w-[40px] h-[40px] cursor-pointer transition-all hover:bg-yellow-800/40 p-2"
+              className="h-[40px] w-[40px] cursor-pointer rounded-full p-2 transition-all hover:bg-yellow-800/40"
               onClick={() => setShowOptions(!showOptions)}
             />
           </div>
@@ -64,15 +64,16 @@ const SinglePost = ({ post, comments }) => {
       </div>
       <div className="p-4">{post.postContent}</div>
       <div className="w-full">
-      
-        {post?.images[0] && <Image
-          src={post?.images[0]}
-          alt=""
-          width={400}
-          height={0}
-          className="w-full h-full object-cover"
-          priority
-        />}
+        {post?.images[0] && (
+          <Image
+            src={post?.images[0]}
+            alt=""
+            width={400}
+            height={0}
+            className="h-full w-full object-cover"
+            priority
+          />
+        )}
       </div>
       <LikeandShareBar post={post} />
       <PostComment comments={comments} post={post} />

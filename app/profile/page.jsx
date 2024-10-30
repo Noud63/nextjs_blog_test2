@@ -57,7 +57,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex justify-center mt-[20]">
       <div className="singlepost w-full max-w-[650px] mx-4 p-4 bg-white rounded-lg text-black">
         <div className="w-full border-b border-gray-400 mb-4 text-xl font-semibold py-2">
           Jouw Profiel:

@@ -8,6 +8,10 @@ const getWeatherData = async () => {
     );
 
     const data = await res.json();
+
+    if(!data){
+      console.log("No data!")
+    }
     return data;
 
   } catch (error) {

@@ -65,9 +65,9 @@ const router = useRouter();
  };
 
   return (
-    <div className="w-full mx-auto px-4">
+    <div className="w-full mx-auto px-4 mt-4">
       <div className="p-6 rounded-lg shadow-md w-full max-w-[650px] mx-auto bg-white">
-        <div className="flex justify-center text-xl font-bold mb-4 border-b-2 border-dotted pb-4">
+        <div className="flex justify-center text-xl font-bold mb-4 border-b-2 border-dotted border-black pb-4">
           Registreer
         </div>
 
