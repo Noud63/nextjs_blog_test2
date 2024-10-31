@@ -20,7 +20,6 @@ const Weatherreport = () => {
         wind: list[0].wind.speed.toFixed(),
         pressure: list[0].main.pressure,
       };
-      console.log("Data:", data)
       setWeather(data);
     };
     getData();

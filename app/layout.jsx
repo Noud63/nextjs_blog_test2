@@ -1,6 +1,9 @@
 import './globals.css'
 import AuthProvider from '@/components/AuthProvider';
+import Footer from '@/components/Footer';
+import LoginRegisterLogout from '@/components/LoginRegisterLogout';
 import Navbar from '@/components/Navbar';
+import Menu from '@/components/Menu';
 
 export const metadata = {
   title: "Nextjs blog",
@@ -14,10 +17,16 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="relative bg-gradient-to-r from-red-950 via-yellow-700 to-red-950">
-        <div className="fixed w-full h-full bg-[url('../public/images/homebg.png')] bg-center bg-cover bg-no-repeat -z-10" />
+        <div className="fixed -z-10 h-full w-full bg-[url('../public/images/homebg.png')] bg-cover bg-center bg-no-repeat" />
         <AuthProvider>
           <Navbar />
-          <main>{children}</main>
+          <div className="w-full max-sm:flex sm:hidden">
+            <LoginRegisterLogout />
+          </div>
+
+          <Menu />
+          <main className="min-h-screen">{children}</main>
+          <Footer />
         </AuthProvider>
       </body>
     </html>

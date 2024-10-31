@@ -8,11 +8,7 @@ import LoginRegisterLogout from "@/components/LoginRegisterLogout";
 export default function Home() {
   return (
     <>
-      <div className="w-full max-sm:flex sm:hidden">
-        <LoginRegisterLogout />
-      </div>
-
-      <Menu />
+      
       <LeesDit />
       <AddPost />
       <GetAllPosts />
