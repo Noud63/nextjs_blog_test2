@@ -9,17 +9,7 @@ const Weatherreport = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const result = await getWeatherData();
-      const { list, city } = result;
-
-      let data = {
-        temp: list[0].main.temp.toFixed(),
-        city: city.name,
-        des: list[0].weather[0].description,
-        icon: `https://openweathermap.org/img/w/${list[0].weather[0].icon}.png`,
-        wind: list[0].wind.speed.toFixed(),
-        pressure: list[0].main.pressure,
-      };
+      const {data} = await getWeatherData();
       setWeather(data);
     };
     getData();
@@ -47,9 +37,7 @@ const Weatherreport = () => {
             />
           )}
         </div>
-        {/* <div className="text-orange-300 text-[.76em] tracking-wide absolute top-[45px] max-sm:top-[34px]">
-          {weather.des}
-        </div> */}
+      
       </div>
     </div>
   );

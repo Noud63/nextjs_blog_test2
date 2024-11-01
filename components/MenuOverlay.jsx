@@ -11,7 +11,7 @@ const MenuOverlay = ({setOpenModal, openModal}) => {
     
   return (
     <div
-      className={`${openModal ? "translate-x-0" : "translate-x-full"} backdrop-brightness-60 transition absolute bottom-0 right-0 top-0 z-[999] flex h-full w-full flex-col items-center justify-start bg-yellow-900/60 p-4 backdrop-blur-lg duration-300 ease-in`}
+      className={`${openModal ? "translate-x-0" : "translate-x-full"}  transition absolute bottom-0 right-0 top-0 z-[999] flex h-full w-full flex-col items-center justify-start bg-yellow-900/70 p-4 backdrop-blur-lg duration-300 ease-in`}
     >
       <div className="mb-8 cursor-pointer" onClick={closeModal}>
         <IoMdCloseCircleOutline size={35} color="white" />

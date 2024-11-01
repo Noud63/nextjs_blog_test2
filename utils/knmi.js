@@ -31,7 +31,7 @@ const getKnmiData = async () => {
         }
       }
 
-    console.log("Data:", JSON.stringify(weer, null, 2))
+    console.log("Data:", JSON.stringify(data, null, 2))
 
     return data;
   } catch (error) {

@@ -9,6 +9,6 @@ export const items = [
   { id: 8, title: "Westergas", href: "/westergas" },
   { id: 9, title: "Buurt", href: "/buurt" },
   { id: 10, title: "Kunst", href: "/kunst" },
-  { id: 11, title: "Weer", href: "/weer" },
+  { id: 11, title: "Weer", href: "/weatherreport" },
   { id: 12, title: "Contact", href: "/contact" }
 ]
