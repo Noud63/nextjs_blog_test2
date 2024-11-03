@@ -1,18 +1,36 @@
+"use client"
+import { useState, useEffect} from "react"
 import getWeatherData from "@/utils/getWeatherData";
-import Image from "next/image";
+import WeerVandaag from "@/components/WeerVandaag";
+import WeerMorgen from "@/components/WeerMorgen";
 
-const WeatherreportPage = async () => {
-  const { data, data2 } = await getWeatherData();
+const WeatherreportPage = () => {
 
-const now = data.date.slice(0,11)
-const today = new Date(now).toLocaleDateString()
+   const [d, setD] = useState({});
+   const [d2, setD2] = useState({});
+
+   useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data, data2 } = await getWeatherData();
+        setD(data);
+        setD2(data2);
+      } catch (error) {
+        console.log(error)
+      }
+    };
+     getData();
+   }, []);
+
+  console.log(d)
 
 
+  // const now = d.date.slice(0, 10);
+  const today = new Date().toLocaleDateString();
 
-
-//Tomorrow
+  //Tomorrow
   let date = new Date();
-  date.setDate(date.getDate() + 1);
+  date.setDate(date.getDate(date) + 1);
 
   return (
     <div className="mx-auto mt-8 w-full max-w-[650px] text-white">
@@ -21,78 +39,8 @@ const today = new Date(now).toLocaleDateString()
           <span>Het weer actueel:</span>
           <span className="flex items-end text-sm font-normal">{today}</span>
         </div>
-        <div className="mt-4 h-[600px] rounded-lg border-2 p-2">
-          <div className="flex mb-4 text-sm">
-            Geüpdatet: {data.date.slice(11, data.date.length).slice(0, -3)} uur
-          </div>
-          <div className="mb-10 flex justify-center text-5xl font-semibold">
-            Amsterdam
-          </div>
 
-          <div className="h=[50px] relative flex flex-col items-center justify-center">
-            <Image
-              src={data.icon}
-              width={100}
-              height={80}
-              alt="icon"
-              className="h-[80px] w-[100px] drop-shadow-[0_2px_4px_rgba(113,63,18,1)]"
-            />
-            <div className="absolute -bottom-2 flex justify-center text-lg font-semibold text-yellow-800">
-              {data.description}
-            </div>
-          </div>
-
-          <div className="mt-10 flex flex-row items-center justify-center">
-            <span className="text-6xl font-semibold text-yellow-800">
-              {" "}
-              {Math.round(`${data.temp}`)}
-              {`\xB0C`}
-            </span>
-          </div>
-
-          <div className="mt-12 grid w-full grid-cols-3 grid-rows-2 bg-white/60 text-yellow-900">
-            <div className="flex items-center justify-center border-b border-l border-t border-yellow-800 py-2 text-lg font-semibold">
-              MaxTemp
-            </div>
-            <div className="flex items-center justify-center border-b border-l border-t border-yellow-800 text-lg font-semibold">
-              Wind
-            </div>
-            <div className="flex items-center justify-center border border-yellow-800 text-lg font-semibold">
-              Druk
-            </div>
-            <div className="flex items-center justify-center border-b border-l border-yellow-800">
-              {data.tempMax}
-              {`\xB0C`}
-            </div>
-            <div className="f flex items-center justify-center border-b border-l border-yellow-800">
-              {data.wind} bft
-            </div>
-            <div className="flex items-center justify-center border-b border-l border-r border-yellow-800">
-              {data.pressure} hPa
-            </div>
-          </div>
-
-          <div className="mt-4 grid w-full grid-cols-3 grid-rows-2 bg-white/60 text-yellow-900">
-            <div className="flex items-center justify-center border-b border-l border-t border-yellow-800 py-2 text-lg font-semibold">
-              Zicht
-            </div>
-            <div className="flex items-center justify-center border-b border-l border-t border-yellow-800 text-lg font-semibold">
-              Zon op
-            </div>
-            <div className="flex items-center justify-center border border-yellow-800 text-lg font-semibold">
-              Zon onder
-            </div>
-            <div className="flex items-center justify-center border-b border-l border-yellow-800">
-              {data.visibility} m
-            </div>
-            <div className="f flex items-center justify-center border-b border-l border-yellow-800">
-              {data.sunrise} uur
-            </div>
-            <div className="flex items-center justify-center border-b border-l border-r border-yellow-800">
-              {data.sunset} uur
-            </div>
-          </div>
-        </div>
+        <WeerVandaag data={d} />
       </div>
 
       <div className="mx-4 mt-8 bg-[url('../public/images/cloud.png')] bg-center bg-no-repeat">
@@ -102,75 +50,11 @@ const today = new Date(now).toLocaleDateString()
             {date.toLocaleDateString("nl-NL")}
           </span>
         </div>
-        <div className="mt-4 h-[600px] rounded-lg border-2 p-8">
-          <div className="mb-10 flex justify-center text-5xl font-semibold">
-            Amsterdam
-          </div>
 
-          <div className="h=[50px] relative flex flex-col items-center justify-center">
-            <Image
-              src={data2.icon}
-              width={100}
-              height={80}
-              alt="icon"
-              className="h-[80px] w-[100px] drop-shadow-[0_2px_4px_rgba(113,63,18,1)]"
-            />
-            <div className="absolute -bottom-2 flex justify-center text-lg font-semibold text-yellow-800">
-              {data2.description}
-            </div>
-          </div>
-
-          <div className="mt-10 flex flex-row items-center justify-center">
-            <span className="text-6xl font-semibold text-yellow-800">
-              {" "}
-              {Math.round(`${data2.temp}`)}
-              {`\xB0C`}
-            </span>
-          </div>
-
-          <div className="mt-12 grid w-full grid-cols-3 grid-rows-2 bg-white/60 text-yellow-900">
-            <div className="flex items-center justify-center border-b border-l border-t border-yellow-800 py-2 text-lg font-semibold">
-              MaxTemp
-            </div>
-            <div className="flex items-center justify-center border-b border-l border-t border-yellow-800 text-lg font-semibold">
-              Wind
-            </div>
-            <div className="flex items-center justify-center border border-yellow-800 text-lg font-semibold">
-              Druk
-            </div>
-            <div className="flex items-center justify-center border-b border-l border-yellow-800">
-              {data2.tempMax}
-              {`\xB0C`}
-            </div>
-            <div className="f flex items-center justify-center border-b border-l border-yellow-800">
-              {data2.wind} bft
-            </div>
-            <div className="flex items-center justify-center border-b border-l border-r border-yellow-800">
-              {data2.pressure} hPa
-            </div>
-          </div>
-
-          <div className="mt-4 grid w-full grid-cols-3 grid-rows-2 bg-white/60 text-yellow-900">
-            <div className="flex items-center justify-center border-b border-l border-t border-yellow-800 py-2 text-lg font-semibold">
-              Zicht
-            </div>
-            <div className="flex items-center justify-center border-b border-l border-t border-yellow-800 text-lg font-semibold">
-              Zon op
-            </div>
-            <div className="flex items-center justify-center border border-yellow-800 text-lg font-semibold">
-              Zon onder
-            </div>
-            <div className="flex items-center justify-center border-b border-l border-yellow-800">
-              {data2.visibility} m
-            </div>
-            <div className="f flex items-center justify-center border-b border-l border-yellow-800">
-              {data2.sunrise} uur
-            </div>
-            <div className="flex items-center justify-center border-b border-l border-r border-yellow-800">
-              {data2.sunset} uur
-            </div>
-          </div>
-        </div>
+        <WeerMorgen data2={d2} />
+      </div>
+      <div className="mt-8 flex justify-center text-xs">
+        (Weather data provided by OpenWeathermap.org)
       </div>
     </div>
   );

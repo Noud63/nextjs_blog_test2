@@ -1,15 +1,14 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import getWeatherData from "@/utils/getWeatherData";
 import Image from "next/image";
 
 const Weatherreport = () => {
-
   const [weather, setWeather] = useState({});
 
   useEffect(() => {
     const getData = async () => {
-      const {data} = await getWeatherData();
+      const { data } = await getWeatherData();
       setWeather(data);
     };
     getData();
@@ -17,7 +16,7 @@ const Weatherreport = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="relative flex w-[100px] flex-col items-center max-sm:pl-2 max-xsm:w-[40px] max-xsm:h-20">
+      <div className="relative flex w-[100px] flex-col items-center max-sm:pl-2 max-xsm:h-20 max-xsm:w-[40px]">
         <div
           className={
             weather.temp === undefined
@@ -37,7 +36,6 @@ const Weatherreport = () => {
             />
           )}
         </div>
-      
       </div>
     </div>
   );

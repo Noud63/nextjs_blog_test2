@@ -35,6 +35,7 @@ module.exports = {
         CloisterBlack: ["CloisterBlack"],
       },
       screens: {
+        xmd: "850px",
         xsm: "450px",
         xxsm: "380px",
       },

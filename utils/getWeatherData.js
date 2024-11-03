@@ -12,8 +12,11 @@ const getWeatherData = async () => {
 
     const { list, city } = result
 
+    console.log("List:", convertTime(list[0].dt))
+
      let data = {
        date: list[0].dt_txt,
+      //  tijd: convertTime(list[0].dt),
        temp: list[0].main.temp.toFixed(),
        tempMax: list[0].main.temp_max.toFixed(),
        tempMin: list[0].main.temp_min.toFixed(),
@@ -21,7 +24,7 @@ const getWeatherData = async () => {
        city: city.name,
        description: list[0].weather[0].description,
        icon: `https://openweathermap.org/img/w/${list[0].weather[0].icon}.png`,
-       wind: list[0].wind.speed.toFixed(),
+       wind: list[8].wind.speed.toFixed(),
        pressure: list[0].main.pressure,
        feels_like: list[0].main.feels_like,
        visibility: list[0].visibility,
@@ -46,7 +49,7 @@ const getWeatherData = async () => {
         sunset: convertTime(city.sunset),
       };
 
-    return {data, data2};
+    return {data, data2, result};
 
   } catch (error) {
     console.log(error)

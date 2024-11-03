@@ -7,7 +7,6 @@
     font-family: 'CloisterBlack';
     src: url('../assets/fonts/CloisterBlack.ttf') format('truetype');
   }
-    
 }
 
 ::-webkit-scrollbar {
@@ -16,6 +15,11 @@
 
 :root:has(.postmodal) {
     overflow:hidden;
+    
+  }
+
+  .cell {
+    border-left: 1px solid white;
   }
 
 

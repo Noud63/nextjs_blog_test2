@@ -1,11 +1,28 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from "react";
+import getWeatherData from "@/utils/getWeatherData";
 
 const Footer = () => {
-  return (
-    <div className="w-full h-[500px] bg-black text-yellow-800 flex justify-center items-center text-xl mt-40">
-         footer
-    </div>
-  )
-}
+ const [data1, setData] = useState({});
 
-export default Footer
+ useEffect(() => {
+   const getData = async () => {
+     const { result} = await getWeatherData();
+     setData(result);
+     
+   };
+   getData();
+ }, []);
+
+ "https://openweathermap.org/img/w/02d.png";
+
+ console.log("Data:", data1);
+
+  return (
+    <div className="mt-40 flex h-[500px] w-full items-center justify-center bg-black text-xl text-yellow-800">
+      footer
+    </div>
+  );
+};
+
+export default Footer;
