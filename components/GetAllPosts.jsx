@@ -1,30 +1,14 @@
-"use client";
-import { useEffect, useState } from "react";
+
 import SinglePost from "./SinglePost";
 import { fetchPosts } from "@/utils/postsRequest";
 import Spinner from "./Spinner";
 
-const GetAllPosts = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true)
+const GetAllPosts = async () => {
 
-  useEffect(() => {
-    const getData = async () => {
-       setLoading(true);
-       try {
-         const posts = await fetchPosts();
-         setData(posts);
-       } catch (error) {
-        console.error("Error fetching posts:", error);
-       } finally {
-        setLoading(false);
-       }
-    };
-    getData();
-  }, []);
-
+  const data = await fetchPosts();
+  
   return (
-    loading ? <Spinner loading={loading}/> : (<div className="mx-auto flex flex-grow w-full max-w-[670px] flex-col rounded-lg py-4">
+    !data ? <Spinner loading={true}/> : (<div className="mx-auto flex flex-grow w-full max-w-[670px] flex-col rounded-lg py-4">
       {data &&
         data.map((post) => (
           <SinglePost post={post} key={post._id} comments={post.comments} />
@@ -35,3 +19,4 @@ const GetAllPosts = () => {
 };
 
 export default GetAllPosts;
+

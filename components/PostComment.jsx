@@ -25,6 +25,8 @@ const PostComment = ({ post, comments }) => {
         body: JSON.stringify({ commentId }),
       });
 
+      console.log(res.status)
+
       if (!res.ok) {
         alert("Login first!");
       }
@@ -42,11 +44,11 @@ const PostComment = ({ post, comments }) => {
 
       const data = await res.json();
 
-      if (res.ok) {
-        console.log(data.message);
+      if (data) {
+        console.log(data?.message);
       }
     } catch (error) {
-      console.log(data.message);
+      console.log(data?.message);
     }
     router.refresh();
   };

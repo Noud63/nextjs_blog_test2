@@ -12,7 +12,7 @@ const openMenu = () => {
 
 return (
   <>
-    <div className="hidden cursor-pointer pl-2 max-sm:flex">
+    <div className="hidden cursor-pointer max-sm:flex">
       <RxHamburgerMenu size={32} color="white" onClick={openMenu} />
     </div>
     <MenuOverlay  openModal={openModal} setOpenModal={setOpenModal}/>

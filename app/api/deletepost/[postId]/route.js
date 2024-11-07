@@ -1,9 +1,9 @@
 import connectDB from "@/connectDB/database";
-import cloudinary from "@/config/cloudinary";
-import User from "@/models/User";
+import { extractPublicId } from "cloudinary-build-url";
 import Post from "@/models/post";
 import Comment from "@/models/comment";
 import Like from "@/models/like";
+import { deleteImageFromCloudinary } from "@/utils/deleteImageFromCloudinary";
 import { getSessionUser } from "@/utils/getSessionUser";
 
 export const DELETE = async (request, { params }) => {
@@ -17,16 +17,24 @@ export const DELETE = async (request, { params }) => {
     if (!sessionUser || !sessionUser.user?.id || !postId) {
       return new Response(
         JSON.stringify({ message: "You are not authorized to delete a post!" }),
-        { status: 401 }
+        { status: 401 },
       );
     }
 
+    const post = await Post.findById({ _id: postId });
+    const image = post.images[0];
+    if (image) {
+      const imageToDelete = image;
+      const publicId = extractPublicId(imageToDelete);
+      const result = await deleteImageFromCloudinary(publicId);
+      console.log(result);
+    }
 
     // Delete post
     await Post.findOneAndDelete({ _id: postId });
     // find all comments
     const comments = await Comment.find({ postId: postId });
-    // delete comment likes  
+    // delete comment likes
     if (comments.length > 0) {
       for (let comment of comments) {
         await Like.deleteMany({ postId: comment._id });
@@ -39,7 +47,7 @@ export const DELETE = async (request, { params }) => {
 
     return new Response(
       JSON.stringify({ message: "Post deleted successfully!" }),
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
     console.log(error);

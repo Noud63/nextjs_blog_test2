@@ -12,11 +12,9 @@ const getWeatherData = async () => {
 
     const { list, city } = result
 
-    console.log("List:", convertTime(list[0].dt))
-
      let data = {
        date: list[0].dt_txt,
-      //  tijd: convertTime(list[0].dt),
+       update:list[1].dt_txt,
        temp: list[0].main.temp.toFixed(),
        tempMax: list[0].main.temp_max.toFixed(),
        tempMin: list[0].main.temp_min.toFixed(),

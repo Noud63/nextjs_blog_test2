@@ -1,8 +1,9 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef} from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { IoSendSharp } from "react-icons/io5";
+ import { fetchPosts } from "@/utils/postsRequest";
 
 const PostCommentForm = ({ post }) => {
   const { data: session } = useSession();
@@ -38,15 +39,20 @@ const PostCommentForm = ({ post }) => {
       });
 
       const result = await res.json();
+
+      console.log(result)
+
       if (res.status === 401) {
         console.log("Error:", result.message);
       }
+
     } catch (error) {
       console.log(error);
     } finally {
       textareaRef.current.value = "";
     }
-    router.refresh();
+router.refresh();
+  
   };
 
   useEffect(() => {

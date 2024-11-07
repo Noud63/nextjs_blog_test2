@@ -10,7 +10,7 @@ const LoginRegisterLogout = () => {
 const { data: session, status } = useSession();
 
   return (
-    <div className="flex w-full flex-row items-center justify-end max-sm:justify-between gap-4 text-white max-sm:mx-2 max-sm:mt-4">
+    <div className="flex w-full flex-row items-center justify-end max-sm:justify-between gap-4 text-white max-sm:mx-4 max-sm:mt-4">
 
       <Hamburger />
 

@@ -2,10 +2,16 @@
 import React, { useState, useRef } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useRouter } from "next/navigation";
+import PostComment from "./PostComment";
+import { FaLessThanEqual } from "react-icons/fa";
+import { CircleX } from "lucide-react";
 
 const AddPostModal = ({ inView, setInView }) => {
+
+
   const [newFiles, setNewFiles] = useState({ images: [] });
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const router = useRouter();
   const imageRef = useRef(null);
@@ -44,9 +50,21 @@ const AddPostModal = ({ inView, setInView }) => {
 
     const formData = new FormData(e.target);
 
+    const content = formData.get("postContent")
+    console.log(content)
+
     newFiles.images.forEach((file) => {
       formData.append("images", file);
     });
+
+    if (newFiles.images.length === 0 && !content) {
+        setLoading(false)
+        setError(true)
+        setTimeout(()=> {
+         setError(false);
+        },2000)
+      return
+    }
 
     try {
       const res = await fetch("/api/posts", {
@@ -82,7 +100,7 @@ const AddPostModal = ({ inView, setInView }) => {
               cols="30"
               rows="10"
               className="mt-4 w-full border border-gray-300 p-2 outline-none"
-              required
+              // required
             />
 
             <span className="pb-2">Voeg een afbeelding toe:</span>
@@ -123,6 +141,18 @@ const AddPostModal = ({ inView, setInView }) => {
                   ))
                 : ""}
             </div>
+
+            {error && (
+              <div className="flex w-full flex-row items-center rounded-md bg-red-100 px-4 py-3 mb-4">
+                <CircleX size={20} color="darkred" className="mr-2" />
+                <span className="text-red-800">
+                  {" "}
+                  Geen text of afbeelding geselecteerd!
+                </span>
+              </div>
+            )}
+
+           
 
             <button
               type="submit"

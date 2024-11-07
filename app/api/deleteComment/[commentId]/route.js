@@ -11,7 +11,7 @@ export const DELETE = async (request, { params }) => {
 
     const sessionUser = await getSessionUser();
 
-    if (!sessionUser || !sessionUser.user?.id || !commentId) {
+    if (!sessionUser || !sessionUser.user?.id ) {
       return new Response(
         JSON.stringify({ message: "You are not authorized to delete a comment!" }),
         { status: 401 }

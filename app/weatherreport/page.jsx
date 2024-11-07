@@ -22,8 +22,6 @@ const WeatherreportPage = () => {
      getData();
    }, []);
 
-  console.log(d)
-
 
   // const now = d.date.slice(0, 10);
   const today = new Date().toLocaleDateString();
@@ -33,8 +31,8 @@ const WeatherreportPage = () => {
   date.setDate(date.getDate(date) + 1);
 
   return (
-    <div className="mx-auto mt-8 w-full max-w-[650px] text-white">
-      <div className="mx-4 bg-[url('../public/images/cloud2.png')] bg-cover bg-center bg-no-repeat">
+    <div className="mx-auto mt-8 w-full text-white md:max-w-[650px]" >
+      <div className="mx-4 bg-[url('../public/images/cloud2.png')] bg-cover bg-center bg-no-repeat max-md:mx-6 max-sm:mx-4">
         <div className="flex justify-between text-2xl font-semibold">
           <span>Het weer actueel:</span>
           <span className="flex items-end text-sm font-normal">{today}</span>
@@ -54,7 +52,7 @@ const WeatherreportPage = () => {
         <WeerMorgen data2={d2} />
       </div>
       <div className="mt-8 flex justify-center text-xs">
-        (Weather data provided by OpenWeathermap.org)
+        (Weather data provided by OpenWeathermap.org api)
       </div>
     </div>
   );

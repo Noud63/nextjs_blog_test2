@@ -30,13 +30,13 @@ const WeerMorgen = ({data2}) => {
       </div>
 
       <div className="mt-12 grid w-full grid-cols-3 grid-rows-2 bg-white/60 text-yellow-900">
-        <div className="flex items-center justify-center bg-yellow-800 py-2 text-white max-xmd:bg-[#662909]">
+        <div className="flex items-center justify-center bg-yellow-800 py-2 text-white max-lg:bg-[#662909]">
           MaxTemp
         </div>
-        <div className="cell flex items-center justify-center bg-yellow-800 py-2 text-white max-xmd:bg-[#662909]">
+        <div className="cell flex items-center justify-center bg-yellow-800 py-2 text-white max-lg:bg-[#662909]">
           MinTemp
         </div>
-        <div className="cell flex items-center justify-center bg-yellow-800 text-white max-xmd:bg-[#662909]">
+        <div className="cell flex items-center justify-center bg-yellow-800 text-white max-lg:bg-[#662909]">
           Wind
         </div>
         <div className="flex items-center justify-center border-b border-l border-yellow-800">
@@ -53,13 +53,13 @@ const WeerMorgen = ({data2}) => {
       </div>
 
       <div className="mb-4 mt-4 grid w-full grid-cols-3 grid-rows-2 bg-white/60 text-yellow-900">
-        <div className="flex items-center justify-center bg-yellow-800 py-2 text-white max-xmd:bg-[#662909]">
+        <div className="flex items-center justify-center bg-yellow-800 py-2 text-white max-lg:bg-[#662909]">
           druk
         </div>
-        <div className="cell flex items-center justify-center bg-yellow-800 text-white max-xmd:bg-[#662909]">
+        <div className="cell flex items-center justify-center bg-yellow-800 text-white max-lg:bg-[#662909]">
           zicht
         </div>
-        <div className="cell flex items-center justify-center bg-yellow-800 text-white max-xmd:bg-[#662909]">
+        <div className="cell flex items-center justify-center bg-yellow-800 text-white max-lg:bg-[#662909]">
           Vocht
         </div>
         <div className="flex items-center justify-center border-b border-l border-yellow-800">
