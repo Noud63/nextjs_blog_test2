@@ -4,7 +4,7 @@ import Like from "@/models/like";
 import { getSessionUser } from "@/utils/getSessionUser";
 
 export const POST = async (request, { params }) => {
-  await connectDB();
+ 
 
   const { postId } = params;
   const session = await getSessionUser()
@@ -16,7 +16,7 @@ export const POST = async (request, { params }) => {
   const userId = session.user.id;
 
   try {
-
+ await connectDB();
     const liked = await Like.findOne({ postId, userId });
        if(liked){
              const deletedLike = await Like.findOneAndDelete({ postId, userId });

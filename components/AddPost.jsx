@@ -21,7 +21,7 @@ const AddPost = () => {
       setInView(!inView);
     }
     if(!session?.user){
-      router.push("/login")
+      router.push("/pages/login")
     }
   };
 

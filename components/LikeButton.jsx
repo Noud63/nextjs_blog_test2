@@ -23,7 +23,7 @@ const LikeButton = ({ postId , initialLikesCount }) => {
       });
 
       if(!res.ok){
-        alert("Login first!")
+        router.push("/pages/login")
       }
 
     } catch (error) {

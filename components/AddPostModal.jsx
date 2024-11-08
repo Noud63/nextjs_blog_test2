@@ -4,10 +4,8 @@ import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import PostComment from "./PostComment";
 import { FaLessThanEqual } from "react-icons/fa";
-import { CircleX } from "lucide-react";
-
+import { IoWarningOutline } from "react-icons/io5";
 const AddPostModal = ({ inView, setInView }) => {
-
 
   const [newFiles, setNewFiles] = useState({ images: [] });
   const [loading, setLoading] = useState(false);
@@ -143,16 +141,14 @@ const AddPostModal = ({ inView, setInView }) => {
             </div>
 
             {error && (
-              <div className="flex w-full flex-row items-center rounded-md bg-red-100 px-4 py-3 mb-4">
-                <CircleX size={20} color="darkred" className="mr-2" />
+              <div className="mb-4 flex w-full flex-row items-center rounded-md border border-red-700 bg-red-100 px-4 py-3">
+                <IoWarningOutline size={20} color="darkred" className="mr-2" />
                 <span className="text-red-800">
                   {" "}
                   Geen text of afbeelding geselecteerd!
                 </span>
               </div>
             )}
-
-           
 
             <button
               type="submit"

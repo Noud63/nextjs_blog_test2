@@ -13,6 +13,7 @@ const PostCommentForm = ({ post }) => {
 
   const [comment, setComment] = useState("");
   const [sendButton, setSendButton] = useState(false);
+  
 
   const textareaRef = useRef(null);
 
@@ -22,7 +23,7 @@ const PostCommentForm = ({ post }) => {
     e.preventDefault();
 
     if (!session?.user) {
-      router.push("/login");
+      router.push("/pages/login");
     }
 
     const data = {
@@ -51,8 +52,7 @@ const PostCommentForm = ({ post }) => {
     } finally {
       textareaRef.current.value = "";
     }
-router.refresh();
-  
+          router.refresh();
   };
 
   useEffect(() => {
@@ -63,15 +63,22 @@ router.refresh();
     }
   }, [comment]);
 
-  // Function to handle input change and adjust the height
+
+  // Function to handle input change
   const handleInputChange = (e) => {
-    setComment(e.target.value);
-  };
+      setComment(e.target.value);
+  }
+
+   const handleTextareaClick = () => {
+     if (!session) {
+       router.push("/pages/login");
+     }
+   };
+   
 
   // Adjust the textarea height whenever the comment changes
   useEffect(() => {
     const textarea = textareaRef.current;
-
     if (textarea) {
       textarea.style.height = "auto"; // Reset the height
       textarea.style.height = `${textarea.scrollHeight}px`; // Set it to the scroll height
@@ -88,6 +95,7 @@ router.refresh();
         placeholder="Schrijf een reactie"
         defaultValue={comment}
         onChange={handleInputChange}
+        onClick={handleTextareaClick}
       />
       <button
         type="submit"

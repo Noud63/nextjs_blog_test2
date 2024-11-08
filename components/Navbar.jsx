@@ -26,7 +26,7 @@ const Navbar = () => {
           <LoginRegisterLogout />
         </div>
 
-        <Link href="/weatherreport">
+        <Link href="/pages/weatherreport">
           <Weatherreport />
         </Link>
       </div>

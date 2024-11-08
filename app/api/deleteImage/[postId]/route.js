@@ -8,7 +8,7 @@ import { deleteImageFromCloudinary } from "@/utils/deleteImageFromCloudinary";
 export const DELETE = async (request, {params}) => {
      try {
 
-        connectDB()
+        await connectDB()
 
         const { postId } = params
 

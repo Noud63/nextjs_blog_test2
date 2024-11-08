@@ -6,7 +6,7 @@ const PostUserName = ({post}) => {
 
   return (
     <div className="flex flex-col justify-start text-lg font-semibold text-black ml-2">
-      <Link href={`/postsByUserId/${post.user._id}`}>
+      <Link href={`/pages/postsByUserId/${post.user._id}`}>
         <div>
           {post.username}
         </div>

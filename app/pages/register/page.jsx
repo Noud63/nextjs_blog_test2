@@ -165,7 +165,7 @@ const router = useRouter();
 
           <div className="w-full mt-4 flex items-center gap-1 font-medium">
             Heb je al een account? <ArrowRight size={16} />
-            <Link href="/login">Login</Link>
+            <Link href="/pages/login">Login</Link>
           </div>
         </form>
       </div>
