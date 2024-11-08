@@ -4,8 +4,6 @@ import Post from "@/models/post"
 import Comment from "@/models/comment";
 import { getSessionUser } from "@/utils/getSessionUser";
 
-export const dynamic = "force-dynamic";
-
 export const POST = async (request) => {
 
   try {
