@@ -7,7 +7,7 @@ try {
    if (!apiDomain) {
      return [];
    }
-   const res = await fetch(`${apiDomain}/posts`, { cache: "no-store" }); // server component fetch req needs the full url http://localhost:3000/api
+   const res = await fetch(`${apiDomain}/posts`); // server component fetch req needs the full url http://localhost:3000/api
 
    if (!res.ok) {
      throw new Error("Failed to fetch data!");
