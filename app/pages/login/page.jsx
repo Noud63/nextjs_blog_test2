@@ -50,7 +50,7 @@ const LoginPage = () => {
  };
 
   return (
-    <div className="mx-auto mt-4 w-full px-4">
+    <div className="mx-auto mt-4 w-full px-4 max-xsm:px-2">
       <div className="mx-auto w-full max-w-[650px] rounded-lg bg-white p-6 shadow-md">
         <div className="mb-4 flex justify-center border-b-2 border-dotted border-green-900 pb-4 text-xl font-bold">
           Log in

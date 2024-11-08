@@ -82,8 +82,8 @@ const AddPostModal = ({ inView, setInView }) => {
 
   return (
     inView && (
-      <div className="fixed left-0 right-0 top-0 z-[999] flex h-full w-full items-center justify-center bg-yellow-950/70">
-        <div className="postmodal mx-4 w-full max-w-[500px] rounded-lg bg-white p-4 shadow-md">
+      <div className="fixed bottom-0 left-0 right-0 top-0 z-[999] flex w-full items-center justify-center overflow-y-auto bg-yellow-950/70">
+        <div className="postmodal mx-4 w-full max-w-[500px] max-h-screen overflow-y-auto rounded-lg bg-white p-4 shadow-md max-xsm:mx-2 mt-4">
           <div className="flex w-full flex-row items-center justify-between border-b border-gray-300 pb-2">
             <div className="text-lg font-semibold">Schrijf een bericht</div>
             <div className="cursor-pointer" onClick={closeModal}>

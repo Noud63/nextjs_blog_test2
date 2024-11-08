@@ -54,13 +54,13 @@ const PostComment = ({ post, comments }) => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center gap-2">
-      <div className="w-full flex flex-col">
-        <div className="pb-4 mb-2 text-lg font-semibold text-gray-600 pl-4">
+    <div className="flex w-full flex-col items-center gap-2">
+      <div className="flex w-full flex-col">
+        <div className="mb-2 pb-4 pl-4 text-lg font-semibold text-gray-600">
           Reacties:
         </div>
         {sortedComments.map((com, index) => (
-          <div key={index} className="flex w-full h-auto gap-2 px-4">
+          <div key={index} className="flex h-auto w-full gap-2 px-4">
             <div>
               <Image
                 src={
@@ -69,30 +69,29 @@ const PostComment = ({ post, comments }) => {
                     : "/images/defaultAvatar2.png"
                 }
                 alt="icon"
-                width={0}
-                height={0}
-                sizes="100vw"
-                className="w-[48px] h-[45px] rounded-full"
+                width={45}
+                height={45}
+                className="h-auto w-[45px] rounded-full"
               />
             </div>
 
-            <div className="flex flex-col w-full mb-4">
-              <div className="bg-gray-100 flex flex-1 flex-col mb-1 p-2 rounded-xl">
-                <span className="text-sm text-gray-800 font-semibold">
+            <div className="mb-4 flex w-full flex-col">
+              <div className="mb-1 flex flex-1 flex-col rounded-xl bg-gray-100 p-2">
+                <span className="text-sm font-semibold text-gray-800">
                   {com.username}
                 </span>
                 <span>{com.comment}</span>
               </div>
 
-              <div className="text-[12px] text-gray-500 font-normal flex justify-between pr-4">
-                <span>
+              <div className="flex justify-between text-[12px] font-normal text-gray-500">
+                <span className="text-[11px] mt-[4px]">
                   Gepost: {`${new Date(com.createdAt).toLocaleDateString()}`}
                 </span>
-                <div className="flex flex-row gap-2">
+                <div className="flex flex-row items-center gap-2">
                   {com.userId._id === session?.user?.id && (
                     <button
                       type="button"
-                      className="text-gray-600 font-semibold text-[12px] cursor-pointer"
+                      className="flex cursor-pointer items-center font-semibold text-gray-600 pb-[1px]"
                       onClick={() => deleteComment(com._id)}
                     >
                       verwijder
@@ -100,7 +99,7 @@ const PostComment = ({ post, comments }) => {
                   )}
                   <button
                     type="button"
-                    className="text-gray-600 font-semibold text-[14px] cursor-pointer w-[80px] border border-gray-500 rounded-full flex justify-center"
+                    className="flex w-[80px] max-xsm:w-[70px] cursor-pointer justify-center rounded-full border border-gray-500 text-[14px] font-semibold text-gray-600"
                     onClick={() => toggleLike(com._id)}
                   >
                     Leuk {com.likesCount}
@@ -112,16 +111,15 @@ const PostComment = ({ post, comments }) => {
         ))}
       </div>
 
-      <div className="flex w-full gap-2 px-4 pb-4">
-        <div>
-          <Image
-            src={profilePic ? profilePic : "/images/defaultAvatar2.png"}
-            alt=""
-            width={45}
-            height={45}
-            className="rounded-full w-[45px] h-[45px]"
-          />
-        </div>
+      <div className="flex h-auto w-full gap-2 px-4 pb-4">
+        <Image
+          src={profilePic ? profilePic : "/images/defaultAvatar2.png"}
+          alt="avatar"
+          width={43}
+          height={43}
+          className="h-[43px] w-[43px] rounded-full object-cover"
+        />
+
         <PostCommentForm post={post} />
       </div>
     </div>
