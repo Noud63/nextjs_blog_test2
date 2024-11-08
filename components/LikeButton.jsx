@@ -29,7 +29,7 @@ const LikeButton = ({ postId , initialLikesCount }) => {
     } catch (error) {
       console.error('Error toggling like:', error);
     }
-    router.refresh()
+    router.refresh("/")
   };
 
 return (
