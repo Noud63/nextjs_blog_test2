@@ -60,8 +60,8 @@ const PostComment = ({ post, comments }) => {
           Reacties:
         </div>
         {sortedComments.map((com, index) => (
-          <div key={index} className="flex h-auto w-full gap-2 px-4">
-            <div>
+          <div key={index} className="flex h-auto w-full flex-row gap-2 px-4">
+            <div className="h-[45px] w-[50px] overflow-hidden rounded-full bg-gray-200">
               <Image
                 src={
                   com.userId?.avatar
@@ -70,8 +70,8 @@ const PostComment = ({ post, comments }) => {
                 }
                 alt="icon"
                 width={45}
-                height={45}
-                className="h-auto w-[45px] rounded-full"
+                height={0}
+                className="h-full w-full object-cover"
               />
             </div>
 
@@ -84,14 +84,14 @@ const PostComment = ({ post, comments }) => {
               </div>
 
               <div className="flex justify-between text-[12px] font-normal text-gray-500">
-                <span className="text-[11px] mt-[4px]">
+                <span className="mt-[4px] text-[11px]">
                   Gepost: {`${new Date(com.createdAt).toLocaleDateString()}`}
                 </span>
                 <div className="flex flex-row items-center gap-2">
                   {com.userId._id === session?.user?.id && (
                     <button
                       type="button"
-                      className="flex cursor-pointer items-center font-semibold text-gray-600 pb-[1px]"
+                      className="flex cursor-pointer items-center pb-[1px] font-semibold text-gray-600"
                       onClick={() => deleteComment(com._id)}
                     >
                       verwijder
@@ -99,7 +99,7 @@ const PostComment = ({ post, comments }) => {
                   )}
                   <button
                     type="button"
-                    className="flex w-[80px] max-xsm:w-[70px] cursor-pointer justify-center rounded-full border border-gray-500 text-[14px] font-semibold text-gray-600"
+                    className="flex w-[80px] cursor-pointer justify-center rounded-full border border-gray-500 text-[14px] font-semibold text-gray-600 max-xsm:w-[70px]"
                     onClick={() => toggleLike(com._id)}
                   >
                     Leuk {com.likesCount}
@@ -112,14 +112,15 @@ const PostComment = ({ post, comments }) => {
       </div>
 
       <div className="flex h-auto w-full gap-2 px-4 pb-4">
-        <Image
-          src={profilePic ? profilePic : "/images/defaultAvatar2.png"}
-          alt="avatar"
-          width={43}
-          height={43}
-          className="h-[43px] w-[43px] rounded-full object-cover"
-        />
-
+        <div className="h-[45px] w-[45px] overflow-hidden rounded-full bg-gray-200">
+          <Image
+            src={profilePic ? profilePic : "/images/defaultAvatar2.png"}
+            alt="avatar"
+            width={45}
+            height={45}
+            className="h-full w-full object-cover"
+          />
+        </div>
         <PostCommentForm post={post} />
       </div>
     </div>
