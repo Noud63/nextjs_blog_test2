@@ -7,7 +7,7 @@ try {
    if (!apiDomain) {
      return [];
    }
-   const res = await fetch(`${apiDomain}/posts`, { cache: "no-store" }); // server component fetch req needs the full url http://localhost:3000/api
+   const res = await fetch(`http://localhost:3000/api/posts`, { cache: "no-store" }); // server component fetch req needs the full url http://localhost:3000/api
 
    if (!res.ok) {
      throw new Error("Failed to fetch data!");
@@ -68,7 +68,7 @@ async function getSinglepostById(id) {
 
 async function getUserInfo(id) {
   try {
-    const res = await fetch(`/api/getuserinfo/${id}`);
+    const res = await fetch(`${apiDomain}/api/getuserinfo/${id}`);
     const data = await res.json();
     console.log("Data:", data);
     const { name, email, userName, avatar } = data;
