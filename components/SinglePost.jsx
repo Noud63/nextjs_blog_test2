@@ -28,7 +28,7 @@ const SinglePost = ({ post, comments }) => {
   
 
   return (
-    <div className="singlepost relative mx-6 mb-4 flex h-auto flex-col rounded-lg bg-white shadow-md max-sm:mx-4">
+    <div className="singlepost relative mx-6 mb-4 flex h-auto flex-col rounded-lg bg-white shadow-md max-sm:mx-4 max-xsm:mx-2">
       <Editordelete
         showOptions={showOptions}
         setShowOptions={setShowOptions}

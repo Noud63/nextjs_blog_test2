@@ -31,9 +31,9 @@ const WeatherreportPage = () => {
   date.setDate(date.getDate(date) + 1);
 
   return (
-    <div className="mx-auto mt-8 w-full text-white md:max-w-[650px]" >
-      <div className="mx-4 bg-[url('../public/images/cloud2.png')] bg-cover bg-center bg-no-repeat max-md:mx-6 max-sm:mx-4">
-        <div className="flex justify-between text-2xl font-semibold">
+    <div className="mx-auto mt-8 w-full text-white md:max-w-[650px]">
+      <div className="mx-4 bg-[url('../public/images/cloud2.png')] bg-cover bg-center bg-no-repeat max-md:mx-6 max-sm:mx-4 max-xsm:mx-2">
+        <div className="flex justify-between text-2xl font-semibold max-xsm:text-xl">
           <span>Het weer actueel:</span>
           <span className="flex items-end text-sm font-normal">{today}</span>
         </div>
@@ -41,9 +41,9 @@ const WeatherreportPage = () => {
         <WeerVandaag data={d} />
       </div>
 
-      <div className="mx-4 mt-8 bg-[url('../public/images/cloud.png')] bg-center bg-no-repeat">
-        <div className="flex justify-between text-2xl font-semibold">
-          <span>Verwachting voor morgen:</span>
+      <div className="mx-4 mt-8 bg-[url('../public/images/cloud.png')] bg-center bg-no-repeat max-xsm:mx-2">
+        <div className="flex justify-between text-2xl font-semibold max-xsm:text-xl">
+          <span>Het weer voor morgen:</span>
           <span className="flex items-end text-sm font-normal">
             {date.toLocaleDateString("nl-NL")}
           </span>

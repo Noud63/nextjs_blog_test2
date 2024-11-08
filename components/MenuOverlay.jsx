@@ -10,7 +10,7 @@ const MenuOverlay = ({ setOpenModal, openModal }) => {
 
   return (
     <div
-      className={`${openModal ? "translate-x-0" : "translate-x-full"} absolute bottom-0 right-0 top-0 z-[999] flex h-full w-full flex-col items-center justify-start 
+      className={`${openModal ? "translate-x-0" : "translate-x-full"} fixed bottom-0 right-0 top-0 z-[999] flex h-full w-full flex-col items-center justify-start 
       bg-gradient-to-r from-yellow-900/60 via-yellow-700/60 to-yellow-900/60 p-4 backdrop-blur-lg transition duration-300 ease-in`}
       onClick={closeModal}
     >

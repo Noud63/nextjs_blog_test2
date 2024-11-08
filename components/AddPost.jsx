@@ -26,7 +26,7 @@ const AddPost = () => {
   };
 
 return (
-  <div className="mx-6 mt-4 max-sm:mx-4">
+  <div className="mx-6 mt-4 max-sm:mx-4 max-xsm:mx-2">
     <section className="singlepost mx-auto flex w-full max-w-[620px] justify-between rounded-lg bg-white px-4 py-4">
       <div className="flex w-full flex-row items-center gap-4">
         <Image
@@ -42,7 +42,7 @@ return (
           onClick={showAddPostModal}
         >
           {session?.user
-            ? `Wat wil je met ons delen, ${name}?`
+            ? `Schrijf hier iets, ${name}?`
             : "wat wil je met ons delen?"}
         </button>
       </div>

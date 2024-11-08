@@ -10,8 +10,7 @@ const LoginRegisterLogout = () => {
 const { data: session, status } = useSession();
 
   return (
-    <div className="flex w-full flex-row items-center justify-end max-sm:justify-between gap-4 text-white max-sm:mx-4 max-sm:mt-4">
-
+    <div className="flex w-full flex-row items-center justify-end gap-4 text-white max-sm:mx-4 max-sm:mt-4 max-sm:justify-between max-xsm:mx-2">
       <Hamburger />
 
       <div className="flex flex-row gap-4">
@@ -36,7 +35,7 @@ const { data: session, status } = useSession();
 
           {session?.user && (
             <button
-              className="mr-4"
+              className="mr-4 max-xsm:mr-2"
               onClick={() => {
                 signOut({ callbackUrl: "/", redirect: true });
               }}
