@@ -47,8 +47,8 @@ async function getPostsByUserId(userId) {
 async function getSinglepostById(id) {
   try {
     if (!apiDomain) {
-      return [];
-    }
+     return [];
+   }
     const res = await fetch(`${apiDomain}/singlePostById/${id}`, {
       cache: "no-store",
     });

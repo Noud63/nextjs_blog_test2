@@ -9,7 +9,7 @@ const Menu = () => {
       <div className="grid grid-cols-3 gap-2 max-sm:hidden xl:grid-cols-6">
         {items &&
           items.map((item, index) => (
-            <div key={index}>
+            <div  key={index}>
               <div className="flex h-12 w-full cursor-pointer items-center justify-center rounded-lg border-2 text-white max-sm:h-10">
                 {item.title}
               </div>
