@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
 import Link from 'next/link';
 import Hamburger from './Hamburger';
+import Weatherreport from './Weatherreport';
 
 const LoginRegisterLogout = () => {
 
@@ -35,7 +36,7 @@ const { data: session, status } = useSession();
 
           {session?.user && (
             <button
-              className="mr-4 max-xsm:mr-2"
+              className="mr-4 max-sm:mr-2"
               onClick={() => {
                 signOut({ callbackUrl: "/", redirect: true });
               }}
@@ -44,6 +45,9 @@ const { data: session, status } = useSession();
             </button>
           )}
         </div>
+      </div>
+      <div className="xsm:hidden">
+        <Weatherreport />
       </div>
     </div>
   );

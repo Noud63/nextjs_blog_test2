@@ -44,7 +44,7 @@ return (
           onClick={showAddPostModal}
         >
           {session?.user
-            ? `Schrijf hier iets, ${name}?`
+            ? `Schrijf hier iets, ${name}!`
             : "wat wil je met ons delen?"}
         </button>
       </div>

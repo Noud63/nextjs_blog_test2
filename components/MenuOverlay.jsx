@@ -20,9 +20,11 @@ const MenuOverlay = ({ setOpenModal, openModal }) => {
         {items &&
           items.map((item, index) => (
             <div key={index}>
-              <div className="flex h-12 w-full cursor-pointer items-center justify-center rounded-lg border-[3px] border-yellow-900 font-semibold tracking-wide text-yellow-900 shadow-lg">
-                {item.title}
-              </div>
+              <Link href={item?.href || "/not-found"}>
+                <div className="flex h-12 w-full cursor-pointer items-center justify-center rounded-lg border-[3px] border-yellow-900 font-semibold tracking-wide text-yellow-900 shadow-lg">
+                  {item.title}
+                </div>
+              </Link>
             </div>
           ))}
       </div>

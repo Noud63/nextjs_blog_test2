@@ -26,7 +26,7 @@ const Navbar = () => {
           <LoginRegisterLogout />
         </div>
 
-        <Link href="/pages/weatherreport">
+        <Link href="/pages/weatherreport" className="max-xsm:hidden">
           <Weatherreport />
         </Link>
       </div>
