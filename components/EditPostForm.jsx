@@ -115,8 +115,8 @@ const EditPostForm = ({ setShowEditForm, post }) => {
   }, [postContent]);
 
   return (
-    <div className="fixed left-0 right-0 top-0 z-[999] flex h-full w-full items-center justify-center bg-yellow-950/70">
-      <div className="postmodal mx-4 h-auto w-full max-w-[500px] rounded-lg bg-white px-4">
+    <div className="fixed bottom-0 left-0 right-0 top-0 z-[999] flex w-full items-center justify-center overflow-y-auto bg-yellow-950/70">
+      <div className="mx-4 mt-4 max-h-screen w-full max-w-[500px] overflow-y-auto rounded-lg bg-white p-4 shadow-md max-xsm:mx-2">
         <div className="flex items-center justify-between border-b border-black py-4">
           <span className="text-xl font-semibold">Bewerk:</span>
           <div
@@ -139,17 +139,18 @@ const EditPostForm = ({ setShowEditForm, post }) => {
             />
           </div>
 
-          <div className="relative mt-2 h-full min-h-[250px] rounded-lg border border-gray-300">
-            {post?.images[0] && (
-              <Image
-                src={post.images[0]}
-                width={500}
-                height={300}
-                alt=""
-                sizes="100vw"
-                className="rounded-lg opacity-50"
-              />
-            )}
+          <div className="relative mt-2 h-auto rounded-lg border border-gray-300">
+            <div className="h-full w-full overflow-hidden  bg-gray-200">
+              {post?.images[0] && (
+                <Image
+                  src={post.images[0]}
+                  width={100}
+                  height={0}
+                  alt=""
+                  className="h-full w-full object-cover opacity-50"
+                />
+              )}
+            </div>
 
             {post?.images[0] ? (
               <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 transform flex-row gap-2 p-4 text-center">
@@ -235,7 +236,6 @@ const EditPostForm = ({ setShowEditForm, post }) => {
               Update
             </button>
           </div>
-          
         </form>
       </div>
     </div>
