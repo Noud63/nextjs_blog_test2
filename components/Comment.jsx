@@ -77,7 +77,7 @@ const Comment = ({ com }) => {
         </div>
 
         <div className="flex justify-between pr-2 text-[11px] font-normal text-gray-500">
-          <span className="pt-[6px] pl-2">
+          <span className="pt-[5px] pl-2">
             {`${new Date(com.createdAt).toLocaleDateString()}`}
           </span>
           <div className="flex flex-row gap-2">
