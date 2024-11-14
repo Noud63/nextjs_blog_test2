@@ -46,9 +46,9 @@ const { data: session, status } = useSession();
           )}
         </div>
       </div>
-      <div className="xsm:hidden">
+        <Link href="/pages/weatherreport"  className="xsm:hidden">
         <Weatherreport />
-      </div>
+      </Link>
     </div>
   );
 }
