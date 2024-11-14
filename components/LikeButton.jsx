@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { FaThumbsUp } from "react-icons/fa";
 import { useSession } from "next-auth/react";
@@ -8,6 +8,8 @@ import { useRouter } from "next/navigation";
 const LikeButton = ({ postId , initialLikesCount }) => {
 
   const { data: session} = useSession()
+
+  const [likesCount, setLikesCount] = useState(initialLikesCount);
 
   const router = useRouter()
 
@@ -22,8 +24,12 @@ const LikeButton = ({ postId , initialLikesCount }) => {
         body: JSON.stringify({postId})
       });
 
-      if(!res.ok){
-        router.push("/pages/login")
+      const data = await res.json()
+
+      if (data.message === "inc") {
+        setLikesCount((prevCount) => prevCount + 1);
+      } else {
+        setLikesCount((prevCount) => prevCount - 1);
       }
 
     } catch (error) {
@@ -44,7 +50,7 @@ return (
       />
     </button>
     <div className="flex items-center justify-center w-[28px] h-[28px] rounded-full bg-red-800 text-white text-sm font-semibold">
-      {initialLikesCount}
+      {likesCount}
     </div>
   </div>
 );

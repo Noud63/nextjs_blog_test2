@@ -9,7 +9,7 @@ export const items = [
   { id: 8, title: "Westergas"},
   { id: 9, title: "Buurt"},
   { id: 10, title: "Kunst"},
-  { id: 11, title: "Weer"},
+  { id: 11, title: "Weer", href: "/pages/weatherreport"},
   { id: 12, title: "Contact"}
 ]
 

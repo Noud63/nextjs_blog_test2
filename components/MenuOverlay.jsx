@@ -10,18 +10,17 @@ const MenuOverlay = ({ setOpenModal, openModal }) => {
 
   return (
     <div
-      className={`${openModal ? "translate-x-0" : "translate-x-full"} fixed bottom-0 right-0 top-0 z-[999] flex h-full w-full flex-col items-center justify-start 
-      bg-gradient-to-r from-yellow-900/60 via-yellow-700/60 to-yellow-900/60 p-4 backdrop-blur-lg transition duration-300 ease-in`}
+      className={`${openModal ? "translate-x-0" : "translate-x-full"} fixed bottom-0 right-0 top-0 z-[999] flex h-full max-h-screen w-full max-w-[500px] flex-col items-center justify-start overflow-y-auto bg-gradient-to-r from-white/60 via-white/40 to-white/60 p-4 backdrop-blur-lg transition duration-300 ease-in`}
       onClick={closeModal}
     >
       <div className="my-8 cursor-pointer" onClick={closeModal}>
-        <IoMdCloseCircleOutline size={35} color="white" />
+        <IoMdCloseCircleOutline size={35} color="#713f12" />
       </div>
-      <div className="grid w-full grid-cols-2 gap-2 border-2 rounded-xl p-2">
+      <div className="grid w-full grid-cols-2 gap-2 rounded-xl">
         {items &&
           items.map((item, index) => (
             <div key={index}>
-              <div className="shadow-lg flex h-12 w-full cursor-pointer items-center justify-center rounded-lg border-2 border-white font-normal text-white">
+              <div className="flex h-12 w-full cursor-pointer items-center justify-center rounded-lg border-[3px] border-yellow-900 font-semibold tracking-wide text-yellow-900 shadow-lg">
                 {item.title}
               </div>
             </div>

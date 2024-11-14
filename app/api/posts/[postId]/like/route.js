@@ -16,21 +16,25 @@ export const POST = async (request, { params }) => {
   const userId = session.user.id;
 
   try {
- await connectDB();
+//  await connectDB();
     const liked = await Like.findOne({ postId, userId });
-       if(liked){
-             const deletedLike = await Like.findOneAndDelete({ postId, userId });
-       if(deletedLike){
-           await Post.findByIdAndUpdate(postId, { $inc: { likesCount: -1 } });
+       if (liked) {
+         // If already liked, remove the like
+         await Like.findOneAndDelete({ postId, userId });
+         await Post.findByIdAndUpdate(postId, { $inc: { likesCount: -1 } });
+         return new Response(JSON.stringify({ message: "dec" }), { status: 200});
+       } else {
+         // If not liked, create a new like
+         await Like.create({ userId, postId });
+         await Post.findByIdAndUpdate(postId, { $inc: { likesCount: 1 } });
+         return new Response(
+           JSON.stringify({ message: "inc" }), { status: 200 });
        }
-      }
-
-     if(!liked){
-            const like = await Like.create({ userId, postId });
-            await Post.findByIdAndUpdate(postId, { $inc: { likesCount: 1 } });
-     }
-    return new Response(JSON.stringify(liked), { status: 201 });
   } catch (error) {
     return new Response({message:error.message}, { status: 500 });
   }
 };
+
+
+
+
