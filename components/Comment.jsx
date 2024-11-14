@@ -53,8 +53,8 @@ const Comment = ({ com }) => {
   };
 
   return (
-    <div className="flex h-auto w-full gap-2 px-4">
-      <div>
+    <div className="flex h-auto w-full gap-2 px-4 max-xxsm:px-2">
+      <div className="flex overflow-hidden rounded-full w-[45px] h-[45px] max-xxsm:w-[40px] max-xxsm:h-[40px]">
         <Image
           src={
             com.userId?.avatar
@@ -62,14 +62,13 @@ const Comment = ({ com }) => {
               : "/images/defaultAvatar2.png"
           }
           alt="icon"
-          width={0}
-          height={0}
-          sizes="100vw"
-          className="h-[45px] w-[48px] rounded-full"
+          width={45}
+          height={45}
+          className="h-full w-full object-cover"
         />
       </div>
 
-      <div className="mb-4 flex w-full flex-col">
+      <div className="mb-4 flex flex-1 w-full flex-col">
         <div className="mb-1 flex flex-1 flex-col rounded-xl bg-gray-100 p-2">
           <span className="text-sm font-semibold text-gray-800">
             {com.username}

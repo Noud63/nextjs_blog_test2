@@ -36,16 +36,17 @@ const SinglePost = ({ post, comments }) => {
         post={post}
       />
 
-      <div className="flex w-full items-center justify-between border-b border-gray-400 p-4 pb-2">
-        <div className="flex flex-row">
-          <Image
-            src={profilePic ? profilePic : "/images/defaultAvatar.png"}
-            alt="icon"
-            width={0}
-            height={0}
-            sizes="100vw"
-            className="mt-2 h-[45px] w-[45px] rounded-full"
-          />
+      <div className="flex w-full items-center justify-between border-b border-gray-400 p-4 pb-2 max-xxsm:pl-2">
+        <div className="flex flex-1">
+          <div className="flex h-[45px] w-[45px] flex-row max-xxsm:h-[40px] max-xxsm:w-[40px] overflow-hidden">
+            <Image
+              src={profilePic ? profilePic : "/images/defaultAvatar.png"}
+              alt="icon"
+              width={45}
+              height={45}
+              className="h-full w-full rounded-full object-cover"
+            />
+          </div>
           <PostUserName post={post} />
         </div>
 

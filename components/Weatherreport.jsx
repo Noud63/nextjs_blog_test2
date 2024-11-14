@@ -16,7 +16,7 @@ const Weatherreport = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="relative flex w-[100px] flex-col items-center pr-4 max-xsm:pr-2 max-xsm:items-end max-xsm:w-[50px]">
+      <div className="relative flex flex-col items-center pr-4 max-xsm:items-end mr-8 max-sm:mr-0 max-sm:pr-0">
         <div
           className={
             weather.temp === undefined

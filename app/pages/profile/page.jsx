@@ -70,7 +70,7 @@ const ProfilePage = () => {
 
   return (
     <div className="mt-[20] flex w-full justify-center">
-      <div className="singlepost mx-4 w-full max-w-[650px] rounded-lg bg-white p-4 text-black">
+      <div className="singlepost mx-6 w-full max-w-[650px] rounded-lg bg-white p-4 text-black max-sm:mx-4 max-xsm:mx-2">
         <div className="mb-4 w-full border-b border-gray-400 py-2 text-xl font-semibold">
           Jouw Profiel:
         </div>

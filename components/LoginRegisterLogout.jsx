@@ -11,7 +11,7 @@ const LoginRegisterLogout = () => {
 const { data: session, status } = useSession();
 
   return (
-    <div className="flex w-full flex-row items-center justify-end gap-4 text-white max-sm:mx-4 max-sm:mt-4 max-sm:justify-between max-xsm:mx-2">
+    <div className="flex w-full flex-row items-center justify-end gap-4 text-white max-sm:mx-4 max-sm:mt-4 max-sm:justify-between">
       <Hamburger />
 
       <div className="flex flex-row gap-4">
