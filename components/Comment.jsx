@@ -68,7 +68,7 @@ const Comment = ({ com }) => {
         />
       </div>
 
-      <div className="mb-4 flex flex-1 w-full flex-col">
+      <div className="mb-5 flex flex-1 w-full flex-col">
         <div className="mb-1 flex flex-1 flex-col rounded-xl bg-gray-100 p-2">
           <span className="text-sm font-semibold text-gray-800">
             {com.username}
@@ -76,9 +76,9 @@ const Comment = ({ com }) => {
           <span>{com.comment}</span>
         </div>
 
-        <div className="flex justify-between pr-4 text-[12px] font-normal text-gray-500">
-          <span>
-            Gepost: {`${new Date(com.createdAt).toLocaleDateString()}`}
+        <div className="flex justify-between pr-2 text-[11px] font-normal text-gray-500">
+          <span className="pt-[6px] pl-2">
+            {`${new Date(com.createdAt).toLocaleDateString()}`}
           </span>
           <div className="flex flex-row gap-2">
             {com.userId._id === session?.user?.id && (
