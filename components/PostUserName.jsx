@@ -11,7 +11,7 @@ const PostUserName = ({post}) => {
           {post.username}
         </div>
       </Link>
-      <span className="border w-full flex text-sm font-normal text-gray-500">
+      <span className="w-full flex text-sm font-normal text-gray-500">
         Gepost op: {`${new Date(post.createdAt).toLocaleDateString()}`}
       </span>
     </div>
