@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { IoWarningOutline } from "react-icons/io5";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import Link from "next/link";
 
 const ProfilePage = () => {
   const { data: session, update } = useSession();
@@ -69,8 +70,8 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="mt-[20] flex w-full justify-center">
-      <div className="singlepost mx-6 w-full max-w-[650px] rounded-lg bg-white p-4 text-black max-sm:mx-4 max-xsm:mx-2">
+    <div className="mt-10 flex w-full justify-center">
+      <div className="singlepost mx-6 w-full max-w-[620px] rounded-lg bg-white p-4 text-black max-sm:mx-4 max-xsm:mx-2">
         <div className="mb-4 w-full border-b border-gray-400 py-2 text-xl font-semibold">
           Jouw Profiel:
         </div>
@@ -102,7 +103,7 @@ const ProfilePage = () => {
               />
 
               {avatar && (
-                <div className="flex w-full flex-row items-center py-1 mt-2">
+                <div className="mt-2 flex w-full flex-row items-center py-1">
                   {avatar.name}
                   <IoMdCloseCircleOutline
                     size={20}
@@ -127,13 +128,21 @@ const ProfilePage = () => {
                 </div>
               )}
 
-              <div className="mt-4 w-full rounded-lg border border-red-800 bg-gradient-to-r from-yellow-900 via-yellow-700 to-yellow-900 p-1">
+              <div className="mt-4 flex w-full flex-row gap-1 rounded-lg border border-red-800 bg-gradient-to-r from-yellow-900 via-yellow-700 to-yellow-900 p-1">
                 <button
                   type="submit"
-                  className="w-full rounded-lg py-2 font-semibold text-white"
+                  className="w-full rounded-md border-2 py-2 font-semibold text-white"
                 >
                   {loading ? "...even geduld" : "Verstuur"}
                 </button>
+                <Link href="/" className="w-full">
+                  <button
+                    type="submit"
+                    className="w-full rounded-md border-2 bg-white py-2 font-semibold text-yellow-800"
+                  >
+                    Terug
+                  </button>
+                </Link>
               </div>
             </form>
           </div>
