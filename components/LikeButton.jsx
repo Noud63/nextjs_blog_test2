@@ -40,16 +40,16 @@ const LikeButton = ({ postId , initialLikesCount }) => {
 
 return (
   <div className="flex">
-    <button type="button">
+    <button type="button" disabled={!session}>
       <FaThumbsUp
         color="gray"
         size={20}
         disabled={!session?.user ? true : false}
-        className="cursor-pointer mr-2"
+        className="mr-2 cursor-pointer"
         onClick={toggleLike}
       />
     </button>
-    <div className="flex items-center justify-center w-[28px] h-[28px] rounded-full bg-red-800 text-white text-sm font-semibold">
+    <div className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-red-800 text-sm font-semibold text-white">
       {likesCount}
     </div>
   </div>
