@@ -131,14 +131,14 @@ const ProfilePage = () => {
               <div className="mt-4 flex w-full flex-row gap-1 rounded-lg border border-red-800 bg-gradient-to-r from-yellow-900 via-yellow-700 to-yellow-900 p-1">
                 <button
                   type="submit"
-                  className="w-full rounded-md border-2 py-2 font-semibold text-white"
+                  className="w-full rounded-md border-2 py-2 tracking-wider text-white"
                 >
                   {loading ? "...even geduld" : "Verstuur"}
                 </button>
                 <Link href="/" className="w-full">
                   <button
                     type="submit"
-                    className="w-full rounded-md border-2 bg-white py-2 font-semibold text-yellow-800"
+                    className="w-full rounded-md border-2 py-2 tracking-wider text-white"
                   >
                     Terug
                   </button>

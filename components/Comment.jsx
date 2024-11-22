@@ -13,6 +13,7 @@ const Comment = ({ com }) => {
   const router = useRouter();
 
   const toggleLike = async (commentId) => {
+
     try {
       const res = await fetch(`/api/comments/${commentId}/like`, {
         method: "POST",
@@ -94,6 +95,7 @@ const Comment = ({ com }) => {
               type="button"
               className="flex w-[80px] cursor-pointer justify-center rounded-full border border-gray-500 text-[14px] font-semibold text-gray-600"
               onClick={() => toggleLike(com._id)}
+              disabled={!session}
             >
               Leuk {likesCount}
             </button>

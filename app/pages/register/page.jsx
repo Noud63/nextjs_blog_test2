@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SendHorizontal } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 import { CircleX } from "lucide-react";
@@ -18,6 +18,18 @@ const [success, setSuccess] = useState(false);
 const [message, setMessage] = useState("");
 
 const router = useRouter();
+
+const validateEmailClientSide = (email) => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+useEffect(() => {
+if(email != "" && !validateEmailClientSide(email)){
+  alert("Not a valid email address!")
+  setEmail("")
+}
+},[])
 
 
  const handleSubmit = async (e) => {

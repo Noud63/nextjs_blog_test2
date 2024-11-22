@@ -96,6 +96,7 @@ const PostCommentForm = ({ post }) => {
         defaultValue={comment}
         onChange={handleInputChange}
         onClick={handleTextareaClick}
+        disabled={!user}
       />
       <button
         type="submit"

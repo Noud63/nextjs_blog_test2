@@ -9,9 +9,17 @@ const LeesDitEerstPage = () => {
           <span>Regels voor online posten</span>
         </div>
         <div className="mb-4 text-white">
-          U kunt uw meningen, kritische geluiden, afbeeldingen en opmerkingen via dit platform
-          met ons delen. Om dit voor iedereen prettig te houden, vragen we u
-          vriendelijk om u aan de volgende huisregels te houden:
+          <div className="mb-4">
+            Om een bericht te posten dient u zich eerst te registreren en
+            vervolgens in te loggen met uw email en gebruikersnaam. Door op uw
+            naam te klikken gaat u naar uw profielpagina en kunt u, desgewenst
+            een profielafbeelding toevoegen.
+            <br />
+          </div>
+          U kunt uw meningen, kritische geluiden, afbeeldingen en opmerkingen
+          via dit platform met ons delen. Om dit voor iedereen prettig te
+          houden, vragen we u vriendelijk om u aan de volgende huisregels te
+          houden:
         </div>
         <div className="px-4 text-white">
           <ul className="list-disc">
@@ -34,8 +42,14 @@ const LeesDitEerstPage = () => {
           </ul>
         </div>
 
-        <div className="flex justify-center my-8">
-          <Image src={"/icons/respect.png"} alt="respect" width={60} height={60} />
+        <div className="my-12 flex justify-center items-center flex-col text-white">
+          <Image
+            src={"/icons/respect.png"}
+            alt="respect"
+            width={60}
+            height={60}
+          />
+          respect
         </div>
       </div>
     </div>
