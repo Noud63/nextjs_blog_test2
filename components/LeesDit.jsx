@@ -19,7 +19,9 @@ const LeesDit = () => {
             className="h-[15px] w-[35px] max-xxsm:hidden"
           />
           <div className="border-b border-white">
-            <div>Lees eerst even dit!</div>
+            <Link href="/pages/leesditeerst">
+              <div>Lees eerst even dit!</div>
+            </Link>
           </div>
         </div>
       </div>
