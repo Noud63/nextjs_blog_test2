@@ -8,73 +8,68 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const RegisterPage = () => {
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [message, setMessage] = useState("");
 
-const [name, setName] = useState("");
-const [username, setUsername] = useState("");
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
-const [error, setError] = useState(false);
-const [success, setSuccess] = useState(false);
-const [message, setMessage] = useState("");
+  const router = useRouter();
 
-const router = useRouter();
+  const validateEmailClientSide = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(email);
+  };
 
-const validateEmailClientSide = (email) => {
-  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(email);
-}
+  useEffect(() => {
+    if (email != "" && !validateEmailClientSide(email)) {
+      alert("Not a valid email address!");
+      setEmail("");
+    }
+  }, []);
 
-useEffect(() => {
-if(email != "" && !validateEmailClientSide(email)){
-  alert("Not a valid email address!")
-  setEmail("")
-}
-},[])
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
+    const data = {
+      name,
+      username,
+      email,
+      password,
+    };
 
- const handleSubmit = async (e) => {
-   e.preventDefault();
+    console.log(data);
 
-   const data = {
-     name,
-     username,
-     email,
-     password,
-   };
+    try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-   try {
-     const res = await fetch("/api/register", {
-       method: "POST",
-       headers: {
-         "Content-Type": "application/json",
-       },
-       body: JSON.stringify(data),
-     });
-
-     if (res.status === 200) {
-       setSuccess(true);
-       setTimeout(() => {
-         setSuccess(false);
-         router.push("/login");
-       }, 5000);
-     } else if (res.status === 409 || res.status === 400) {
-       const dataObj = await res.json();
-       console.log(dataObj.message);
-       setMessage(dataObj.message);
-       setError(true);
-       setTimeout(() => {
-         setError(false);
-       }, 5000);
-     }
-   } catch (error) {
-     console.log(error);
-   } finally {
-     setName("");
-     setUsername("");
-     setEmail("");
-     setPassword("");
-   }
- };
+      if (res.status === 200) {
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+          router.push("/pages/login");
+        }, 5000);
+      } else if (res.status === 409 || res.status === 400 || res.status === 550) {
+        const dataObj = await res.json();
+        console.log(dataObj.message);
+        setMessage(dataObj.message);
+        setError(true);
+        setTimeout(() => {
+          setError(false);
+        }, 5000);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="mx-auto mt-4 w-full px-4 max-xsm:px-2">
@@ -135,6 +130,7 @@ if(email != "" && !validateEmailClientSide(email)){
               id="password"
               type="password"
               placeholder="Enter password"
+              required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
