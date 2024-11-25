@@ -9,11 +9,9 @@ export const POST = async (request, res) => {
 
     const { name, email, username, password } = await request.json();
 
-    console.log(username)
-
     // Validate email using EmailValidation client
     const client = new Emailvalidation(
-      process.env.NEXT_PUBLIC_EMAIL_VALIDATION_API_KEY,
+      process.env.EMAIL_VALIDATION_API_KEY,
     );
     const emailResponse = await client.info(email, { catch_all: 0 });
 
@@ -30,13 +28,13 @@ export const POST = async (request, res) => {
     console.log("Remaining:", status.quotas.month.remaining);
 
    
-      const user = await User.findOne({ email});
+      const user = await User.findOne({email});
       const userName = await User.findOne({username});
       
 
       if (user) {
         return new Response(
-          JSON.stringify({ message: "Email already exist!" }),
+          JSON.stringify({ message: "User already exist!" }),
           {
             status: 409,
           },
