@@ -6,7 +6,7 @@ const PraktischPage = () => {
       <div className="flex justify-center border-b-2 pb-2 text-2xl font-semibold tracking-wide">
         <span>Praktische informatie</span>
       </div>
-      <div className="">
+      <div className="border-b-2 pb-4">
         <ul className="list-disc gap-2 px-5 pt-4 text-lg">
           <li>Ophalen grofvuil</li>
           <li>Afvalcontainers</li>
