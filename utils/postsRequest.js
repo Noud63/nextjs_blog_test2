@@ -80,4 +80,37 @@ async function getUserInfo(id) {
   }
 };
 
-export { fetchPosts, getPostsByUserId, getSinglepostById, getUserInfo };
+// async function fetchDataAmsterdam() {
+//   try {
+    
+//     const res = await fetch(
+//       "https://api.data.amsterdam.nl/v1/afvalwijzer/afvalwijzer/?straatnaam=Van+Boetzelaerstraat&huisnummer=4&huisletter=B",
+//       {
+//         headers: {
+//           "Content-Type": "application/json",
+//           "X-Api-Key": process.env.AMSTERDAM_DATA_API_KEY,
+//         },
+//       },
+//     ); 
+
+//     if (!res.ok) {
+//       throw new Error("Failed to fetch data!");
+//     }
+
+//     const data = await res.json();
+
+//     console.log("Data!:", JSON.stringify(data, null, 2))
+
+//     return data;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+export {
+  fetchPosts,
+  getPostsByUserId,
+  getSinglepostById,
+  getUserInfo,
+  // fetchDataAmsterdam,
+};

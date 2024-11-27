@@ -19,7 +19,7 @@ export const POST = async (request, res) => {
     if (emailResponse.state === "undeliverable") {
       return new Response(
         JSON.stringify({
-          message: "Email address doesn't exist or unable to receive mail!",
+          message: "Email address doesn't exist!",
         }),
         { status: 550 },
       );
