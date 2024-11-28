@@ -28,7 +28,7 @@ const RegisterPage = () => {
       alert("Not a valid email address!");
       setEmail("");
     }
-  }, []);
+  }, [email]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -4,7 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import WatWeOphalen from './WatWeOphalen';
 import WatWeNietOphalen from './WatWeNietOphalen';
 
-const grofvuil = () => {
+const Grofvuil = () => {
 
   const [dropDown, setDropDown] = useState(false)
   const [dropDown1, setDropDown2] = useState(false)
@@ -134,4 +134,4 @@ const grofvuil = () => {
   );
 }
 
-export default grofvuil
+export default Grofvuil
