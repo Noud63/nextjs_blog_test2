@@ -2,6 +2,7 @@
 import React from 'react'
 import WatWeOphalen from './WatWeOphalen';
 import WatWeNietOphalen from './WatWeNietOphalen';
+import Image from 'next/image';
 
 const Grofvuil = () => {
 
@@ -96,6 +97,15 @@ const Grofvuil = () => {
             Verkoop ze of breng ze naar een kringloop- of weggeefwinkel.
           </p>
         </div>
+      </div>
+      <div className="mx-auto mt-20 flex h-[50px] w-[50px] justify-center">
+        <Image
+          src={"/icons/recycle.png"}
+          alt="recycle"
+          width={100}
+          height={0}
+          className="h-full w-full object-cover"
+        />
       </div>
     </div>
   );

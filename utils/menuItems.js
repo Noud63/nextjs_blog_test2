@@ -5,7 +5,7 @@ export const items = [
   { id: 4, title: "Demografie", href: "/pages/menu/demografie" },
   { id: 5, title: "Beeld", href: "/pages/menu/beeld" },
   { id: 6, title: "Over", href: "/" },
-  { id: 7, title: "Praktisch", href: "/pages/menu/praktisch" },
+  { id: 7, title: "Praktisch", href: "/pages/menu/praktisch/grofvuil" },
   { id: 8, title: "Westergas", href: "/pages/menu/westergas" },
   { id: 9, title: "Buurt", href: "/pages/menu/buurt" },
   { id: 10, title: "Kunst", href: "/pages/menu/kunst" },
