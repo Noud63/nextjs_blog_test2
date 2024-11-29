@@ -1,21 +1,9 @@
-"use client"
-import React, {useState} from 'react'
-import { IoIosArrowDown } from "react-icons/io";
+
+import React from 'react'
 import WatWeOphalen from './WatWeOphalen';
 import WatWeNietOphalen from './WatWeNietOphalen';
 
 const Grofvuil = () => {
-
-  const [dropDown, setDropDown] = useState(false)
-  const [dropDown1, setDropDown2] = useState(false)
-
-  const showListToggle1 = () => {
-        setDropDown(!dropDown)
-  }
-
-  const showListToggle2 = () => {
-    setDropDown2(!dropDown1);
-  };
 
   return (
     <div>
@@ -68,31 +56,12 @@ const Grofvuil = () => {
           <span className="font-bold">Grofvuil:</span>{" "}
           <span>laten ophalen</span>
         </div>
-        <div className="flex flex-col">
-          <div className="relative w-full">
-            <button
-              type="button"
-              className="mt-4 flex w-full items-center justify-between rounded-md bg-yellow-700 px-4 py-2 shadow-lg"
-              onClick={showListToggle1}
-            >
-              <span>- Wat we ophalen</span>
-              <IoIosArrowDown color="white" size={32} />
-            </button>
-            <WatWeOphalen dropDown={dropDown} />
-          </div>
-
-          <div className="w-full">
-            <button
-              className="mt-4 flex w-full items-center justify-between rounded-md bg-yellow-700 px-4 py-2 shadow-lg"
-              onClick={showListToggle2}
-            >
-              <span>- Wat we niet ophalen</span>
-              <IoIosArrowDown color="white" size={32} />
-            </button>
-            <WatWeNietOphalen dropDown={dropDown1} />
-          </div>
-        </div>
       </div>
+
+     
+        <WatWeOphalen />
+        <WatWeNietOphalen />
+     
 
       <div className="mt-12">
         <div className="rounded-md bg-white py-2 pl-4 text-lg text-yellow-900">

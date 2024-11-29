@@ -1,3 +1,4 @@
+
 import React from "react";
 import Image from "next/image";
 import Grofvuil from "@/components/praktisch/Grofvuil";
@@ -14,7 +15,7 @@ const PraktischPage = () => {
             <div className="flex h-[24px] w-[40px] justify-center">
               <Image
                 src={"/icons/grofvuil.png"}
-                alt=""
+                alt="grofvuil"
                 width={26}
                 height={20}
                 className="h-[24px] w-[32px] object-cover"
@@ -27,13 +28,13 @@ const PraktischPage = () => {
             <div className="flex h-[24px] w-[40px] justify-center">
               <Image
                 src={"/icons/afvalcontainer.png"}
-                alt=""
+                alt="afval"
                 width={26}
                 height={20}
                 className="h-[24px] w-[20px] object-cover"
               />
             </div>
-            <div div className="pl-2">
+            <div className="pl-2">
               Afvalcontainers
             </div>
           </div>
@@ -42,13 +43,13 @@ const PraktischPage = () => {
             <div className="flex h-[20px] w-[40px] justify-center">
               <Image
                 src={"/icons/ov.png"}
-                alt=""
+                alt="ov"
                 width={26}
                 height={20}
                 className="h-[20px] w-[26px] object-cover"
               />
             </div>
-            <div div className="pl-2">
+            <div className="pl-2">
               Openbaar vervoer
             </div>
           </div>
@@ -57,13 +58,13 @@ const PraktischPage = () => {
             <div className="flex h-[24px] w-[40px] justify-center">
               <Image
                 src={"/icons/winkels.png"}
-                alt=""
+                alt="winkels"
                 width={100}
                 height={0}
                 className="h-[24px] w-[24px] object-cover"
               />
             </div>
-            <div div className="pl-2">
+            <div className="pl-2">
               Winkelbestand
             </div>
           </div>
@@ -72,13 +73,13 @@ const PraktischPage = () => {
             <div className="flex h-[24px] w-[40px] justify-center">
               <Image
                 src={"/icons/horeca.png"}
-                alt=""
+                alt="horeca"
                 width={100}
                 height={0}
                 className="h-[24px] w-[30px] object-cover"
               />
             </div>
-            <div div className="pl-2">
+            <div className="pl-2">
               Horeca
             </div>
           </div>
@@ -87,13 +88,13 @@ const PraktischPage = () => {
             <div className="flex h-[24px] w-[40px] justify-center">
               <Image
                 src={"/icons/dienstverlening.png"}
-                alt=""
+                alt="diensten"
                 width={100}
                 height={0}
                 className="h-[24px] w-[24px] object-cover"
               />
             </div>
-            <div div className="pl-2">
+            <div className="pl-2">
               Dienstverlening
             </div>
           </div>
