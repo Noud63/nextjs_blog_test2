@@ -11,7 +11,7 @@ const Grofvuil = () => {
         <div className="rounded-md bg-white py-2 pl-4 text-lg font-semibold text-yellow-900">
           <span className="font-bold">Grofvuil</span>
         </div>
-        <div className="py-8 pl-4">
+        <div className="py-8 pl-4 max-xsm:pl-2">
           <p>
             Grofvuil zijn spullen die niet in een vuilniszak of afvalcontainer
             passen, zoals een magnetron, matras, vloerkleed of tafel.
@@ -26,7 +26,7 @@ const Grofvuil = () => {
         <div className="rounded-md bg-white py-2 pl-4 text-lg font-semibold text-yellow-900">
           <span className="font-bold">Grofvuil:</span> <span>wegbrengen</span>
         </div>
-        <div className="py-8 pl-4">
+        <div className="py-8 pl-4 max-xsm:pl-2">
           <p>
             Breng uw grof afval gratis naar een recyclepunt. Dat bent u er
             meteen vanaf.
@@ -58,16 +58,14 @@ const Grofvuil = () => {
         </div>
       </div>
 
-     
-        <WatWeOphalen />
-        <WatWeNietOphalen />
-     
+      <WatWeOphalen />
+      <WatWeNietOphalen />
 
       <div className="mt-12">
         <div className="rounded-md bg-white py-2 pl-4 text-lg text-yellow-900">
           <span className="font-bold">Ophaaldag grofvuil</span>
         </div>
-        <div className="py-8 pl-4">
+        <div className="py-8 pl-4 max-xsm:pl-2">
           <div className="flex flex-row">
             <div className="w-[110px]">Ophaaldag: </div>
             <div className="flex flex-1">Woensdag</div>
@@ -91,7 +89,7 @@ const Grofvuil = () => {
         <div className="rounded-md bg-white py-2 pl-4 text-lg font-semibold text-yellow-900">
           <span className="font-bold">Bruikbare spullen</span>
         </div>
-        <div className="py-8 pl-4">
+        <div className="py-8 pl-4 max-xsm:pl-2">
           <p>
             Geef spullen die nog bruikbaar zijn een tweede leven.
             <br />

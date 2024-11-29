@@ -5,12 +5,12 @@ import Grofvuil from "@/components/praktisch/Grofvuil";
 
 const PraktischPage = () => {
   return (
-    <div className="mt-8 px-6 text-white max-sm:mt-4">
+    <div className="mt-8 px-6 text-white max-sm:mt-4 max-sm:px-4">
       <div className="flex justify-center border-b-2 text-2xl font-semibold tracking-wide">
         <div className="px-4 pb-4">Praktische informatie</div>
       </div>
       <div className="w-full border-b-2 pb-4">
-        <div className="flex flex-col gap-2 px-2 pt-4 text-lg">
+        <div className="flex flex-col gap-2 px-2 pt-4 text-lg max-xsm:px-0">
           <div className="flex items-center gap-2">
             <div className="flex h-[24px] w-[40px] justify-center">
               <Image
@@ -34,9 +34,7 @@ const PraktischPage = () => {
                 className="h-[24px] w-[20px] object-cover"
               />
             </div>
-            <div className="pl-2">
-              Afvalcontainers
-            </div>
+            <div className="pl-2">Afvalcontainers</div>
           </div>
 
           <div className="flex items-center gap-2">
@@ -49,9 +47,7 @@ const PraktischPage = () => {
                 className="h-[20px] w-[26px] object-cover"
               />
             </div>
-            <div className="pl-2">
-              Openbaar vervoer
-            </div>
+            <div className="pl-2">Openbaar vervoer</div>
           </div>
 
           <div className="flex items-center gap-2">
@@ -64,9 +60,7 @@ const PraktischPage = () => {
                 className="h-[24px] w-[24px] object-cover"
               />
             </div>
-            <div className="pl-2">
-              Winkelbestand
-            </div>
+            <div className="pl-2">Winkelbestand</div>
           </div>
 
           <div className="flex items-center gap-2">
@@ -79,9 +73,7 @@ const PraktischPage = () => {
                 className="h-[24px] w-[30px] object-cover"
               />
             </div>
-            <div className="pl-2">
-              Horeca
-            </div>
+            <div className="pl-2">Horeca</div>
           </div>
 
           <div className="flex items-center gap-2">
@@ -94,16 +86,14 @@ const PraktischPage = () => {
                 className="h-[24px] w-[24px] object-cover"
               />
             </div>
-            <div className="pl-2">
-              Dienstverlening
-            </div>
+            <div className="pl-2">Dienstverlening</div>
           </div>
         </div>
       </div>
 
       <Grofvuil />
 
-      <div className="mx-auto flex h-[50px] w-[50px] justify-center mt-20">
+      <div className="mx-auto mt-20 flex h-[50px] w-[50px] justify-center">
         <Image
           src={"/icons/recycle.png"}
           alt="recycle"
