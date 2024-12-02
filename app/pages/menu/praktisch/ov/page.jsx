@@ -19,7 +19,7 @@ const OvPage = () => {
         <span className="font-bold">Tramlijnen</span>
       </div>
       <div className="pb-4 pl-4 pt-8 max-xsm:pl-2">
-        <div className="mb-4 flex w-[330px] flex-row items-center border-b pb-2">
+        <div className="mb-4 flex max-w-[330px] flex-row items-center border-b pb-2">
           <span className="text-lg font-semibold">Tramlijn</span>
           <div className="mx-2 flex h-[24px] w-[24px] items-center justify-center rounded-full bg-white pr-[2px] font-bold text-yellow-900">
             19
@@ -54,7 +54,7 @@ const OvPage = () => {
         <span className="font-bold">Buslijnen</span>
       </div>
       <div className="pb-4 pl-4 pt-8 max-xsm:pl-2">
-        <div className="mb-4 flex w-[330px] flex-row items-center border-b pb-2">
+        <div className="mb-4 flex max-w-[330px] flex-row items-center border-b pb-2">
           <span className="text-lg font-semibold">Buslijn</span>
           <div className="mx-2 flex h-[24px] w-[24px] items-center justify-center rounded-full bg-white pl-[1px] font-bold text-yellow-900">
             21
