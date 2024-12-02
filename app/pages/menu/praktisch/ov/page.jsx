@@ -1,6 +1,7 @@
 import React from "react";
 import AlleHaltesBus21 from "@/components/praktisch/AllehaltesBus21";
 import AlleHaltesTram19 from "@/components/praktisch/AlleHaltesTram19";
+import Image from "next/image";
 
 const OvPage = () => {
   return (
@@ -18,11 +19,20 @@ const OvPage = () => {
         <span className="font-bold">Tramlijnen</span>
       </div>
       <div className="pb-4 pl-4 pt-8 max-xsm:pl-2">
-        <div className="mb-2 flex w-[220px] flex-row items-center border-b pb-2">
+        <div className="mb-4 flex w-[330px] flex-row items-center border-b pb-2">
           <span className="text-lg font-semibold">Tramlijn</span>
           <div className="mx-2 flex h-[24px] w-[24px] items-center justify-center rounded-full bg-white pr-[2px] font-bold text-yellow-900">
             19
           </div>
+        </div>
+        <div className="mb-4 h-auto max-w-[330px] mr-2">
+          <Image
+            src={"/images/lijn19.png"}
+            width={330}
+            height={0}
+            alt="lijn19"
+            className="h-full w-full object-cover"
+          />
         </div>
 
         <div>Route: Van Hallstraat - Diemen (Sniep)</div>
@@ -44,11 +54,20 @@ const OvPage = () => {
         <span className="font-bold">Buslijnen</span>
       </div>
       <div className="pb-4 pl-4 pt-8 max-xsm:pl-2">
-        <div className="mb-2 flex w-[280px] flex-row border-b pb-2 items-center">
+        <div className="mb-4 flex w-[330px] flex-row items-center border-b pb-2">
           <span className="text-lg font-semibold">Buslijn</span>
           <div className="mx-2 flex h-[24px] w-[24px] items-center justify-center rounded-full bg-white pl-[1px] font-bold text-yellow-900">
             21
           </div>
+        </div>
+        <div className="mb-4 h-auto max-w-[330px] mr-2">
+          <Image
+            src={"/images/lijn21.png"}
+            width={330}
+            height={0}
+            alt="lijn19"
+            className="h-full w-full object-cover"
+          />
         </div>
 
         <div>Route: De Sav. Lohmanstraat - Centraal Station</div>
