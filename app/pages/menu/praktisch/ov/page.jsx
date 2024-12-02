@@ -25,7 +25,7 @@ const OvPage = () => {
             19
           </div>
         </div>
-        <div className="mb-4 h-auto max-w-[330px] mr-2">
+        <div className="mb-4 h-auto max-w-[330px]">
           <Image
             src={"/images/lijn19.png"}
             width={330}
@@ -60,7 +60,7 @@ const OvPage = () => {
             21
           </div>
         </div>
-        <div className="mb-4 h-auto max-w-[330px] mr-2">
+        <div className="mb-4 h-auto max-w-[330px]">
           <Image
             src={"/images/lijn21.png"}
             width={330}
