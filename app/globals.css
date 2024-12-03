@@ -57,3 +57,14 @@
   box-shadow: 0px 0px 15px #1b1205;
 }
 
+.lg-backdrop {
+        background: #5b2802!important;
+        opacity:0.8 !important;
+    }
+
+.lg-close, 
+.lg-zoom-in, 
+.lg-download, 
+.lg-counter {
+      color: white!important;
+    }
