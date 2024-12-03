@@ -104,7 +104,7 @@ const Grofvuil = () => {
           alt="recycle"
           width={100}
           height={0}
-          className="h-full w-full object-cover"
+          className="h-auto w-full object-cover"
         />
       </div>
     </div>

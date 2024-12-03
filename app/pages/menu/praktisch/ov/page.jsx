@@ -1,11 +1,23 @@
-import React from "react";
+"use client"
+import React, {useState} from "react";
 import AlleHaltesBus21 from "@/components/praktisch/AllehaltesBus21";
 import AlleHaltesTram19 from "@/components/praktisch/AlleHaltesTram19";
 import Image from "next/image";
+import ImageModal from "@/components/ImageModal";
 
 const OvPage = () => {
+
+   const[open, setOpen] = useState(false)
+   const [image, setImage] = useState("")
+
+  const openImageModal = (image) => {
+      setOpen(!open)
+      setImage(image)
+  }
+  
   return (
     <div className="mt-8">
+      <ImageModal open={open} setOpen={setOpen} image={image} />
       <div className="rounded-md bg-white py-2 pl-4 text-lg font-semibold text-yellow-900">
         <span className="font-bold">Openbaar vervoer</span>
       </div>
@@ -18,7 +30,7 @@ const OvPage = () => {
       <div className="rounded-md bg-white py-2 pl-4 text-lg font-semibold text-yellow-900">
         <span className="font-bold">Tramlijnen</span>
       </div>
-      <div className="pb-4 pl-4 pt-8 max-xsm:pl-2">
+      <div className="pb-4 pl-4 pt-8 max-xsm:pl-0">
         <div className="mb-4 flex max-w-[330px] flex-row items-center border-b pb-2">
           <span className="text-lg font-semibold">Tramlijn</span>
           <div className="mx-2 flex h-[24px] w-[24px] items-center justify-center rounded-full bg-white pr-[2px] font-bold text-yellow-900">
@@ -31,7 +43,8 @@ const OvPage = () => {
             width={330}
             height={0}
             alt="lijn19"
-            className="h-full w-full object-cover"
+            className="h-full w-full cursor-pointer border-4 object-cover"
+            onClick={() => openImageModal("/images/lijn19.png")}
           />
         </div>
 
@@ -53,7 +66,7 @@ const OvPage = () => {
       <div className="rounded-md bg-white py-2 pl-4 text-lg font-semibold text-yellow-900">
         <span className="font-bold">Buslijnen</span>
       </div>
-      <div className="pb-4 pl-4 pt-8 max-xsm:pl-2">
+      <div className="pb-4 pl-4 pt-8 max-xsm:pl-0">
         <div className="mb-4 flex max-w-[330px] flex-row items-center border-b pb-2">
           <span className="text-lg font-semibold">Buslijn</span>
           <div className="mx-2 flex h-[24px] w-[24px] items-center justify-center rounded-full bg-white pl-[1px] font-bold text-yellow-900">
@@ -66,7 +79,8 @@ const OvPage = () => {
             width={330}
             height={0}
             alt="lijn19"
-            className="h-full w-full object-cover"
+            className="h-full w-full cursor-pointer border-4 object-cover"
+            onClick={() => openImageModal("/images/lijn21.png")}
           />
         </div>
 

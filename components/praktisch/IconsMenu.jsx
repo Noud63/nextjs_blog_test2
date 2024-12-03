@@ -15,9 +15,9 @@ const IconsMenu = () => {
               <Image
                 src={"/icons/grofvuil.png"}
                 alt="grofvuil"
-                width={26}
+                width={30}
                 height={24}
-                className="h-[24px] w-[32px] object-cover"
+                style={{ width: "30px", height: "auto" }}
               />
             </div>
             <div className="pl-2">Grofvuil</div>
@@ -42,10 +42,7 @@ const IconsMenu = () => {
           </div>
         </Link>
 
-        <Link
-          href="/pages/menu/praktisch/ov"
-          className="w-full max-w-[220px]"
-        >
+        <Link href="/pages/menu/praktisch/ov" className="w-full max-w-[220px]">
           <div className="flex items-center gap-2">
             <div className="flex h-[20px] w-[40px] justify-center">
               <Image
