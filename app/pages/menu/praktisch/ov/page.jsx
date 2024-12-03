@@ -4,12 +4,7 @@ import AlleHaltesBus21 from "@/components/praktisch/AllehaltesBus21";
 import AlleHaltesTram19 from "@/components/praktisch/AlleHaltesTram19";
 import Image from "next/image";
 import ImageModal from "@/components/ImageModal";
-import LightGallery from "lightgallery/react";
-import "lightgallery/css/lightgallery.css";
-import "lightgallery/css/lg-zoom.css";
-import "lightgallery/css/lg-thumbnail.css";
-import lgThumbnail from "lightgallery/plugins/thumbnail";
-import lgZoom from "lightgallery/plugins/zoom";
+
 
 const OvPage = () => {
 
@@ -20,14 +15,10 @@ const OvPage = () => {
       setOpen(!open)
       setImage(image)
   }
-
-  const onInit = () => {
-    console.log("lightGallery has been initialized");
-  };
   
   return (
     <div className="mt-8">
-      {/* <ImageModal open={open} setOpen={setOpen} image={image} /> */}
+      <ImageModal open={open} setOpen={setOpen} image={image} />
       <div className="rounded-md bg-white py-2 pl-4 text-lg font-semibold text-yellow-900">
         <span className="font-bold">Openbaar vervoer</span>
       </div>
@@ -47,7 +38,7 @@ const OvPage = () => {
             19
           </div>
         </div>
-        {/* <div className="mb-4 h-auto max-w-[330px]">
+        <div className="mb-4 h-auto max-w-[330px]">
           <Image
             src={"/images/lijn19.png"}
             width={330}
@@ -56,18 +47,7 @@ const OvPage = () => {
             className="h-full w-full cursor-pointer border-4 object-cover"
             onClick={() => openImageModal("/images/lijn19.png")}
           />
-        </div> */}
-
-        <LightGallery
-          onInit={onInit}
-          speed={500}
-          plugins={[lgThumbnail, lgZoom]}
-          elementClassNames="mb-4 h-auto w-[330px]"
-        >
-          <a href="/images/lijn19.png">
-            <img alt="Tramlijn 19" src="/images/lijn19.png" />
-          </a>
-        </LightGallery>
+        </div>
 
         <div>Route: Van Hallstraat - Diemen (Sniep)</div>
         <div>
@@ -82,7 +62,6 @@ const OvPage = () => {
           </a>
         </div>
       </div>
-      
       <AlleHaltesTram19 />
 
       <div className="rounded-md bg-white py-2 pl-4 text-lg font-semibold text-yellow-900">
@@ -95,19 +74,7 @@ const OvPage = () => {
             21
           </div>
         </div>
-
-        <LightGallery
-          onInit={onInit}
-          speed={500}
-          plugins={[lgThumbnail, lgZoom]}
-          elementClassNames="mb-4 h-auto w-[330px]"
-        >
-          <a href="/images/lijn21.png">
-            <img alt="Buslijn 21" src="/images/lijn21.png" />
-          </a>
-        </LightGallery>
-
-        {/* <div className="mb-4 h-auto max-w-[330px]">
+        <div className="mb-4 h-auto max-w-[330px]">
           <Image
             src={"/images/lijn21.png"}
             width={330}
@@ -116,7 +83,7 @@ const OvPage = () => {
             className="h-full w-full cursor-pointer border-4 object-cover"
             onClick={() => openImageModal("/images/lijn21.png")}
           />
-        </div> */}
+        </div>
 
         <div>Route: De Sav. Lohmanstraat - Centraal Station</div>
         <div>
