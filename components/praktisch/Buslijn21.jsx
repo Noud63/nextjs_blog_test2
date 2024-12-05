@@ -1,21 +1,22 @@
-import React, {useState} from 'react'
+"use client";
+import React, { useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import "yet-another-react-lightbox/plugins/captions.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Image from "next/image";
 
 const Buslijn21 = () => {
+  const [open, setOpen] = useState(false);
 
-    const [open, setOpen] = useState(false);
-
-    const slides = [
-          {
-            src: `/images/lijn21.png`,
-            alt: "ovlijn",
-            width: "100%",
-            height: "auto",
-          },
-        ]
+  const slides = [
+    {
+      src: `/images/lijn21.png`,
+      title: "GVB Buslijn 21",
+      description: "Route buslijn 21 met haltes",
+    },
+  ];
 
   return (
     <div>
@@ -33,7 +34,7 @@ const Buslijn21 = () => {
       <Lightbox
         open={open}
         close={() => setOpen(false)}
-        plugins={[Zoom]}
+        plugins={[Zoom, Captions]}
         zoom={{
           scrollToZoom: true,
           maxZoomPixelRatio: 5,
@@ -54,4 +55,4 @@ const Buslijn21 = () => {
   );
 };
 
-export default Buslijn21
+export default Buslijn21;

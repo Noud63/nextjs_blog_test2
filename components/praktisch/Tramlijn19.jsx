@@ -1,6 +1,9 @@
+"use client"
 import React, {useState} from 'react'
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import "yet-another-react-lightbox/plugins/captions.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Image from 'next/image';
 
@@ -11,9 +14,8 @@ const Tramlijn19 = () => {
      const slides = [
        {
          src: `/images/lijn19.png`,
-         alt: "ovlijn",
-         width: "100%",
-         height: "auto",
+         title: "GVB Tramlijn 19",
+         description: "Route tramlijn 19 met haltes",
        },
      ];
 
@@ -33,7 +35,7 @@ const Tramlijn19 = () => {
       <Lightbox
         open={open}
         close={() => setOpen(false)}
-        plugins={[Zoom]}
+        plugins={[Zoom, Captions]}
         zoom={{
           scrollToZoom: true,
           maxZoomPixelRatio: 5,

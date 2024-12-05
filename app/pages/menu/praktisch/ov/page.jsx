@@ -1,21 +1,15 @@
-"use client";
-import React, { useState} from "react";
+
+import React from "react";
 import AlleHaltesBus21 from "@/components/praktisch/AllehaltesBus21";
 import AlleHaltesTram19 from "@/components/praktisch/AlleHaltesTram19";
-import Image from "next/image";
-// import ImageModal from "@/components/ImageModal";
-import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
 import Tramlijn19 from "@/components/praktisch/Tramlijn19";
 import Buslijn21 from "@/components/praktisch/Buslijn21";
 
 const OvPage = () => {
 
-  
-
-return (
+  return (
   <div className="mt-8">
-    {/* <ImageModal open={open} setOpen={setOpen} image={image} /> */}
+
     <div className="rounded-md bg-white py-2 pl-4 text-lg font-semibold text-yellow-900">
       <span className="font-bold">Openbaar vervoer</span>
     </div>
@@ -37,46 +31,17 @@ return (
       </div>
 
       <Tramlijn19 />
-      {/* <div className="mb-4 h-auto max-w-[330px]">
-          <Image
-            src={"/images/lijn19.png"}
-            width={330}
-            height={0}
-            alt=""
-            ref={imageRef}
-            className="h-full w-full cursor-pointer border-4 object-cover"
-            onClick={handleClick}
-          />
-        </div>
-
-        <Lightbox
-          open={open}
-          close={() => setOpen(false)}
-          slides={[
-            {
-              src: `/images/${image}.png`,
-              alt: "ovlijn",
-              width: "100%",
-              height: "auto",
-            },
-          ]}
-          styles={{
-            container: {
-              backgroundColor: "rgb(66, 32, 6, 0.8)",
-            },
-          }}
-        /> */}
-
+     
       <div>Route: Van Hallstraat - Diemen (Sniep)</div>
       <div>
-        Voor vertrektijden{" "}
+        Voor actuele vertrektijden{" "}
         <a
           href="https://gvb.nl/reisinformatie/lijn/GVB/19"
           target="_blank"
           alt="lijn19"
           className="underline"
         >
-          KLIK HIER
+          klik hier
         </a>
       </div>
     </div>
@@ -95,31 +60,23 @@ return (
       </div>
 
       <Buslijn21 />
-      {/* <div className="mb-4 h-auto max-w-[330px]">
-          <Image
-            src={"/images/lijn21.png"}
-            width={330}
-            height={0}
-            alt=""
-            className="h-full w-full cursor-pointer border-4 object-cover"
-            onClick={handleClick}
-          />
-        </div> */}
 
       <div>Route: De Sav. Lohmanstraat - Centraal Station</div>
       <div>
-        Voor vertrektijden{" "}
+        Voor actuele vertrektijden{" "}
         <a
           href="https://gvb.nl/reisinformatie/lijn/GVB/21"
           target="_blank"
           alt="lijn21"
           className="underline"
         >
-          KLIK HIER
+          klik hier
         </a>
       </div>
     </div>
+
     <AlleHaltesBus21 />
+
   </div>
 );
 };
