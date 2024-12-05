@@ -8,6 +8,15 @@ const Buslijn21 = () => {
 
     const [open, setOpen] = useState(false);
 
+    const slides = [
+          {
+            src: `/images/lijn21.png`,
+            alt: "ovlijn",
+            width: "100%",
+            height: "auto",
+          },
+        ]
+
   return (
     <div>
       <div className="mb-4 h-auto max-w-[330px]">
@@ -29,14 +38,12 @@ const Buslijn21 = () => {
           scrollToZoom: true,
           maxZoomPixelRatio: 5,
         }}
-        slides={[
-          {
-            src: `/images/lijn21.png`,
-            alt: "ovlijn",
-            width: "100%",
-            height: "auto",
-          },
-        ]}
+        slides={slides}
+        carousel={{ finite: slides.length <= 1 }}
+        render={{
+          buttonPrev: slides.length <= 1 ? () => null : undefined,
+          buttonNext: slides.length <= 1 ? () => null : undefined,
+        }}
         styles={{
           container: {
             backgroundColor: "rgb(66, 32, 6, 0.8)",
