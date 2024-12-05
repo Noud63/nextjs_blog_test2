@@ -19,7 +19,6 @@
     "cloudinary": "^2.4.0",
     "cloudinary-build-url": "^0.2.4",
     "clsx": "^2.1.1",
-    "lightgallery": "^2.8.2",
     "lucide-react": "^0.424.0",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.2",
@@ -40,7 +39,8 @@
     "resend": "^3.5.0",
     "sharp": "^0.33.5",
     "tailwind-merge": "^2.4.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "yet-another-react-lightbox": "^3.21.7"
   },
   "devDependencies": {
     "eslint": "^8",
