@@ -7,10 +7,13 @@ import Menu from '@/components/Menu';
 
 export const metadata = {
   title: "Staatslieden",
-  description: "Webapplicatie over de Staatsliedenbuurt Amsterdam",
+  description: "Webapplicatie over de Staatsliedenbuurt, Amsterdam",
   icons: {
     icon: "/icon2.ico",
   },
+  authors: {
+    name: "Noud van Dun"
+  }
 };
 
 export default function RootLayout({ children }) {
