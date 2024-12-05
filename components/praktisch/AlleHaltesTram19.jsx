@@ -10,7 +10,7 @@ const AlleHaltesTram19 = () => {
   };
 
   return (
-    <div className="relative mb-8">
+    <div className="relative mb-12">
       <button
         type="button"
         className="flex w-full items-center justify-between rounded-md bg-yellow-700 px-4 py-2 shadow-lg"

@@ -21,7 +21,7 @@ const Tramlijn19 = () => {
 
   return (
     <div>
-      <div className="mb-4 h-auto max-w-[330px]">
+      <div className="mb-4 h-auto max-w-[330px] max-xsm:max-w-full">
         <Image
           src={"/images/lijn19.png"}
           width={330}

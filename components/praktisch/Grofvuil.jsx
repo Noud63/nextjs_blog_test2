@@ -46,7 +46,7 @@ const Grofvuil = () => {
               href="https://www.amsterdam.nl/afval-hergebruik/spullen-wegbrengen-recyclepunt/"
               target="_blank"
             >
-              <span className="underline"> KLIK HIER.</span>
+              <span className="underline"> klik hier.</span>
             </a>
           </span>
         </div>

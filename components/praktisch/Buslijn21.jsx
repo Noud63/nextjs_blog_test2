@@ -20,7 +20,7 @@ const Buslijn21 = () => {
 
   return (
     <div>
-      <div className="mb-4 h-auto max-w-[330px]">
+      <div className="mb-4 h-auto max-w-[330px] max-xsm:max-w-full">
         <Image
           src={"/images/lijn21.png"}
           width={330}
