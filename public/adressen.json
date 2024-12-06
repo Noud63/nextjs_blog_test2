@@ -6,20 +6,18 @@
       {
         "naam": "Florens Tandartsen",
         "adres": "Fannius Scholtenstraat 74",
-        "postcode": "1051 GB Amsterdam West",
+        "postcode": "1051GB Amsterdam West",
         "telefoon": "020-3586966",
         "website": "https://florenstandartsen.nl",
-        "email": "info@florenstandartsen.nl",
-        "categorie": "tandartsen"
+        "email": "info@florenstandartsen.nl"
       },
       {
         "naam": "Tandartspraktijk Westerpark",
         "adres": "Waterspiegelplein 60",
-        "postcode": "1051 PC Amsterdam",
+        "postcode": "1051PC Amsterdam",
         "telefoon": "020 - 68 29 424",
         "website": "https://www.tandartswesterpark.nl",
-        "email": "balie@tandartswesterpark.nl",
-        "categorie": "tandartsen"
+        "email": "balie@tandartswesterpark.nl"
       }
     ]
   },
@@ -33,13 +31,12 @@
         "postcode": "1052AD Amsterdam",
         "telefoon": "088-0030600",
         "website": "https://www.huisartsenwesterpark.nl/",
-        "email": null,
-        "categorie": "Huisartsen"
+        "email": null
       },
       {
         "naam": "Huisartsenpraktijk Haarlemmerpoort",
         "adres": "van Limburg Stirumstraat 20A",
-        "postcode": "1051 BB Amsterdam West",
+        "postcode": "1051BB Amsterdam West",
         "telefoon": "020-6840133",
         "website": "https://huisartsenpraktijkhaarlemmerpoort.nl/",
         "email": "info@hahp.nl",
@@ -52,13 +49,28 @@
     "title": "Fysiotherapie",
     "items": [
       {
-        "naam": "",
-        "adres": "",
-        "postcode": "",
-        "telefoon": "",
-        "website": "",
-        "email": "",
-        "categorie": ""
+        "naam": "Fysio Westerpark",
+        "adres": "Van Hallstraat 200",
+        "postcode": "1051HL Amsterdam",
+        "telefoon": "020-6869806",
+        "website": "https://fysiowesterpark.nl",
+        "email": "info@fysiowesterpark.nl"
+      },
+      {
+        "naam": "Fysio Westerpark",
+        "adres": "De Wittenkade 59",
+        "postcode": "1052AD Amsterdam",
+        "telefoon": "020 – 686 98 06",
+        "website": "https://fysiowesterpark.nl",
+        "email": "info@fysiowesterpark.nl"
+      },
+      {
+        "naam": "Uniek Kind en Jeugdpraktijken",
+        "adres": "Van Hogendorpplein 11",
+        "postcode": "1051AX Amsterdam",
+        "telefoon": "085 - 877 22 32",
+        "website": "https://www.uniekpraktijken.nl/locaties/westerparkschool",
+        "email": "info@uniekpraktijken.nl"
       }
     ]
   },
@@ -67,13 +79,12 @@
     "title": "Acupunctuur",
     "items": [
       {
-        "naam": "",
-        "adres": "",
-        "postcode": "",
-        "telefoon": "",
-        "website": "",
-        "email": "",
-        "categorie": ""
+        "naam": "Priktijk Westerpark",
+        "adres": "Groen van Prinstererstraat 29 hs",
+        "postcode": "1051VM Amsterdam",
+        "telefoon": "06-24426490",
+        "website": "https://www.priktijk.nl",
+        "email": "acupunctuur@priktijk.nl"
       }
     ]
   },
@@ -87,8 +98,7 @@
         "postcode": "",
         "telefoon": "",
         "website": "",
-        "email": "",
-        "categorie": ""
+        "email": ""
       }
     ]
   },
@@ -102,8 +112,7 @@
         "postcode": "",
         "telefoon": "",
         "website": "",
-        "email": "",
-        "categorie": ""
+        "email": ""
       }
     ]
   },
@@ -117,8 +126,7 @@
         "postcode": "",
         "telefoon": "",
         "website": "",
-        "email": "",
-        "categorie": ""
+        "email": ""
       }
     ]
   },
@@ -132,8 +140,7 @@
         "postcode": "",
         "telefoon": "",
         "website": "",
-        "email": "",
-        "categorie": ""
+        "email": ""
       }
     ]
   },
@@ -147,8 +154,7 @@
         "postcode": "",
         "telefoon": "",
         "website": "",
-        "email": "",
-        "categorie": ""
+        "email": ""
       }
     ]
   }
