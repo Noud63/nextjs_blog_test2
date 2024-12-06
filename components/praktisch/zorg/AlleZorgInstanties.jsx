@@ -20,7 +20,7 @@ const AllZorgInstanties = () => {
               className="mb-4 flex w-full items-center justify-between rounded-md bg-yellow-700 px-4 py-2 text-lg shadow-lg"
               onClick={() => toggleDropdown(cat.id)}
             >
-              <span>{cat.title}</span>
+              <div className={`${cat.id === 8 ? "w-[120px] px-0 items-start" : ""}`}>{cat.title}</div>
               <IoIosArrowDown
                 color="white"
                 size={32}

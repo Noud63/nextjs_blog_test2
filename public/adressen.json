@@ -49,7 +49,7 @@
   },
   {
     "id": 2,
-    "title": "Fysiothrapeuten",
+    "title": "Fysiotherapie",
     "items": [
       {
         "naam": "",
@@ -64,7 +64,7 @@
   },
   {
     "id": 3,
-    "title": "Acupuncturisten",
+    "title": "Acupunctuur",
     "items": [
       {
         "naam": "",
@@ -139,7 +139,7 @@
   },
   {
     "id": 8,
-    "title": "Dermatologie, Flebologie, Proctologie",
+    "title": "Dermatologie",
     "items": [
       {
         "naam": "",
