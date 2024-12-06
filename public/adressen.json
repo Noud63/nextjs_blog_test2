@@ -1,0 +1,155 @@
+[
+  {
+    "id": 0,
+    "title": "Tandartsen",
+    "items": [
+      {
+        "naam": "Florens Tandartsen",
+        "adres": "Fannius Scholtenstraat 74",
+        "postcode": "1051 GB Amsterdam West",
+        "telefoon": "020-3586966",
+        "website": "https://florenstandartsen.nl",
+        "email": "info@florenstandartsen.nl",
+        "categorie": "tandartsen"
+      },
+      {
+        "naam": "Tandartspraktijk Westerpark",
+        "adres": "Waterspiegelplein 60",
+        "postcode": "1051 PC Amsterdam",
+        "telefoon": "020 - 68 29 424",
+        "website": "https://www.tandartswesterpark.nl",
+        "email": "balie@tandartswesterpark.nl",
+        "categorie": "tandartsen"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "title": "Huisartsen",
+    "items": [
+      {
+        "naam": "Huisartsen Westerpark",
+        "adres": "de Wittenkade 59",
+        "postcode": "1052AD Amsterdam",
+        "telefoon": "088-0030600",
+        "website": "https://www.huisartsenwesterpark.nl/",
+        "email": null,
+        "categorie": "Huisartsen"
+      },
+      {
+        "naam": "Huisartsenpraktijk Haarlemmerpoort",
+        "adres": "van Limburg Stirumstraat 20A",
+        "postcode": "1051 BB Amsterdam West",
+        "telefoon": "020-6840133",
+        "website": "https://huisartsenpraktijkhaarlemmerpoort.nl/",
+        "email": "info@hahp.nl",
+        "categorie": "Huisartsen"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Fysiothrapeuten",
+    "items": [
+      {
+        "naam": "",
+        "adres": "",
+        "postcode": "",
+        "telefoon": "",
+        "website": "",
+        "email": "",
+        "categorie": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Acupuncturisten",
+    "items": [
+      {
+        "naam": "",
+        "adres": "",
+        "postcode": "",
+        "telefoon": "",
+        "website": "",
+        "email": "",
+        "categorie": ""
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Psychologen",
+    "items": [
+      {
+        "naam": "",
+        "adres": "",
+        "postcode": "",
+        "telefoon": "",
+        "website": "",
+        "email": "",
+        "categorie": ""
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Haptonomie",
+    "items": [
+      {
+        "naam": "",
+        "adres": "",
+        "postcode": "",
+        "telefoon": "",
+        "website": "",
+        "email": "",
+        "categorie": ""
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Chiropractie",
+    "items": [
+      {
+        "naam": "",
+        "adres": "",
+        "postcode": "",
+        "telefoon": "",
+        "website": "",
+        "email": "",
+        "categorie": ""
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Plastische chirurgie",
+    "items": [
+      {
+        "naam": "",
+        "adres": "",
+        "postcode": "",
+        "telefoon": "",
+        "website": "",
+        "email": "",
+        "categorie": ""
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Dermatologie, Flebologie, Proctologie",
+    "items": [
+      {
+        "naam": "",
+        "adres": "",
+        "postcode": "",
+        "telefoon": "",
+        "website": "",
+        "email": "",
+        "categorie": ""
+      }
+    ]
+  }
+]
