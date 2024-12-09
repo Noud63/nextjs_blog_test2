@@ -1,9 +1,7 @@
 "use client"
 import React, {useState} from 'react'
 import Lightbox from "yet-another-react-lightbox";
-import "yet-another-react-lightbox/styles.css";
 import Captions from "yet-another-react-lightbox/plugins/captions";
-import "yet-another-react-lightbox/plugins/captions.css";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Image from 'next/image';
 

@@ -7,14 +7,24 @@ import PostUserName from "./PostUserName";
 import Editordelete from "./Editordelete";
 import threedots from "../assets/icons/threedots.png";
 import { useSession } from "next-auth/react";
+import Lightbox from "yet-another-react-lightbox";
+import Captions from "yet-another-react-lightbox/plugins/captions";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
 
 const SinglePost = ({ post, comments }) => {
+
+   const slides = [
+     {
+       src: post?.images[0]
+     },
+   ];
 
   const { data: session } = useSession();
 
   const [showThreeDots, setShowThreeDots] = useState(false);
   const [showOptions, setShowOptions] = useState(false);
   const [profilePic, setProfilePic] = useState(null);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (session?.user.id === post?.user._id) {
@@ -38,7 +48,7 @@ const SinglePost = ({ post, comments }) => {
 
       <div className="flex w-full items-center justify-between border-b border-gray-400 p-4 pb-2 max-xxsm:pl-2">
         <div className="flex flex-1">
-          <div className="flex h-[45px] w-[45px] flex-row max-xxsm:h-[40px] max-xxsm:w-[40px] overflow-hidden">
+          <div className="flex h-[45px] w-[45px] flex-row overflow-hidden max-xxsm:h-[40px] max-xxsm:w-[40px]">
             <Image
               src={profilePic ? profilePic : "/images/defaultAvatar.png"}
               alt="icon"
@@ -71,13 +81,35 @@ const SinglePost = ({ post, comments }) => {
             alt=""
             width={400}
             height={0}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover cursor-pointer"
             priority
+            onClick={() => setOpen(true)}
           />
         )}
       </div>
       <LikeandShareBar post={post} />
       <PostComment comments={comments} post={post} />
+
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        plugins={[Zoom, Captions]}
+        zoom={{
+          scrollToZoom: true,
+          maxZoomPixelRatio: 5,
+        }}
+        slides={slides}
+        carousel={{ finite: slides.length <= 1 }}
+        render={{
+          buttonPrev: slides.length <= 1 ? () => null : undefined,
+          buttonNext: slides.length <= 1 ? () => null : undefined,
+        }}
+        styles={{
+          container: {
+            backgroundColor: "rgb(66, 32, 6, 0.8)"
+          }
+        }}
+      />
     </div>
   );
 };

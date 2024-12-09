@@ -57,7 +57,6 @@
   box-shadow: 0px 0px 15px #1b1205;
 }
 
-
-/* .yarl__navigation_next, .yarl__navigation_prev {
-      display: none;
-    } */
+.yarl__slide_image {
+box-shadow: 0px 0px 30px #21170c;
+}

@@ -4,6 +4,8 @@ import Footer from '@/components/Footer';
 import LoginRegisterLogout from '@/components/LoginRegisterLogout';
 import Navbar from '@/components/Navbar';
 import Menu from '@/components/Menu';
+import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/captions.css";
 
 export const metadata = {
   title: "Staatslieden",

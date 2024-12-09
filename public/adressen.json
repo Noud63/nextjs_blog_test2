@@ -18,7 +18,23 @@
         "telefoon": "020 - 68 29 424",
         "website": "https://www.tandartswesterpark.nl",
         "email": "balie@tandartswesterpark.nl"
-      }
+      },
+       {
+         "naam": "Praktijk voor Parodontologie",
+         "adres": "Van Limburg Stirumstraat 2A",
+         "postcode": "   1051 BB Amsterdam",
+         "telefoon": "020-486 40 40",
+         "website": "https://www.paropraktijk.com/",
+         "email": "info@paropraktijk.com"
+       },
+       {
+         "naam": "Mondhygiënist F.W. Kurabachew",
+         "adres": " Van Limburg Stirumstraat 2-A",
+         "postcode": "1051 BB Amsterdam",
+         "telefoon": "06 52154726",
+         "website": "https://www.paropraktijk.com/het-team",
+         "email": "info@paropraktijk.com"
+       }
     ]
   },
   {
@@ -41,7 +57,15 @@
         "website": "https://huisartsenpraktijkhaarlemmerpoort.nl/",
         "email": "info@hahp.nl",
         "categorie": "Huisartsen"
-      }
+      },
+       {
+         "naam": "SAG",
+         "adres": "Van Hallstraat 200",
+         "postcode": "1051 HL Amsterdam",
+         "telefoon": "020 68 40 770",
+         "website": "https://www.sag-staatsliedenbuurt.nl/ons-team/",
+         "email": " info-staatslieden@sag-amsterdam.nl"
+       }
     ]
   },
   {
@@ -93,13 +117,29 @@
     "title": "Psychologen",
     "items": [
       {
-        "naam": "",
-        "adres": "",
-        "postcode": "",
-        "telefoon": "",
-        "website": "",
-        "email": ""
-      }
+        "naam": "psychosomatische fysiotherapie",
+        "adres": "Groen van Prinstererstraat 20H",
+        "postcode": "1051EG Amsterdam",
+        "telefoon": "0630623337",
+        "website": "https://www.praktijkrefke.nl",
+        "email": "info@praktijkrefke.nl"
+      },
+       {
+         "naam": "Gestaltpraktijk Amsterdam",
+         "adres": "Groen van Prinstererstraat 64",
+         "postcode": "1051EP Amsterdam",
+         "telefoon": " 06 12 93 01 24",
+         "website": "https://gestaltpraktijkamsterdam.nl/",
+         "email": "nfo@gestaltpraktijkamsterdam.nl."
+       },
+        {
+          "naam": "",
+          "adres": "",
+          "postcode": "",
+          "telefoon": "",
+          "website": "",
+          "email": ""
+        }
     ]
   },
   {
@@ -107,13 +147,21 @@
     "title": "Haptonomie",
     "items": [
       {
-        "naam": "",
-        "adres": "",
-        "postcode": "",
-        "telefoon": "",
-        "website": "",
-        "email": ""
-      }
+        "naam": "Jantine de Boer, Haptotherapie",
+        "adres": "Groen van Prinstererstraat 64 ",
+        "postcode": "1051EP Amsterdam",
+        "telefoon": "06 304 82 430",
+        "website": "https://www.jantinedeboer.nl",
+        "email": "info@jantinedeboer.nl"
+      },
+       {
+         "naam": "Haptotherapeuten-vvh",
+         "adres": "Eerste Keucheniusstraat 35 H",
+         "postcode": "1051 HP Amsterdam",
+         "telefoon": "020 488 7116",
+         "website": "https://www.haptotherapeuten-vvh.nl",
+         "email": "info@haptotherapeuten-vvh.nl"
+       }
     ]
   },
   {
@@ -135,11 +183,11 @@
     "title": "Plastische chirurgie",
     "items": [
       {
-        "naam": "",
-        "adres": "",
-        "postcode": "",
-        "telefoon": "",
-        "website": "",
+        "naam": "Samkliniek",
+        "adres": "Van der Palmkade 148",
+        "postcode": "1051RJ Amsterdam",
+        "telefoon": "020 261 4688",
+        "website": "https://www.samkliniek.nl/",
         "email": ""
       }
     ]
