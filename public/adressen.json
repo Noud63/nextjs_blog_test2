@@ -24,7 +24,7 @@
          "adres": "Van Limburg Stirumstraat 2A",
          "postcode": "1051 BB Amsterdam",
          "telefoon": "020-486 40 40",
-         "website": "https://www.paropraktijk.com/",
+         "website": "https://www.paropraktijk.com",
          "email": "info@paropraktijk.com"
        },
        {
@@ -46,7 +46,7 @@
         "adres": "de Wittenkade 59",
         "postcode": "1052AD Amsterdam",
         "telefoon": "088-0030600",
-        "website": "https://www.huisartsenwesterpark.nl/",
+        "website": "https://www.huisartsenwesterpark.nl",
         "email": null
       },
       {
@@ -54,7 +54,7 @@
         "adres": "van Limburg Stirumstraat 20A",
         "postcode": "1051BB Amsterdam West",
         "telefoon": "020-6840133",
-        "website": "https://huisartsenpraktijkhaarlemmerpoort.nl/",
+        "website": "https://huisartsenpraktijkhaarlemmerpoort.nl",
         "email": "info@hahp.nl",
         "categorie": "Huisartsen"
       },
@@ -63,7 +63,7 @@
          "adres": "Van Hallstraat 200",
          "postcode": "1051 HL Amsterdam",
          "telefoon": "020 68 40 770",
-         "website": "https://www.sag-staatsliedenbuurt.nl/ons-team/",
+         "website": "https://www.sag-staatsliedenbuurt.nl/ons-team",
          "email": " info-staatslieden@sag-amsterdam.nl"
        }
     ]
@@ -129,7 +129,7 @@
          "adres": "Groen van Prinstererstraat 64",
          "postcode": "1051EP Amsterdam",
          "telefoon": " 06 12 93 01 24",
-         "website": "https://gestaltpraktijkamsterdam.nl/",
+         "website": "https://gestaltpraktijkamsterdam.nl",
          "email": "nfo@gestaltpraktijkamsterdam.nl."
        },
         {
@@ -187,7 +187,7 @@
         "adres": "Van der Palmkade 148",
         "postcode": "1051RJ Amsterdam",
         "telefoon": "020 261 4688",
-        "website": "https://www.samkliniek.nl/",
+        "website": "https://www.samkliniek.nl",
         "email": ""
       }
     ]

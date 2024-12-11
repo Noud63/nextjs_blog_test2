@@ -18,20 +18,24 @@ export const metadata = {
   }
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children}) {
+
+ 
   return (
     <html lang="en">
       <body className="relative bg-gradient-to-r from-red-950 via-yellow-700 to-red-950">
         <div className="fixed -z-10 h-full w-full bg-[url('../public/images/homebg.png')] bg-cover bg-center bg-no-repeat" />
         <AuthProvider>
-          <Navbar />
-          <div className="w-full max-sm:flex sm:hidden">
-            <LoginRegisterLogout />
-          </div>
+    
+            <Navbar />
+            <div className="w-full max-sm:flex sm:hidden">
+              <LoginRegisterLogout />
+            </div>
 
-          <Menu />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
+            <Menu />
+            <main className="min-h-screen">{children}</main>
+            <Footer />
+
         </AuthProvider>
       </body>
     </html>
