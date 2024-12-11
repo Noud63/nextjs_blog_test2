@@ -31,7 +31,7 @@ const AllZorgInstanties = () => {
       <div
         className={`transition-height w-full overflow-hidden duration-700 ease-in-out ${
           dropDownId === cat.id
-            ? "max-h-[670px] opacity-100"
+            ? "max-h-[760px] opacity-100"
             : "max-h-[0px] opacity-0"
         }`}
       >
