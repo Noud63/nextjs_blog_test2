@@ -45,7 +45,7 @@ const WeerMorgen = ({data2, sunMoon, day}) => {
       </div>
 
       <div className="mt-10 flex flex-row items-center justify-center">
-        <span className="bg-gradient-to-b from-yellow-600 to-yellow-900 bg-clip-text text-6xl font-semibold text-transparent text-yellow-700 [text-shadow:_0_18px_7px_rgb(161_98_7_/_70%)]">
+        <span className="bg-gradient-to-b from-yellow-600 to-yellow-700 bg-clip-text text-6xl font-semibold text-transparent [text-shadow:_0_18px_7px_rgb(161_98_7_/_70%)]">
           {" "}
           {Math.round(`${data2.temp}`)}
           {`\xB0C`}
