@@ -1,14 +1,26 @@
+import {useState, useEffect} from "react";
 import Image from "next/image";
+import convertTime from "@/utils/convertTime";
 
-const WeerVandaag = ({ data }) => {
+const WeerVandaag = ({ data, sunMoon }) => {
 
   const now = new Date()
-const options = {
+  const options = {
   month: "short",
   day: "numeric",
 };
 const date = now.toLocaleDateString('nl-NL', options).split(" ")
 const monthShort = date[1][0].toUpperCase() + date[1].slice(1)
+
+useEffect(() => {
+  if (sunMoon.length > 0) {
+    const sunrise = convertTime(sunMoon[0].Rise);
+    const sunset = convertTime(sunMoon[0].Set);
+
+    data.sunrise = sunrise;
+    data.sunset = sunset;
+  }
+}, [sunMoon]);
 
   return (
     <div className="mt-4 rounded-lg border-2 p-2">
@@ -26,13 +38,13 @@ const monthShort = date[1][0].toUpperCase() + date[1].slice(1)
             className="h-[90px] w-auto drop-shadow-[0_2px_4px_rgba(113,63,18,1)]"
           />
         )}
-        <div className="absolute -bottom-2 flex justify-center text-lg font-semibold text-yellow-800">
+        <div className="absolute -bottom-2 flex justify-center text-lg font-semibold text-yellow-800 [text-shadow:_0_7px_4px_rgb(161_98_7_/_70%)]">
           {data.description}
         </div>
       </div>
 
       <div className="mt-10 flex flex-row items-center justify-center">
-        <span className="text-6xl font-semibold text-yellow-800">
+        <span className="bg-gradient-to-b from-yellow-600 to-yellow-900 bg-clip-text text-6xl font-semibold text-transparent text-yellow-700 [text-shadow:_0_18px_7px_rgb(161_98_7_/_70%)]">
           {" "}
           {Math.round(`${data.temp}`)}
           {`\xB0C`}
@@ -40,7 +52,7 @@ const monthShort = date[1][0].toUpperCase() + date[1].slice(1)
       </div>
 
       <div className="mt-12 grid w-full grid-cols-3 grid-rows-2 bg-white/60 font-semibold text-yellow-900">
-        <div className="flex items-center justify-center bg-yellow-800 py-2 text-white max-lg:bg-[#662909]">
+        <div className="flex items-center justify-center bg-yellow-800 py-2 text-white max-lg:bg-[rgb(102,41,9)]">
           MaxTemp
         </div>
         <div className="cell flex items-center justify-center bg-yellow-800 py-2 text-white max-lg:bg-[#662909]">

@@ -1,7 +1,30 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import Image from 'next/image';
+import convertSunsetAndSunrise from '@/utils/convertSunsetAndSunrise';
 
-const WeerMorgen = ({data2}) => {
+const WeerMorgen = ({data2, sunMoon, day}) => {
+  
+  const now = new Date();
+  const options = {
+    month: "short",
+    day: "numeric",
+  };
+  const date = now.toLocaleDateString("nl-NL", options).split(" ");
+  const monthShort = date[1][0].toUpperCase() + date[1].slice(1);
+
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    if (sunMoon.length > 0) {
+      let sunrise = convertSunsetAndSunrise(sunMoon[1].sunrise);
+       let sunset = convertSunsetAndSunrise(sunMoon[1].sunset)
+      
+      const dataObj = { ...data, sunrise, sunset };
+      setData(dataObj);
+    }
+  }, [sunMoon]);
+
+
   return (
     <div className="mt-4 rounded-lg border-2 p-2 font-semibold">
       <div className="mb-10 mt-8 flex justify-center text-5xl">Amsterdam</div>
@@ -16,13 +39,13 @@ const WeerMorgen = ({data2}) => {
             className="h-[90px] w-auto drop-shadow-[0_2px_4px_rgba(113,63,18,1)]"
           />
         )}
-        <div className="absolute -bottom-2 flex justify-center text-lg text-yellow-800">
+        <div className="absolute -bottom-2 flex justify-center text-lg text-yellow-800 [text-shadow:_0_7px_4px_rgb(161_98_7_/_70%)]">
           {data2.description}
         </div>
       </div>
 
       <div className="mt-10 flex flex-row items-center justify-center">
-        <span className="text-6xl text-yellow-800">
+        <span className="bg-gradient-to-b from-yellow-600 to-yellow-900 bg-clip-text text-6xl font-semibold text-transparent text-yellow-700 [text-shadow:_0_18px_7px_rgb(161_98_7_/_70%)]">
           {" "}
           {Math.round(`${data2.temp}`)}
           {`\xB0C`}
@@ -70,6 +93,43 @@ const WeerMorgen = ({data2}) => {
         </div>
         <div className="flex items-center justify-center border-b border-l border-r border-yellow-800">
           {data2.humidity} %
+        </div>
+      </div>
+
+      <div className="my-8 flex flex-row justify-between font-semibold">
+        <div className="flex w-1/3 flex-col items-center justify-center gap-4">
+          <span className="text-lg">Zon op</span>
+          <Image
+            src="/icons/sun.png"
+            width={35}
+            height={35}
+            alt=""
+            className="w-auto drop-shadow-[0_2px_4px_rgba(113,63,18,1)]"
+          />
+          <span>{data.sunrise} uur</span>
+        </div>
+
+        <div className="flex h-[135px] w-1/5 flex-col items-center justify-between">
+          <span className="flex justify-center text-lg text-white">
+            {monthShort}
+          </span>
+          <span className="flex justify-center pb-2 text-6xl text-[#ffcb3b] drop-shadow-[0_2px_4px_rgba(113,63,18,.5)]">
+            {day.toLocaleDateString("nl-NL").slice(0, 2)}
+          </span>
+          <span className="text-white-800 flex justify-center">
+            {data2?.date && data2.date.slice(0, 4)}
+          </span>
+        </div>
+        <div className="flex w-1/3 flex-col items-center justify-center gap-4">
+          <span className="text-lg">Zon onder</span>
+          <Image
+            src="/icons/moon.png"
+            width={35}
+            height={35}
+            alt=""
+            className="w-auto drop-shadow-[0_2px_4px_rgba(113,63,18,1)]"
+          />
+          <span>{data.sunset} uur</span>
         </div>
       </div>
     </div>

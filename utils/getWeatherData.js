@@ -11,6 +11,7 @@ const getWeatherData = async () => {
     const result = await res.json();
 
     const { list, city } = result
+    // console.log("City:", city)
 
      let data = {
        date: list[0].dt_txt,

@@ -1,27 +1,35 @@
-"use client"
-import { useState, useEffect} from "react"
+"use client";
+import { useState, useEffect } from "react";
 import getWeatherData from "@/utils/getWeatherData";
+import getSunriseAndSunset from "@/utils/getSunriseAndSunset";
 import WeerVandaag from "@/components/WeerVandaag";
 import WeerMorgen from "@/components/WeerMorgen";
 
 const WeatherreportPage = () => {
+  const [d, setD] = useState({});
+  const [d2, setD2] = useState({});
+  const [sunMoon, setSunMoon] = useState([]);
 
-   const [d, setD] = useState({});
-   const [d2, setD2] = useState({});
-
-   useEffect(() => {
+  useEffect(() => {
     const getData = async () => {
       try {
         const { data, data2 } = await getWeatherData();
         setD(data);
         setD2(data2);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     };
-     getData();
-   }, []);
+    getData();
+  }, []);
 
+  useEffect(() => {
+    const getData = async () => {
+      const {results} = await getSunriseAndSunset();
+      setSunMoon(results);
+    };
+    getData();
+  }, []);
 
   // const now = d.date.slice(0, 10);
   const today = new Date().toLocaleDateString();
@@ -38,7 +46,7 @@ const WeatherreportPage = () => {
           <span className="flex items-end text-sm font-normal">{today}</span>
         </div>
 
-        <WeerVandaag data={d} />
+        <WeerVandaag data={d} sunMoon={sunMoon} />
       </div>
 
       <div className="mx-4 mt-8 bg-[url('../public/images/cloud.png')] bg-center bg-no-repeat max-xsm:mx-2">
@@ -49,10 +57,10 @@ const WeatherreportPage = () => {
           </span>
         </div>
 
-        <WeerMorgen data2={d2} />
+        <WeerMorgen data2={d2} sunMoon={sunMoon} day={date} />
       </div>
       <div className="mt-8 flex justify-center text-xs">
-        (Weather data provided by OpenWeathermap.org api)
+        (Data provided by OpenWeathermap.org & SunriseSunset.io)
       </div>
     </div>
   );
