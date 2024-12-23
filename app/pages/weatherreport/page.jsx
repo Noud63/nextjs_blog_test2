@@ -46,7 +46,7 @@ const WeatherreportPage = () => {
           <span className="flex items-end text-sm font-normal">{today}</span>
         </div>
 
-        <WeerVandaag data={d} sunMoon={sunMoon} />
+        <WeerVandaag data1={d} sunMoon={sunMoon} />
       </div>
 
       <div className="mx-4 mt-8 bg-[url('../public/images/cloud.png')] bg-center bg-no-repeat max-xsm:mx-2">

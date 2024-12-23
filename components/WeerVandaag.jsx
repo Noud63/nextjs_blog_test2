@@ -1,8 +1,8 @@
 import {useState, useEffect} from "react";
 import Image from "next/image";
-import convertTime from "@/utils/convertTime";
+import convertSunsetAndSunrise from "@/utils/convertSunsetAndSunrise";
 
-const WeerVandaag = ({ data, sunMoon }) => {
+const WeerVandaag = ({ data1, sunMoon }) => {
 
   const now = new Date()
   const options = {
@@ -12,15 +12,18 @@ const WeerVandaag = ({ data, sunMoon }) => {
 const date = now.toLocaleDateString('nl-NL', options).split(" ")
 const monthShort = date[1][0].toUpperCase() + date[1].slice(1)
 
+const [data, setData] = useState({});
+
 useEffect(() => {
   if (sunMoon.length > 0) {
-    const sunrise = convertTime(sunMoon[0].Rise);
-    const sunset = convertTime(sunMoon[0].Set);
+    let sunrise = convertSunsetAndSunrise(sunMoon[0].sunrise);
+    let sunset = convertSunsetAndSunrise(sunMoon[0].sunset);
 
-    data.sunrise = sunrise;
-    data.sunset = sunset;
+    const dataObj = { ...data, sunrise, sunset };
+    setData(dataObj);
   }
 }, [sunMoon]);
+
 
   return (
     <div className="mt-4 rounded-lg border-2 p-2">
@@ -29,9 +32,9 @@ useEffect(() => {
       </div>
 
       <div className="relative flex flex-col items-center justify-center">
-        {data?.icon && (
+        {data1?.icon && (
           <Image
-            src={data.icon}
+            src={data1.icon}
             width="100"
             height="80"
             alt="icon"
@@ -39,14 +42,14 @@ useEffect(() => {
           />
         )}
         <div className="absolute -bottom-2 flex justify-center text-lg font-semibold text-yellow-800 [text-shadow:_0_7px_4px_rgb(161_98_7_/_70%)]">
-          {data.description}
+          {data1.description}
         </div>
       </div>
 
       <div className="mt-10 flex flex-row items-center justify-center">
         <span className="text-6xl bg-gradient-to-b from-yellow-600 to-yellow-700 bg-clip-text font-semibold text-transparent [text-shadow:_0_18px_7px_rgb(161_98_7_/_70%)]">
           {" "}
-          {Math.round(`${data.temp}`)}
+          {Math.round(`${data1.temp}`)}
           {`\xB0C`}
         </span>
       </div>
@@ -62,11 +65,11 @@ useEffect(() => {
           Wind
         </div>
         <div className="flex items-center justify-center border-b border-l border-yellow-800">
-          {data.tempMax}
+          {data1.tempMax}
           {`\xB0C`}
         </div>
         <div className="flex items-center justify-center border-b border-l border-yellow-800">
-          {data.tempMin}
+          {data1.tempMin}
           {`\xB0C`}
         </div>
         <div className="f flex items-center justify-center border-b border-l border-r border-yellow-800">
@@ -85,13 +88,13 @@ useEffect(() => {
           Vocht
         </div>
         <div className="flex items-center justify-center border-b border-l border-yellow-800">
-          {data.pressure} hPa
+          {data1.pressure} hPa
         </div>
         <div className="f flex items-center justify-center border-b border-l border-yellow-800">
-          {data.visibility} m
+          {data1.visibility} m
         </div>
         <div className="flex items-center justify-center border-b border-l border-r border-yellow-800">
-          {data.humidity} %
+          {data1.humidity} %
         </div>
       </div>
 
@@ -116,7 +119,7 @@ useEffect(() => {
             {date[0]}
           </span>
           <span className="text-white-800 flex justify-center">
-            {data?.date && data.date.slice(0, 4)}
+            {data1?.date && data1.date.slice(0, 4)}
           </span>
         </div>
         <div className="flex w-1/3 flex-col items-center justify-center gap-4">
