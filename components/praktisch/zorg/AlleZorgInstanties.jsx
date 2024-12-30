@@ -31,10 +31,10 @@ const AllZorgInstanties = () => {
       <div
         className={`transition-height w-full overflow-hidden duration-700 ease-in-out ${
           dropDownId === cat.id
-            ? "max-h-[1160px] opacity-100"
+            ? "max-h-[1170px] opacity-100"
             : "max-h-[0px] opacity-0"
         }`}
-      >
+        >
         <ul className="mb-8 flex list-disc flex-col gap-4 pl-5">
           {cat.items.map((item, index) => (
             <li key={index}>

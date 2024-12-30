@@ -15,7 +15,7 @@ const OvPage = () => {
       <div className="py-8 pl-4 max-xsm:pl-2">
         <p>
           Hier vindt je alle bus en tramlijnen van en naar de Staatsliedenbuurt
-          met alle haltes.
+          met alle haltes. Het zijn er twee, te weten tramlijn 19 en buslijn 21.
         </p>
       </div>
       <div className="rounded-md bg-white py-2 pl-4 text-lg font-semibold text-yellow-900">
