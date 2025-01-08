@@ -41,5 +41,13 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    function ({ addVariant }) {
+      addVariant(
+        "retina",
+        "@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)",
+      );
+    },
+  ],
 };
