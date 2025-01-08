@@ -12,10 +12,10 @@ const Navbar = () => {
         <div className="flex flex-row items-center">
           <Link href="/">
             <div className="flex flex-col tracking-wide">
-              <div className="retina:scale-[0.9] border font-CloisterBlack text-[4rem] leading-none text-white">
+              <div className="border font-CloisterBlack text-[4rem] leading-none text-white">
                 Staatslieden
               </div>
-              <div className="text-[.78rem] text-[#ffcb3b]">
+              <div className="retina:text-[65rem] text-[.78rem] text-[#ffcb3b]">
                 webapplicatie voor de Staatsliedenbuurt Amsterdam
               </div>
             </div>
