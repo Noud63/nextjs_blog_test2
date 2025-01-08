@@ -11,11 +11,11 @@ const Navbar = () => {
       <div className="mx-auto flex w-full max-w-[1980px] flex-row items-center justify-center px-6 max-sm:justify-between max-sm:px-0 max-xsm:justify-center">
         <div className="flex flex-row items-center">
           <Link href="/">
-            <div className="flex flex-col tracking-wide">
-              <div className="font-CloisterBlack text-[4rem] leading-none text-white border">
+            <div className="flex flex-col">
+              <div className="font-CloisterBlack text-[4rem] tracking-wide leading-none text-white border">
                 Staatslieden
               </div>
-              <div className="text-[.78rem] text-[#ffcb3b]">
+              <div className="text-[.85em] text-[#ffcb3b]">
                 webapplicatie voor de Staatsliedenbuurt Amsterdam
               </div>
             </div>
