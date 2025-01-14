@@ -1,155 +1,10 @@
 import React from "react";
 import Image from "next/image";
+import { images } from "../../../../utils/beeldToenEnNu";
 
 const BeeldPage = () => {
 
-  const images = [
-    {
-      src: "/images/straat.jpg",
-      alt: "Image 1",
-      info: "Fannius Scholtenstraat 1983",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat2.jpg",
-      alt: "Image 2",
-      info: "Van Limburg Stirumplein 1952",
-      jaar: 1983,
-    },
-    {
-      src: "/images/lijn19.png",
-      alt: "Image 3",
-      info: "Info about Image 3",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat.jpg",
-      alt: "Image 4",
-      info: "Info about Image 4",
-      jaar: 1983,
-    },
-    {
-      src: "/images/lijn19.png",
-      alt: "Image 5",
-      info: "Info about Image 5",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat.jpg",
-      alt: "Image 6",
-      info: "Info about Image 6",
-      jaar: 1983,
-    },
-    {
-      src: "/images/lijn19.png",
-      alt: "Image 1",
-      info: "Info about Image 7",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat.jpg",
-      alt: "Image 2",
-      info: "Info about Image 8",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat2.jpg",
-      alt: "Image 3",
-      info: "Info about Image 9",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat.jpg",
-      alt: "Image 4",
-      info: "Info about Image 10",
-      jaar: 1983,
-    },
-    {
-      src: "/images/lijn19.png",
-      alt: "Image 5",
-      info: "Info about Image 11",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat.jpg",
-      alt: "Image 6",
-      info: "Info about Image 12",
-      jaar: 1983,
-    },
-    {
-      src: "/images/lijn19.png",
-      alt: "Image 1",
-      info: "Kaart tramlijn 19",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat.jpg",
-      alt: "Image 2",
-      info: "Info about Image 14",
-      jaar: 1983,
-    },
-    {
-      src: "/images/lijn19.png",
-      alt: "Image 3",
-      info: "Info about Image 15",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat.jpg",
-      alt: "Image 4",
-      info: "Info about Image 16",
-      jaar: 1983,
-    },
-    {
-      src: "/images/lijn19.png",
-      alt: "Image 5",
-      info: "Info about Image 17",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat.jpg",
-      alt: "Image 6",
-      info: "Info about Image 18",
-      jaar: 1983,
-    },
-    {
-      src: "/images/lijn19.png",
-      alt: "Image 1",
-      info: "Info about Image 19",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat.jpg",
-      alt: "Image 2",
-      info: "Info about Image 20",
-      jaar: 1983,
-    },
-    {
-      src: "/images/lijn19.png",
-      alt: "Image 3",
-      info: "Info about Image 21",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat.jpg",
-      alt: "Image 4",
-      info: "Info about Image 22",
-      jaar: 1983,
-    },
-    {
-      src: "/images/lijn19.png",
-      alt: "Image 5",
-      info: "Info about Image 23",
-      jaar: 1983,
-    },
-    {
-      src: "/images/straat.jpg",
-      alt: "Image 6",
-      info: "Info about Image 24",
-      jaar: 1983,
-    },
-  ];
-
+const sortedImages = images.sort((a, b) => a.jaar - b.jaar);
 
   return (
     <div className="m-auto mt-8 max-w-[1980px] px-6 text-white max-sm:mt-4 max-sm:px-4">
@@ -160,7 +15,7 @@ const BeeldPage = () => {
         </div>
       </div>
       <div className="mt-4 grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
-        {images.map((image, index) => (
+        {sortedImages.map((image, index) => (
           <div
             key={index}
             className="relative w-full max-w-full overflow-hidden border border-white"

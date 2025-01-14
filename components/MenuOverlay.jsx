@@ -11,7 +11,7 @@ const MenuOverlay = ({ setOpenModal, openModal }) => {
 
   return (
     <div
-      className={`${openModal ? "translate-x-0" : "translate-x-full"} fixed bottom-0 right-0 top-0 z-[999] flex h-full max-h-screen w-full max-w-[500px] flex-col items-center justify-start overflow-y-auto bg-gradient-to-r from-red-950 via-yellow-700 to-red-950 p-4 backdrop-blur-lg transition duration-300 ease-in`}
+      className={`${openModal ? "translate-x-0" : "translate-x-full"} fixed bottom-0 right-0 top-0 z-[999] flex h-full max-h-screen w-full max-w-[635px] flex-col items-center justify-start overflow-y-auto bg-gradient-to-r from-red-950 via-yellow-700 to-red-950 p-4 backdrop-blur-lg transition duration-300 ease-in`}
       onClick={closeModal}
     >
       <div className="my-8 cursor-pointer" onClick={closeModal}>
