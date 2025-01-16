@@ -12,7 +12,8 @@ const convertSunsetAndSunrise = (timeStr) => {
 
   //Add 0 if hours is less than 10
   const formattedHours = String(hours).padStart(2, '0');
+  const formattedMinutes = String(minutes).padStart(2, '0');
 
-return `${formattedHours}:${minutes}`;
+return `${formattedHours}:${formattedMinutes}`;
 };
 export default convertSunsetAndSunrise;
