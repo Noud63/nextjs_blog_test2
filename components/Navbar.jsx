@@ -5,8 +5,7 @@ import LoginRegisterLogout from './LoginRegisterLogout';
 
 const Navbar = () => {
 
-
-  return (
+return (
     <div className="navbar flex h-[100px] w-full border-b border-yellow-800 py-3 max-sm:justify-between max-sm:px-4">
       <div className="mx-auto flex w-full max-w-[1980px] flex-row items-center justify-center px-6 max-sm:justify-between max-sm:px-0 max-xsm:justify-center">
         <div className="flex flex-row items-center">

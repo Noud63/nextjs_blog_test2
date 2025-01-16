@@ -5,7 +5,7 @@ import Link from "next/link";
 const Menu = () => {
 
   return (
-    <div className="mx-auto mt-4 w-full max-w-[1980px] px-6">
+    <div className="mx-auto mt-8 w-full max-w-[1980px] px-6">
       <div className="grid grid-cols-3 gap-2 max-sm:hidden xl:grid-cols-6">
         {items &&
           items.map((item, index) => (
