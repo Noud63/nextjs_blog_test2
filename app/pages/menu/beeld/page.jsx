@@ -27,18 +27,18 @@ return (
           <span className="max-xsm:hidden">(1900-heden)</span>
         </div>
       </div>
-      <div className="mt-4 grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div className="mt-4 grid grid-cols-1 justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5">
         {sortedImages.map((image, index) => (
           <div
             key={index}
-            className="relative w-full max-w-full overflow-hidden border border-white"
+            className="relative w-full h-[260px] overflow-hidden border border-white max-sm:h-full"
             onClick={() => addSlide(image)}
           >
             <div className="relative h-full w-full">
               <Image
                 src={image.src}
                 alt={image.alt}
-                height={0}
+                height={300}
                 width={300}
                 priority="lazy"
                 className="h-full w-full cursor-pointer object-cover px-4 pb-12 pt-4"
