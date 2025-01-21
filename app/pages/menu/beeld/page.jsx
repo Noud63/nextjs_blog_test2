@@ -19,8 +19,6 @@ const BeeldPage = () => {
         slides.push(imageObject);
       };
 
-    console.log(images.length)
-
 return (
     <div className="m-auto mt-8 max-w-[1980px] px-6 text-white max-sm:mt-4 max-sm:px-4">
       <div className="text-lg font-semibold tracking-wide">

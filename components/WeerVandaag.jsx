@@ -9,6 +9,7 @@ const WeerVandaag = ({ data1, sunMoon }) => {
   month: "short",
   day: "numeric",
 };
+
 const date = now.toLocaleDateString('nl-NL', options).split(" ")
 const monthShort = date[1][0].toUpperCase() + date[1].slice(1)
 
@@ -73,7 +74,7 @@ useEffect(() => {
           {`\xB0C`}
         </div>
         <div className="f flex items-center justify-center border-b border-l border-r border-yellow-800">
-          {data.wind} bft
+          {data1.wind} bft
         </div>
       </div>
 

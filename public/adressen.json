@@ -267,5 +267,19 @@
         "email": "info@vroedvrouwen.nl"
       }
     ]
-  }
+  },
+   {
+     "id": 10,
+     "title": "Apotheek",
+     "items": [
+       {
+         "naam": "Apotheek Staatslieden",
+         "adres": "Van Hallstraat 200",
+         "postcode": "1051HL Amsterdam",
+         "telefoon": "020 851 10607",
+         "website": "staatslieden@medicijnmanapotheek.nl",
+         "email": "info@vroedvrouwen.nl"
+       }
+     ]
+   }
 ]

@@ -9,7 +9,7 @@ export const images = [
   },
   {
     src: "/images/toenennu/fanniusscholtenstraat_1.jpg",
-    alt: "Image 4",
+    alt: "fanniusscholtenstraat",
     info: "Fannius Scholtenstraat 1915",
     jaar: 1915,
     title: "Fannius Scholtenstraat",
@@ -17,7 +17,7 @@ export const images = [
   },
   {
     src: "/images/toenennu/fanniusscholtenstraat_2.jpg",
-    alt: "Image 4",
+    alt: "fanniusscholtenstraat",
     info: "Fannius Scholtenstraat 1915",
     jaar: 1915,
     title: "Fannius Scholtenstraat",
@@ -25,7 +25,7 @@ export const images = [
   },
   {
     src: "/images/toenennu/fanniusscholtenstraat_3.jpg",
-    alt: "Image 4",
+    alt: "fanniusscholtenstraat",
     info: "Fannius Scholtenstraat 1915",
     jaar: 1915,
     title: "Fannius Scholtenstraat",
@@ -49,7 +49,7 @@ export const images = [
   },
   {
     src: "/images/toenennu/vanlimburgstirumstraat_1.jpg",
-    alt: "vanlimburgstirumplein",
+    alt: "vanlimburgstirumstraat",
     info: "Van Limburg Stirumstraat 1915",
     jaar: 1915,
     title: "Van Limburg Stirumstraat",
@@ -57,7 +57,7 @@ export const images = [
   },
   {
     src: "/images/toenennu/vanlimburgstirumstraat_2.jpg",
-    alt: "vanlimburgstirumplein",
+    alt: "vanlimburgstirumstraat",
     info: "Van Limburg Stirumstraat 1910",
     jaar: 1910,
     title: "Van Limburg Stirumstraat",
@@ -65,7 +65,7 @@ export const images = [
   },
   {
     src: "/images/toenennu/vanlimburgstirumstraat_3.jpg",
-    alt: "vanlimburgstirumplein",
+    alt: "vanlimburgstirumstraat",
     info: "Van Limburg Stirumstraat 1979",
     jaar: 1979,
     title: "Van Limburg Stirumstraat",
@@ -128,6 +128,14 @@ export const images = [
     description: "Van Beuningenplein 1989",
   },
   {
+    src: "/images/toenennu/vanbeuningenplein_3.jpg",
+    alt: "Image 4",
+    info: "Van Beuningenplein 1975",
+    jaar: 1975,
+    title: "Van Beuningenplein",
+    description: "Van Beuningenplein 1975",
+  },
+  {
     src: "/images/toenennu/vanbeuningenstraat_1.jpg",
     alt: "Image 4",
     info: "Van Beuningenstraat 1935",
@@ -176,6 +184,22 @@ export const images = [
     description: "De Wittenstraat 1983",
   },
   {
+    src: "/images/toenennu/dewittenstraat_3.jpg",
+    alt: "Image 4",
+    info: "De Wittenstraat 1961",
+    jaar: 1961,
+    title: "De Wittenstraat",
+    description: "De Wittenstraat 1961",
+  },
+  {
+    src: "/images/toenennu/dewittenkade_1.jpg",
+    alt: "Image 4",
+    info: "De Wittenkade 1969",
+    jaar: 1969,
+    title: "De Wittenkade",
+    description: "De Wittenkade 1969",
+  },
+  {
     src: "/images/toenennu/haarlemmerweg_1.jpg",
     alt: "Image 4",
     info: "Haarlemmerweg 1948",
@@ -205,7 +229,7 @@ export const images = [
     info: "Van Hogendorpplein 1983",
     jaar: 1983,
     title: "Van Hogendorpplein",
-    description: "Van Hogendorpstraat 1983",
+    description: "Van Hogendorpplein 1983",
   },
   {
     src: "/images/toenennu/vanhogendorpplein_2.jpg",
@@ -246,5 +270,13 @@ export const images = [
     jaar: 1985,
     title: "Joan Melchior Kemperstraat",
     description: "Joan Melchior Kemperstraat 1985",
+  },
+  {
+    src: "/images/toenennu/vanhallstraat_1.jpg",
+    alt: "Van Hallstraat",
+    info: "Van Hallstraat 1957",
+    jaar: 1957,
+    title: "Van Hallstraat",
+    description: "Van Hallstraat 1957",
   },
 ];
