@@ -1,16 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import { IoIosArrowDown } from "react-icons/io";
 import data from "../../../data/adressen.json"
 import ToggleButton from "@/components/ToggleButton";
 
 const AllZorgInstanties = () => {
 
   const [dropDownId, setDropDownId] = useState(null);
-
-  // const toggleDropdown = (id) => {
-  //   setDropDownId(dropDownId === id ? null : id);
-  // };
 
   return data.map((cat) => (
     
