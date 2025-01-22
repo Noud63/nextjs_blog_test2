@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { items } from "../data/menuItems.json";
+import data from "../data/menuItems.json";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import Image from "next/image";
 
@@ -18,8 +18,8 @@ const MenuOverlay = ({ setOpenModal, openModal }) => {
         <IoMdCloseCircleOutline size={35} color="#fff" />
       </div>
       <div className="grid w-full grid-cols-2 gap-2 rounded-xl">
-        {items &&
-          items.map((item, index) => (
+        {data &&
+          data.map((item, index) => (
             <div key={index}>
               <Link href={item?.href || "/not-found"}>
                 <div className="flex h-12 w-full cursor-pointer items-center justify-center rounded-lg border-[3px] border-white font-semibold tracking-wide text-white shadow-lg">
