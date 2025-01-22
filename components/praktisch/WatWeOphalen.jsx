@@ -1,7 +1,7 @@
 "use client";
 import React, {useState} from "react";
 import ToggleButton from "../ToggleButton";
-import data from "../../data/grofvuil.json"
+import data from "../../data/grofvuil"
 
 const WatWeOphalen = () => {
 
