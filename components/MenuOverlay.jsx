@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { items } from "../utils/menuItems";
+import { items } from "../data/menuItems.json";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import Image from "next/image";
 

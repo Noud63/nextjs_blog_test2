@@ -1,5 +1,5 @@
 import React from "react";
-import {items} from "../utils/menuItems"
+import items from "../data/menuItems.json"
 import Link from "next/link";
 
 const Menu = () => {

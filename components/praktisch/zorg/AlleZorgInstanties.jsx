@@ -1,32 +1,22 @@
 "use client";
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import data from "../../../public/adressen.json"
+import data from "../../../data/adressen.json"
+import ToggleButton from "@/components/ToggleButton";
 
 const AllZorgInstanties = () => {
 
   const [dropDownId, setDropDownId] = useState(null);
 
-  const toggleDropdown = (id) => {
-    setDropDownId(dropDownId === id ? null : id);
-  };
+  // const toggleDropdown = (id) => {
+  //   setDropDownId(dropDownId === id ? null : id);
+  // };
 
   return data.map((cat) => (
+    
     <div key={cat.title}>
-      <div>
-        <button
-          type="button"
-          className="mb-4 flex w-full items-center justify-between rounded-md bg-yellow-700 px-4 py-2 text-lg shadow-lg"
-          onClick={() => toggleDropdown(cat.id)}
-        >
-          <span>{cat.title}</span>
-          <IoIosArrowDown
-            color="white"
-            size={32}
-            className={`${dropDownId === cat.id ? "rotate-180" : ""} transition-all duration-700 ease-in-out`}
-          />
-        </button>
-      </div>
+
+      <ToggleButton dropDownId={dropDownId} setDropDownId={setDropDownId} ID={cat.id} title={cat.title} />
 
       <div
         className={`transition-height w-full overflow-hidden duration-700 ease-in-out ${

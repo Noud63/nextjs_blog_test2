@@ -1,45 +1,38 @@
 "use client";
 import React, {useState} from "react";
-import { IoIosArrowDown } from "react-icons/io";
+import ToggleButton from "../ToggleButton";
+import data from "../../data/grofvuil.json"
 
 const WatWeOphalen = () => {
-  const [dropDown, setDropDown] = useState(false);
 
-  const showListToggleG = () => {
-    setDropDown(!dropDown);
-  };
+ const [dropDownId, setDropDownId] = useState(null);
 
   return (
-    <div className="relative mb-4">
-      <button
-        type="button"
-        className="mt-4 flex w-full items-center justify-between rounded-md bg-yellow-700 px-4 py-2 shadow-lg"
-        onClick={showListToggleG}
-      >
-        <span>- Wat ze ophalen</span>
-        <IoIosArrowDown
-          color="white"
-          size={32}
-          className={`${dropDown ? "rotate-180" : ""} transition-all duration-700 ease-in-out`}
+    <div className="mt-4">
+      {data.map((cat) => (
+      <div key={cat.title}>
+        <ToggleButton
+          dropDownId={dropDownId}
+          setDropDownId={setDropDownId}
+          ID={cat.id}
+          title={cat.title}
         />
-      </button>
-      <div
-        className={`transition-height w-full overflow-hidden duration-700 ease-in-out ${
-          dropDown ? "h-[190px] opacity-100" : "h-0 opacity-0"
-        }`}
-      >
-        <ul className="list-disc pl-8 pt-4">
-          <li>Banken</li>
-          <li>Bedden en matrassen</li>
-          <li>Koelkast of wasmachine</li>
-          <li>Kasten</li>
-          <li>Planken</li>
-          <li>Stoelen</li>
-          <li>Tapijten en vloerbedekking</li>
-          <li>Tuinmeubels</li>
-          <li>Tuinafval</li>
-        </ul>
+
+        <div
+          className={`transition-height w-full overflow-hidden duration-700 ease-in-out ${
+            dropDownId === cat.id ? "h-[190px] opacity-100" : "h-0 opacity-0"
+          }`}
+        >
+          <ul className="list-disc pl-8 ">
+            {cat.items.map((item, index) => (
+              <li key={index}>
+                <span className="">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
+      ))}
     </div>
   );
 };

@@ -5,7 +5,7 @@ import Captions from "yet-another-react-lightbox/plugins/captions";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Image from "next/image";
 
-import { images } from "../../../../utils/beeldToenEnNu";
+import images from "../../../../data/beeldToenEnNu.json";
 
 const BeeldPage = () => {
 

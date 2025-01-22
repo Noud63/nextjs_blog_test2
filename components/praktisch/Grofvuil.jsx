@@ -1,7 +1,5 @@
-
 import React from 'react'
 import WatWeOphalen from './WatWeOphalen';
-import WatWeNietOphalen from './WatWeNietOphalen';
 import Image from 'next/image';
 
 const Grofvuil = () => {
@@ -60,9 +58,8 @@ const Grofvuil = () => {
       </div>
 
       <WatWeOphalen />
-      <WatWeNietOphalen />
 
-      <div className="mt-12">
+      <div className="mt-8">
         <div className="rounded-md bg-white py-2 pl-4 text-lg text-yellow-900">
           <span className="font-bold">Ophaaldag grofvuil</span>
         </div>
