@@ -9,7 +9,8 @@ const HorecaPage = () => {
       </div>
       <div className="py-8 pl-4 max-xsm:pl-2">
         <p>
-          Hier vindt je alle horecagelegenheden zoals restaurants en café's.
+          Hier vindt je alle horecagelegenheden zoals restaurants en
+          café&apos;s.
         </p>
       </div>
       <Horeca />
