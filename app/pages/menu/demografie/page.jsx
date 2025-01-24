@@ -1,5 +1,6 @@
 import React from "react";
-import { InwonersAantallen } from "@/components/infographics/chart-bar";
+import { InwonersAantallen } from "@/components/infographics/InwonersChart";
+import { Inkomensverschillen } from "@/components/infographics/InkomensChart";
 
 const DemografiePage = () => {
   return (
@@ -38,6 +39,12 @@ const DemografiePage = () => {
       </div>
 
       <InwonersAantallen />
+
+      <div className="mt-12 rounded-md bg-yellow-700 py-2 pl-4 text-lg font-semibold text-white shadow">
+        <span className="font-semibold">Inkomensverdeling</span>
+      </div>
+
+      <Inkomensverschillen />
     </div>
   );
 };
