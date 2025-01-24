@@ -39,8 +39,8 @@ export function InwonersAantallen() {
   }
 
   return (
-    <Card className="mt-4 max-w-[580px] px-4">
-      <CardHeader className="mb-4 w-full border-b border-gray-400 px-0 py-4 text-lg">
+    <Card className="mt-6 max-w-[620px] px-4">
+      <CardHeader className="mb-4 w-full border-b border-gray-400 px-0 py-4 text-lg text-yellow-900">
         <CardTitle>Inwoners aantallen</CardTitle>
         <CardDescription>2014 - 2024</CardDescription>
       </CardHeader>

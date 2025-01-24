@@ -7,7 +7,7 @@ const DemografiePage = () => {
       <div className="flex justify-center border-b-2 text-2xl font-semibold tracking-wide">
         <span className="px-4 pb-4">Demografie</span>
       </div>
-      <div className="border-b-2 py-8">
+      <div className="border-b-2 py-8 pl-4">
         <p>
           Hier vindt je de demografische gegevens van de wijk.
           <br />
@@ -24,7 +24,20 @@ const DemografiePage = () => {
           wetenschappen als statistiek en wiskunde.
         </p>
       </div>
-    <InwonersAantallen />
+
+      <div className="mt-8 rounded-md bg-yellow-700 py-2 pl-4 text-lg font-semibold text-white shadow">
+        <span className="font-semibold">Inwonersaantallen 2014 - 2024</span>
+      </div>
+
+      <div className="text-md mt-6 px-4">
+        De afgelopen 10 jaar is het inwonersaantal in de Staatsliedenbuurt met
+        250 gestegen.
+        <br />
+        Beweeg met je muis over het staafdiagram voor de exacte aantallen per
+        jaar.
+      </div>
+
+      <InwonersAantallen />
     </div>
   );
 };
