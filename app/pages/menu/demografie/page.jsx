@@ -1,4 +1,5 @@
 import React from "react";
+import { InwonersAantallen } from "@/components/infographics/chart-bar";
 
 const DemografiePage = () => {
   return (
@@ -23,6 +24,7 @@ const DemografiePage = () => {
           wetenschappen als statistiek en wiskunde.
         </p>
       </div>
+    <InwonersAantallen />
     </div>
   );
 };
