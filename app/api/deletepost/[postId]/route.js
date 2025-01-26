@@ -31,7 +31,7 @@ export const DELETE = async (request, { params }) => {
     }
 
     // Delete post
-    await Post.findOneAndDelete({ _id: postId });
+    const deletedPost = await Post.findOneAndDelete({ _id: postId });
     // find all comments
     const comments = await Comment.find({ postId: postId });
     // delete comment likes
@@ -44,6 +44,8 @@ export const DELETE = async (request, { params }) => {
     await Like.deleteMany({ postId: postId });
     // delete all comments
     await Comment.deleteMany({ postId: postId });
+
+    console.log("Deleted:", deletedPost)
 
     return new Response(
       JSON.stringify({ message: "Post deleted successfully!" }),

@@ -40,10 +40,10 @@ const router = useRouter();
       });
 
       const data = await res.json();
-
+  
       if (res.ok) {
         console.log(data.message);
-        router.push("/")
+        // router.push("/")
       }
     } catch (error) {
       console.log(data.message);

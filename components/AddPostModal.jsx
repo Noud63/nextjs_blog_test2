@@ -2,11 +2,8 @@
 import React, { useState, useRef } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useRouter } from "next/navigation";
-import PostComment from "./PostComment";
-import { FaLessThanEqual } from "react-icons/fa";
 import { IoWarningOutline } from "react-icons/io5";
 const AddPostModal = ({ inView, setInView }) => {
-
   const [newFiles, setNewFiles] = useState({ images: [] });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -48,20 +45,20 @@ const AddPostModal = ({ inView, setInView }) => {
 
     const formData = new FormData(e.target);
 
-    const content = formData.get("postContent")
-    console.log(content)
+    const content = formData.get("postContent");
+    console.log(content);
 
     newFiles.images.forEach((file) => {
       formData.append("images", file);
     });
 
     if (newFiles.images.length === 0 && !content) {
-        setLoading(false)
-        setError(true)
-        setTimeout(()=> {
-         setError(false);
-        },2000)
-      return
+      setLoading(false);
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 2000);
+      return;
     }
 
     try {
@@ -70,9 +67,9 @@ const AddPostModal = ({ inView, setInView }) => {
         body: formData,
       });
       if (res.status === 200) {
-        router.push("/")
         closeModal();
         setLoading(false);
+        router.push("/");
       }
     } catch (error) {
       console.log(error);
@@ -83,7 +80,7 @@ const AddPostModal = ({ inView, setInView }) => {
   return (
     inView && (
       <div className="fixed bottom-0 left-0 right-0 top-0 z-[999] flex w-full items-center justify-center overflow-y-auto bg-yellow-950/70">
-        <div className="postmodal mx-4 w-full max-w-[500px] max-h-screen overflow-y-auto rounded-lg bg-white p-4 shadow-md max-xsm:mx-2 mt-4">
+        <div className="postmodal mx-4 mt-4 max-h-screen w-full max-w-[500px] overflow-y-auto rounded-lg bg-white p-4 shadow-md max-xsm:mx-2">
           <div className="flex w-full flex-row items-center justify-between border-b border-gray-300 pb-2">
             <div className="text-lg font-semibold">Schrijf een bericht</div>
             <div className="cursor-pointer" onClick={closeModal}>

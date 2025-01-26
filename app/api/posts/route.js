@@ -65,6 +65,8 @@ if (!sessionUser || !sessionUser.user.id) {
       const newPost = new Post(postData);
       await newPost.save();
 
+      console.log(newPost)
+
     return new Response(JSON.stringify(newPost, {status:200}));
 
   } catch (error) {
