@@ -95,7 +95,7 @@ export function EenpersoonsHuishoudens() {
       </CardContent>
       <CardFooter className="flex items-start border-t border-black pl-0 pt-4 text-sm">
         <div className="text-gray-500">
-          Bron:onderzoek & statistiek Gemeente Amsterdam
+          Bron: onderzoek & statistiek Gemeente Amsterdam
         </div>
       </CardFooter>
     </Card>

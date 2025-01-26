@@ -3,6 +3,8 @@ import React, { useState, useRef } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import { IoWarningOutline } from "react-icons/io5";
+
+
 const AddPostModal = ({ inView, setInView }) => {
   const [newFiles, setNewFiles] = useState({ images: [] });
   const [loading, setLoading] = useState(false);
@@ -69,7 +71,6 @@ const AddPostModal = ({ inView, setInView }) => {
       if (res.status === 200) {
         closeModal();
         setLoading(false);
-        router.push("/");
       }
     } catch (error) {
       console.log(error);

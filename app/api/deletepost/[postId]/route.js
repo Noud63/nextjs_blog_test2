@@ -32,6 +32,12 @@ export const DELETE = async (request, { params }) => {
 
     // Delete post
     const deletedPost = await Post.findOneAndDelete({ _id: postId });
+    if (!deletedPost) {
+  return new Response(
+    JSON.stringify({ message: "Post not found or already deleted!" }),
+    { status: 404 }
+  );
+}
     // find all comments
     const comments = await Comment.find({ postId: postId });
     // delete comment likes

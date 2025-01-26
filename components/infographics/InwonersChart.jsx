@@ -72,7 +72,7 @@ export function InwonersAantallen() {
       </CardContent>
       <CardFooter className="flex items-start border-t border-black pl-0 pt-4 text-sm">
         <div className="text-gray-500">
-          Data, onderzoek & statistiek Gemeente Amsterdam
+          Bron: onderzoek & statistiek Gemeente Amsterdam
         </div>
       </CardFooter>
     </Card>
