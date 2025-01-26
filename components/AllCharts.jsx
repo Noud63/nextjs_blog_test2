@@ -47,7 +47,7 @@ const AllCharts = () => {
           <div className="text-md mt-4 flex justify-start px-4">
             De toe en afname van het aantal eenpersoonshuishoudens.
             <br />
-            Aantallen zijn weergegeven in procenten van het totaal aantaal
+            Aantallen zijn weergegeven in procenten van het totaal aantal
             huishoudens.
           </div>
         </div>

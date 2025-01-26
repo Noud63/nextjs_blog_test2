@@ -43,6 +43,7 @@ const router = useRouter();
 
       if (res.ok) {
         console.log(data.message);
+        router.push("/")
       }
     } catch (error) {
       console.log(data.message);

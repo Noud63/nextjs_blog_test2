@@ -70,7 +70,7 @@ const AddPostModal = ({ inView, setInView }) => {
         body: formData,
       });
       if (res.status === 200) {
-        //  router.push("/")
+        router.push("/")
         closeModal();
         setLoading(false);
       }
