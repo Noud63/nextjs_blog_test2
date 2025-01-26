@@ -1,6 +1,5 @@
 import React from "react";
-import { InwonersAantallen } from "@/components/infographics/InwonersChart";
-import { Inkomensverschillen } from "@/components/infographics/InkomensChart";
+import AllCharts from "@/components/AllCharts";
 
 const DemografiePage = () => {
   return (
@@ -26,25 +25,7 @@ const DemografiePage = () => {
         </p>
       </div>
 
-      <div className="mt-8 rounded-md bg-yellow-700 py-2 pl-4 text-lg font-semibold text-white shadow">
-        <span className="font-semibold">Inwonersaantallen 2014 - 2024</span>
-      </div>
-
-      <div className="text-md mt-6 px-4">
-        De afgelopen 10 jaar is het inwonersaantal in de Staatsliedenbuurt met
-        250 gestegen.
-        <br />
-        Beweeg met je muis over het staafdiagram voor de exacte aantallen per
-        jaar.
-      </div>
-
-      <InwonersAantallen />
-
-      <div className="mt-12 rounded-md bg-yellow-700 py-2 pl-4 text-lg font-semibold text-white shadow">
-        <span className="font-semibold">Inkomensverdeling</span>
-      </div>
-
-      <Inkomensverschillen />
+      <AllCharts />
     </div>
   );
 };

@@ -22,34 +22,31 @@ import {
 import { ChartContainer } from "@/components/ui/chart";
 
 const chartData = [
-  { jaar: "2002", inkomen: 22030 },
-  { jaar: "2005", inkomen: 21900 },
-  { jaar: "2006", inkomen: 23300 },
-  { jaar: "2007", inkomen: 24900 },
-  { jaar: "2008", inkomen: 26100 },
-  { jaar: "2009", inkomen: 26900 },
-  { jaar: "2010", inkomen: 26900 },
-  { jaar: "2011", inkomen: 29200 },
-  { jaar: "2012", inkomen: 29300 },
-  { jaar: "2013", inkomen: 30100 },
-  { jaar: "2014", inkomen: 32000 },
-  { jaar: "2015", inkomen: 33100 },
-  { jaar: "2016", inkomen: 34600 },
-  { jaar: "2017", inkomen: 35900 },
-  { jaar: "2018", inkomen: 37100 },
-  { jaar: "2019", inkomen: 38900 },
-  { jaar: "2020", inkomen: 40700 },
-  { jaar: "2021", inkomen: 43900 }
+  { jaar: "2010", eenpersoonshuishoudens: 64.2 },
+  { jaar: "2011", eenpersoonshuishoudens: 63.3 },
+  { jaar: "2012", eenpersoonshuishoudens: 63.7 },
+  { jaar: "2013", eenpersoonshuishoudens: 62.6 },
+  { jaar: "2014", eenpersoonshuishoudens: 61.9 },
+  { jaar: "2015", eenpersoonshuishoudens: 60.9 },
+  { jaar: "2016", eenpersoonshuishoudens: 60.2 },
+  { jaar: "2017", eenpersoonshuishoudens: 60.2 },
+  { jaar: "2018", eenpersoonshuishoudens: 59.9 },
+  { jaar: "2019", eenpersoonshuishoudens: 59.5 },
+  { jaar: "2020", eenpersoonshuishoudens: 59.5 },
+  { jaar: "2021", eenpersoonshuishoudens: 59.5 },
+  { jaar: "2022", eenpersoonshuishoudens: 61.5 },
+  { jaar: "2023", eenpersoonshuishoudens: 61.6 },
+  { jaar: "2024", eenpersoonshuishoudens: 61.7 }
 ];
 
 const chartConfig = {
   inwoners: {
-    label: "Inkomen",
+    label: "Eenpersoonshuishoudens",
     color: "#854d0e",
   },
 };
 
-export function Inkomensverschillen() {
+export function EenpersoonsHuishoudens() {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -63,8 +60,8 @@ export function Inkomensverschillen() {
   return (
     <Card className="mt-4 max-w-full px-4">
       <CardHeader className="mb-4 w-full border-b border-gray-400 px-0 py-4 text-lg text-yellow-900">
-        <CardTitle>Gemiddeld besteedbaar inkomen</CardTitle>
-        <CardDescription>2002 - 2021</CardDescription>
+        <CardTitle>Eenpersoonshuishoudens</CardTitle>
+        <CardDescription>2010 - 2024</CardDescription>
       </CardHeader>
       <CardContent className="pb-0 pl-0 pr-6">
         <ChartContainer config={chartConfig}>
@@ -86,7 +83,11 @@ export function Inkomensverschillen() {
                   }}
                   cursor={{ fill: "rgba(0, 0, 0, 0.1)" }}
                 />
-                <Bar dataKey="inkomen" fill="#854d0e" radius={[0, 0, 0, 0]} />
+                <Bar
+                  dataKey="eenpersoonshuishoudens"
+                  fill="#854d0e"
+                  radius={[0, 0, 0, 0]}
+                />
               </BarChart>
             </ResponsiveContainer>
           </div>
