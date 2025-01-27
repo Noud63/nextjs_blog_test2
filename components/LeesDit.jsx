@@ -1,7 +1,7 @@
-import React from 'react'
-import Image from 'next/image'
-import vinger from "../assets/icons/vinger.png"
-import Link from 'next/link'
+import React from "react";
+import Image from "next/image";
+import vinger from "../assets/icons/vinger.png";
+import Link from "next/link";
 
 const LeesDit = () => {
   return (
@@ -27,6 +27,6 @@ const LeesDit = () => {
       </div>
     </div>
   );
-}
+};
 
-export default LeesDit
+export default LeesDit;

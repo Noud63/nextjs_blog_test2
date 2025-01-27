@@ -1,12 +1,17 @@
-import React from 'react'
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import Link from "next/link";
 
 const LeesDitEerstPage = () => {
   return (
     <div className="mx-4">
       <div className="mx-auto mt-[20px] w-full max-w-[620px] flex-col rounded-lg border-2 p-4">
-        <div className="mb-4 flex justify-center border-b pb-4 text-lg font-semibold text-white">
+        <div className="mb-4 flex items-center justify-between border-b pb-4 text-xl font-semibold text-white">
           <span>Regels voor online posten</span>
+          <Link href={"/"}>
+            <AiOutlineCloseCircle size={30} color="#fff" />
+          </Link>
         </div>
         <div className="mb-4 text-white">
           <div className="mb-4">
@@ -42,7 +47,7 @@ const LeesDitEerstPage = () => {
           </ul>
         </div>
 
-        <div className="my-12 flex justify-center items-center flex-col text-white">
+        <div className="my-12 flex flex-col items-center justify-center text-white">
           <Image
             src={"/icons/respect.png"}
             alt="respect"
@@ -54,6 +59,6 @@ const LeesDitEerstPage = () => {
       </div>
     </div>
   );
-}
+};
 
 export default LeesDitEerstPage;

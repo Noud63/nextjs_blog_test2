@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import { IoWarningOutline } from "react-icons/io5";
-
+import { mutate } from "swr";
 
 const AddPostModal = ({ inView, setInView }) => {
   const [newFiles, setNewFiles] = useState({ images: [] });
@@ -75,7 +75,7 @@ const AddPostModal = ({ inView, setInView }) => {
     } catch (error) {
       console.log(error);
     }
-    router.refresh();
+    mutate("/api/posts");
   };
 
   return (
