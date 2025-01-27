@@ -8,7 +8,7 @@ import { mutate } from "swr";
 const LikeButton = ({ postId, post }) => {
   const { data: session } = useSession();
 
-  // const [likesCount, setLikesCount] = useState(initialLikesCount);
+  const [likesCount, setLikesCount] = useState(post.likesCount);
 
   const router = useRouter();
 
@@ -24,11 +24,13 @@ const LikeButton = ({ postId, post }) => {
 
       const data = await res.json();
 
-      // if (data.message === "inc") {
-      //   setLikesCount((prevCount) => prevCount + 1);
-      // } else {
-      //   setLikesCount((prevCount) => prevCount - 1);
-      // }
+      // Optimistic update
+      if (data.message === "inc") {
+        setLikesCount((prevCount) => prevCount + 1);
+      } else {
+        setLikesCount((prevCount) => prevCount - 1);
+      }
+
     } catch (error) {
       console.error("Error toggling like:", error);
     }
@@ -47,7 +49,7 @@ const LikeButton = ({ postId, post }) => {
         />
       </button>
       <div className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-red-800 text-sm font-semibold text-white">
-        {post.likesCount}
+        {likesCount}
       </div>
     </div>
   );

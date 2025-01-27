@@ -9,7 +9,7 @@ import { mutate } from "swr";
 const Comment = ({ com }) => {
   const { data: session } = useSession();
 
-  // const [likesCount, setLikesCount] = useState(com.likesCount);
+  const [likesCount, setLikesCount] = useState(com.likesCount);
 
   const router = useRouter();
 
@@ -26,11 +26,11 @@ const Comment = ({ com }) => {
       const data = await res.json();
 
       //Optimistic update
-      // if (data.message === "inc") {
-      //   setLikesCount((prevCount) => prevCount + 1);
-      // } else {
-      //   setLikesCount((prevCount) => prevCount - 1);
-      // }
+      if (data.message === "inc") {
+        setLikesCount((prevCount) => prevCount + 1);
+      } else {
+        setLikesCount((prevCount) => prevCount - 1);
+      }
     } catch (error) {
       console.error("Error toggling like:", error);
     }
@@ -98,7 +98,7 @@ const Comment = ({ com }) => {
               onClick={() => toggleLike(com._id)}
               disabled={!session}
             >
-              Leuk {com.likesCount}
+              Leuk {likesCount}
             </button>
           </div>
         </div>
