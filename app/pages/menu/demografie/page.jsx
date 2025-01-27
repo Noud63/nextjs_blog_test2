@@ -22,6 +22,9 @@ const DemografiePage = () => {
           Hierbij heb je ook te maken met sociale wetenschappen als geografie,
           sociologie, antropologie en geschiedenis, maar ook exacte
           wetenschappen als statistiek en wiskunde.
+          <br />
+          Beweeg met je muis over het diagram voor de exacte aantallen of percentages per
+          jaar.
         </p>
       </div>
 

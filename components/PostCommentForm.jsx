@@ -52,7 +52,7 @@ const PostCommentForm = ({ post }) => {
     } finally {
       textareaRef.current.value = "";
     }
-          router.refresh();
+      router.refresh();
   };
 
   useEffect(() => {

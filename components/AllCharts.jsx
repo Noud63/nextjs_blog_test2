@@ -16,9 +16,7 @@ const AllCharts = () => {
           <div className="text-md mt-4 px-4">
             De afgelopen 10 jaar is het inwonersaantal in de Staatsliedenbuurt
             met 250 gestegen.
-            <br />
-            Beweeg met je muis over het staafdiagram voor de exacte aantallen
-            per jaar.
+            
           </div>
         </div>
         <InwonersAantallen />
