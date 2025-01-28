@@ -1,6 +1,10 @@
-<h1>Staatsliedenbuurt</h1>
+<h1>Staatslieden</h1>
 
-Nextjs 14, app router, Tailwind and SWR (React Hooks for Data Fetching).</br></br>
+- Nextjs 14 (app router)<br />
+- NextAuth <br />
+- Tailwind <br />
+- SWR (React Hooks for Data Fetching).</br></br>
+- MongoDB <br />
 
 
 ![Image](https://github.com/user-attachments/assets/ad1e5d8e-590f-49d5-8660-b20e80a9e39a)</br></br>

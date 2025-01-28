@@ -8,6 +8,7 @@ import Image from "next/image";
 import { mutate } from "swr";
 
 const EditPostForm = ({ setShowEditForm, post }) => {
+  
   const [postContent, setPostContent] = useState(post?.postContent);
   const [inputFiles, setInputFiles] = useState({ images: [] });
 
